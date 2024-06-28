@@ -20,7 +20,7 @@ const Autocomplete = () => {
     <div className='inputContainer'>
       <textarea
         className='inputBox'
-        value={query}
+        // value={query}
         // onChange={handleChange}
         placeholder="Type something..."
       />

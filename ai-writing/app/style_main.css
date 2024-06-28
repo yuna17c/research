@@ -11,6 +11,8 @@ body {
     display: flex;
     justify-content: center;
     background-color: var(--bg-color);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
 }
 
 main {
@@ -24,6 +26,7 @@ main {
 
 .title {
     margin-top: 50px;
+    padding: 2px;
 }
 
 .inputContainer {
