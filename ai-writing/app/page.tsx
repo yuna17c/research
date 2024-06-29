@@ -1,29 +1,75 @@
+"use client"
 import Image from "next/image";
 import Autocomplete from "../components/AutoComplete";
 import "./style_main.css";
 import Head from "next/head";
+import { useState } from 'react';
+import { db } from '../../firebase';
 
 export default function Home() {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [inputValue, setInputValue] = useState<string>('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputValue(event.target.value)
+  }
+
+  const handleSubmit = async () => {
+    setIsPopupVisible(true);
+    console.log("logged,",inputValue)
+    db.ref('inputValue').push({
+      inputValue,
+      timestamp: db.ServerValue.TIMESTAMP
+    })
+    setInputValue('');
+    setIsPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
+
   return (
    <>
     <Head>
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
       </style>
     </Head>
     <main>
       <div className="title">
-        <h1>Instructions: Tab to accept suggestions. Continue writing to ignore suggestions. Ctrl+Enter to regenerate recommendation.</h1>
-        <h1>Task: ___</h1>
+        <h1>Instructions </h1>
+      </div>
+      <div className="instructions">
+        <p><span>&rsaquo;</span>Tab to accept suggestions.</p>
+        <p><span>&rsaquo;</span>Continue writing to ignore suggestions.</p>
+        <p><span>&rsaquo;</span>Ctrl+Enter to regenerate recommendation.</p>
       </div>
       
       <div className="container">
-        <Autocomplete />
+          <div className='inputContainer'>
+            <textarea
+              className='inputBox'
+              value={inputValue}
+              // value={query}
+              onChange={handleChange}
+              placeholder="Type something..."
+            />
+          </div>
       </div>
       <div className="submit">
-        <button className="submit-button">submit</button>
+        <button className="submit-button" onClick={handleSubmit}>submit</button>
       </div>
+      {isPopupVisible && (
+          <div className="popup">
+            <div className="popup-content">
+              <button className="close-button" onClick={handleClosePopup}>&times;</button>
+              <img src="/favicon.ico" />
+              <h1>Thank you!</h1>
+              <p>Your submission has been recorded.</p>
+            </div>
+          </div>
+        )}
     </main>
     </>
   );
