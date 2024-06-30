@@ -4,7 +4,9 @@ import Autocomplete from "../components/AutoComplete";
 import "./style_main.css";
 import Head from "next/head";
 import { useState } from 'react';
-import { db } from '../../firebase';
+import { db } from '../firebase';
+import { Timestamp, addDoc, collection } from "firebase/firestore";
+import { timeStamp } from "console";
 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -17,12 +19,15 @@ export default function Home() {
   const handleSubmit = async () => {
     setIsPopupVisible(true);
     console.log("logged,",inputValue)
-    db.ref('inputValue').push({
-      inputValue,
-      timestamp: db.ServerValue.TIMESTAMP
-    })
+    try {
+      await addDoc(collection(db, "user-input"), {
+        input: inputValue,
+        timestamp: new Date(), 
+      });
+    } catch(e) {
+      console.error('error adding document: ', e)
+    }
     setInputValue('');
-    setIsPopupVisible(true);
   };
 
   const handleClosePopup = () => {
