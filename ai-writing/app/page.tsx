@@ -1,4 +1,5 @@
 "use client"
+
 import "./style_main.css";
 import Head from "next/head";
 import { FormEvent, useEffect, useState } from 'react';
@@ -9,59 +10,17 @@ import axios from 'axios'
 require('dotenv').config({path: '../.env.local'});
 import React, { useRef } from "react"
 
-// interface Conversation {
-//   role: string
-//   content: string
-// }
-
-// export default function Home() {
-//   const [value, setValue] = React.useState<string>("")
-//   const [conversation, setConversation] = React.useState<Conversation[]>([])
-//   const inputRef = useRef<HTMLInputElement>(null)
-//   const handleInput = React.useCallback(
-//     (e: React.ChangeEvent<HTMLInputElement>) => {
-//       setValue(e.target.value)
-//     },
-//     []
-//   )
-//   console.log(value)
-//   // const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-//   //   if (e.key==="Enter") {
-//   //     const chatHistory = [...conversation {role:"user",content: value}]
-//   //   }
-//   // }
-//   return (
-//     <div className='main'>
-//       <div className="">
-//         <h1>Task</h1>
-//       </div>
-//       <div>
-//         <p>Start typing</p>
-//         <input
-//           placeholder="Type here"
-//           value={value}
-//           onChange={handleInput}
-//           // onKeyDown={handleKeyDown}
-//           />
-//       </div>
-//     </div>
-//   )
-
-// }
-
-// interface 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [inputValue, setInputValue] = useState<string>('');
   const [ChatResponse, setResponse] = useState('');
   const [setIntervalTime] = useState('')
-  const contentEditableRef = useRef(null);
 
   // const handleChange = () => {
   //   setInputValue(event.target.value)
   // }
+  
   const handleGenerate = async () => {
-    var editableDiv = document.getElementById("editableDiv")
     var prompt = editableDiv.innerText
     // const prompt = inputValue
     console.log("sent", prompt)
@@ -71,7 +30,7 @@ export default function Home() {
         const body = await response.json();
         console.log("response:",body.name)
         if (body.name) {
-          editableDiv.innerHTML = `${prompt}<span style="color: #A6A6A6;">${body.name}</span>`;
+          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">${body.name}</span>`;
         }
         // setInputValue(prompt+body.name)
       } catch(error) {
@@ -80,6 +39,60 @@ export default function Home() {
     }
   }
 
+  const editableDivRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const prompt = editableDiv?.innerText
+      const suggestion = editableDiv?.querySelector("span.suggestionText")
+      const suggestion_text = suggestion?.textContent
+      console.log('prompt: ',prompt, ' suggestion: ',suggestion)
+      console.log(e.key)
+      // accept suggestion if exists
+      if (e.key=="Tab") {
+        e.preventDefault();
+        if (suggestion_text) {
+          suggestion.classList.remove('suggestionText')
+        }
+      } else if (e.key=="." || e.key=="?") {
+        // generate AI autocompletion at the end of the sentence.
+        handleGenerate();
+      } else {
+        if (suggestion_text) {
+          console.log("remove")
+        }
+      }
+    }
+    const editableDiv = editableDivRef.current;
+    if (editableDiv) {
+      editableDiv.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      if (editableDiv) {
+        editableDiv.removeEventListener('keydown', handleKeyDown);
+      }
+    };
+  }, []);
+
+  // const handleKeyDown = (event:KeyboardEvent) => {
+  //   const editableDiv = document.getElementById('editableDiv')
+  //   const prompt = editableDiv?.innerText
+  //   const suggestion = editableDiv?.querySelector(".suggestionText")
+  //   console.log("pressed ", event.key)
+  //   if (event.key==='Period')
+  //   if (event.key==='Tab') 
+  //     console.log('tab pressed')
+  //     event.preventDefault()
+  //     if (suggestion) {
+  //       suggestion.classList.remove('suggestionText')
+  //       suggestion.classList.add('blackText')
+  //   } 
+    // else {
+    //   if (suggestion) {
+    //     suggestion.remove()
+    //     editableDiv.innerText=prompt?.trim()
+    //   } 
+    //   editableDiv.innerText+=event.key
+    // }
   // useEffect(() => {
   //   const intervalTime = setInterval(() => {
   //       handleGenerate();
@@ -129,7 +142,8 @@ export default function Home() {
             <div className='inputContainer'>
               <div id="editableDiv"
                 className="inputBox"
-                contentEditable="true"></div>
+                contentEditable="true"
+                ref={editableDivRef}></div>
               {/* <textarea
               ref={contentEditableRef}
                 className='inputBox'
@@ -143,7 +157,7 @@ export default function Home() {
       </div>
       <div className="submit">
         <button className="submit-button" onClick={handleSubmit}>submit</button>
-        <button className="submit-button" onClick={handleGenerate}>gen</button>
+        {/* <button className="submit-button" onClick={handleGenerate}>gen</button> */}
       </div>
       {isPopupVisible && (
           <div className="popup">

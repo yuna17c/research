@@ -146,3 +146,7 @@ h1 {
     align-self: center;
     margin-bottom: 10px;
 }
+
+.suggestionText {
+    color: #A6A6A6;
+}

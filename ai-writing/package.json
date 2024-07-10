@@ -2,6 +2,7 @@
   "name": "ai-writing",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +10,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "firebase": "^10.12.2",
     "langchain": "^0.2.6",
     "next": "14.2.4",
+    "openai": "^4.52.4",
     "react": "^18",
     "react-dom": "^18"
   },
