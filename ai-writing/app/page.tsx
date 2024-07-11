@@ -5,8 +5,6 @@ import Head from "next/head";
 import { FormEvent, useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { Timestamp, addDoc, collection } from "firebase/firestore";
-import { timeStamp } from "console";
-import axios from 'axios'
 require('dotenv').config({path: '../.env.local'});
 import React, { useRef } from "react"
 
@@ -15,14 +13,75 @@ export default function Home() {
   const [inputValue, setInputValue] = useState<string>('');
   const [ChatResponse, setResponse] = useState('');
   const [setIntervalTime] = useState('')
+  let range = document.createRange();
+  const editableDivRef = useRef<HTMLDivElement>(null);
 
-  // const handleChange = () => {
-  //   setInputValue(event.target.value)
-  // }
-  
-  const handleGenerate = async () => {
-    var prompt = editableDiv.innerText
-    // const prompt = inputValue
+  function createRange(node, chars, range) {
+    if (!range) {
+        range = document.createRange()
+        range.selectNode(node);
+        range.setStart(node, 0);
+    }
+
+    if (chars.count === 0) {
+        range.setEnd(node, chars.count);
+    } else if (node && chars.count >0) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            if (node.textContent.length < chars.count) {
+                chars.count -= node.textContent.length;
+            } else {
+                 range.setEnd(node, chars.count);
+                 chars.count = 0;
+            }
+        } else {
+            for (var lp = 0; lp < node.childNodes.length; lp++) {
+                range = createRange(node.childNodes[lp], chars, range);
+
+                if (chars.count === 0) {
+                   break;
+                }
+            }
+        }
+   } 
+
+   return range;
+};
+
+  function setCurrentCursorPosition(chars: number) {
+    if (chars >= 0) {
+      var selection = window.getSelection();
+      range = createRange(editableDivRef.current.parentNode, { count: chars });
+
+      if (range) {
+        console.log('logging..')
+        range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    }
+  };
+
+  const getCursorPosition = (container: HTMLElement): number => {
+    const selection = window.getSelection();
+    let charCount = -1;
+    if (selection?.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      const preCaretRange = range.cloneRange();
+      preCaretRange.selectNodeContents(container);
+      preCaretRange.setEnd(range.startContainer, range.startOffset);
+      charCount = preCaretRange.toString().length;
+      console.log("char", charCount)
+    }
+    return charCount;
+  };
+
+  const handleGenerate = async (cursorPosition: number) => {
+    const editableDiv = editableDivRef.current;
+    const div_text = editableDiv?.innerText
+    const suggestion = editableDiv?.querySelector("span.suggestionText")
+    const suggestion_text = suggestion?.textContent
+    const prompt = suggestion_text ? div_text.replace(suggestion_text,'') : div_text
+
     console.log("sent", prompt)
     if (prompt) {
       try {
@@ -30,16 +89,16 @@ export default function Home() {
         const body = await response.json();
         console.log("response:",body.name)
         if (body.name) {
-          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">${body.name}</span>`;
+          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.name}</span>`;
+          console.log(cursorPosition)
+          setCurrentCursorPosition(cursorPosition);
         }
-        // setInputValue(prompt+body.name)
       } catch(error) {
         console.error(error)
       }
     }
   }
 
-  const editableDivRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const prompt = editableDiv?.innerText
@@ -47,18 +106,29 @@ export default function Home() {
       const suggestion_text = suggestion?.textContent
       console.log('prompt: ',prompt, ' suggestion: ',suggestion)
       console.log(e.key)
-      // accept suggestion if exists
-      if (e.key=="Tab") {
-        e.preventDefault();
+      const cursorPosition = getCursorPosition(editableDiv)
+      if (e.key=="ArrowRight") {
+        // accept suggestion if exists
         if (suggestion_text) {
+          e.preventDefault();
           suggestion.classList.remove('suggestionText')
+          setCurrentCursorPosition(cursorPosition+suggestion_text.length);
         }
-      } else if (e.key=="." || e.key=="?") {
-        // generate AI autocompletion at the end of the sentence.
-        handleGenerate();
-      } else {
+      } else if (e.key=="Tab") {
+        // regenerate suggestion
         if (suggestion_text) {
-          console.log("remove")
+          e.preventDefault();
+          console.log('regenerating...')
+          handleGenerate(cursorPosition);
+        }
+      } else if (e.key=="." || e.key=="?" || e.key=="!") {
+        // generate AI autocompletion at the end of the sentence
+        editableDiv.innerHTML+=e.key + ' '
+        handleGenerate(cursorPosition+1);
+      } else {
+        // continue writing removes suggestions
+        if (suggestion_text) {
+          suggestion.remove()
         }
       }
     }
@@ -73,26 +143,6 @@ export default function Home() {
     };
   }, []);
 
-  // const handleKeyDown = (event:KeyboardEvent) => {
-  //   const editableDiv = document.getElementById('editableDiv')
-  //   const prompt = editableDiv?.innerText
-  //   const suggestion = editableDiv?.querySelector(".suggestionText")
-  //   console.log("pressed ", event.key)
-  //   if (event.key==='Period')
-  //   if (event.key==='Tab') 
-  //     console.log('tab pressed')
-  //     event.preventDefault()
-  //     if (suggestion) {
-  //       suggestion.classList.remove('suggestionText')
-  //       suggestion.classList.add('blackText')
-  //   } 
-    // else {
-    //   if (suggestion) {
-    //     suggestion.remove()
-    //     editableDiv.innerText=prompt?.trim()
-    //   } 
-    //   editableDiv.innerText+=event.key
-    // }
   // useEffect(() => {
   //   const intervalTime = setInterval(() => {
   //       handleGenerate();
@@ -144,20 +194,11 @@ export default function Home() {
                 className="inputBox"
                 contentEditable="true"
                 ref={editableDivRef}></div>
-              {/* <textarea
-              ref={contentEditableRef}
-                className='inputBox'
-                value={inputValue}
-                name={'txt'}
-                onChange={handleChange}
-                placeholder="Type something..."
-              /> */}
           </div>
       </div>
       </div>
       <div className="submit">
         <button className="submit-button" onClick={handleSubmit}>submit</button>
-        {/* <button className="submit-button" onClick={handleGenerate}>gen</button> */}
       </div>
       {isPopupVisible && (
           <div className="popup">
