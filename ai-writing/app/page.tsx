@@ -13,7 +13,6 @@ export default function Home() {
   const [inputValue, setInputValue] = useState<string>('');
   const [ChatResponse, setResponse] = useState('');
   const [setIntervalTime] = useState('')
-  let range = document.createRange();
   const editableDivRef = useRef<HTMLDivElement>(null);
 
   function createRange(node, chars, range) {
@@ -179,13 +178,13 @@ export default function Home() {
     <main>
       <div className="title">
         <h1>Task</h1>
-        <p>The task is to do this.</p>
+        <p>The task is to write an email.</p>
         <h1>Instructions </h1>
       </div>
       <div className="instructions">
-        <p><span>&rsaquo;</span>Tab to accept suggestions.</p>
+        <p><span>&rsaquo;</span>Right arrow to accept suggestions.</p>
         <p><span>&rsaquo;</span>Continue writing to ignore suggestions.</p>
-        <p><span>&rsaquo;</span>Ctrl+Enter to regenerate recommendation.</p>
+        <p><span>&rsaquo;</span>Tab to regenerate recommendation.</p>
       </div>
       <div className="container">
         <div className="container">
@@ -193,6 +192,7 @@ export default function Home() {
               <div id="editableDiv"
                 className="inputBox"
                 contentEditable="true"
+                placeholder="Start typing here..."
                 ref={editableDivRef}></div>
           </div>
       </div>

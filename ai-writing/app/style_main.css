@@ -5,6 +5,7 @@
     --dark-accent: #014792;
     --padding: 50px;
     --main-width: 50%;
+    --gray: #A6A6A6;
 }
 
 body {
@@ -63,31 +64,10 @@ h1 {
     border-color: var(--dark-accent);
 }
 
-.suggestionsList {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 10px;
-    padding: 0;
-    list-style: none;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.suggestionItem {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.suggestionItem:hover {
-    background-color: #f0f0f0;
-}
-
 .submit {
     align-self: flex-end;
 }
+
 .submit-button {
     background-color: var(--accent);
     color: white;
@@ -148,5 +128,12 @@ h1 {
 }
 
 .suggestionText {
-    color: #A6A6A6;
+    color: var(--gray);
 }
+
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    pointer-events: none;
+    display: block; 
+    color: var(--gray);
+  }
