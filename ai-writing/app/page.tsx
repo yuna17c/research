@@ -15,49 +15,44 @@ export default function Home() {
   const [setIntervalTime] = useState('')
   const editableDivRef = useRef<HTMLDivElement>(null);
 
-  function createRange(node, chars, range) {
-    if (!range) {
-        range = document.createRange()
-        range.selectNode(node);
-        range.setStart(node, 0);
-    }
+  const createRange = (node, targetPosition: number) => {
+    let range = document.createRange();
+    // range.selectNode(node);
+    range.setStart(node, 0);
 
-    if (chars.count === 0) {
-        range.setEnd(node, chars.count);
-    } else if (node && chars.count >0) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            if (node.textContent.length < chars.count) {
-                chars.count -= node.textContent.length;
-            } else {
-                 range.setEnd(node, chars.count);
-                 chars.count = 0;
+    let pos = 0;
+    const stack = [node];
+    while (stack.length > 0) {
+        const current = stack.pop();
+
+        if (current.nodeType === Node.TEXT_NODE) {
+            const len = current.textContent.length;
+            if (pos + len >= targetPosition) {
+              range.setStart(current, targetPosition - pos)
+                // range.setEnd(current, targetPosition - pos);
+                range.collapse(true);
+              return range;
             }
-        } else {
-            for (var lp = 0; lp < node.childNodes.length; lp++) {
-                range = createRange(node.childNodes[lp], chars, range);
-
-                if (chars.count === 0) {
-                   break;
-                }
+            pos += len;
+        } 
+        else if (current.childNodes && current.childNodes.length > 0) {
+            for (let i = current.childNodes.length - 1; i >= 0; i--) {
+                stack.push(current.childNodes[i]);
             }
         }
-   } 
-
-   return range;
-};
-
-  function setCurrentCursorPosition(chars: number) {
-    if (chars >= 0) {
-      var selection = window.getSelection();
-      range = createRange(editableDivRef.current.parentNode, { count: chars });
-
-      if (range) {
-        console.log('logging..')
-        range.collapse(false);
-        selection.removeAllRanges();
-        selection.addRange(range);
-      }
     }
+
+    // The target position is greater than
+    // the length of the contenteditable element
+    range.setEnd(node, node.childNodes.length);
+    return range;
+  };
+
+  const setCursorPosition = (targetPosition: number) => {
+      const range = createRange(editableDivRef.current.parentNode, targetPosition);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
   };
 
   const getCursorPosition = (container: HTMLElement): number => {
@@ -79,7 +74,7 @@ export default function Home() {
     const div_text = editableDiv?.innerText
     const suggestion = editableDiv?.querySelector("span.suggestionText")
     const suggestion_text = suggestion?.textContent
-    const prompt = suggestion_text ? div_text.replace(suggestion_text,'') : div_text
+    const prompt = suggestion_text ? div_text.replace(new RegExp(suggestion_text+'$'),'') : div_text
 
     console.log("sent", prompt)
     if (prompt) {
@@ -90,7 +85,7 @@ export default function Home() {
         if (body.name) {
           editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.name}</span>`;
           console.log(cursorPosition)
-          setCurrentCursorPosition(cursorPosition);
+          setCursorPosition(cursorPosition);
         }
       } catch(error) {
         console.error(error)
@@ -111,7 +106,7 @@ export default function Home() {
         if (suggestion_text) {
           e.preventDefault();
           suggestion.classList.remove('suggestionText')
-          setCurrentCursorPosition(cursorPosition+suggestion_text.length);
+          setCursorPosition(cursorPosition+suggestion_text.length);
         }
       } else if (e.key=="Tab") {
         // regenerate suggestion
