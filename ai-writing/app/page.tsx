@@ -81,9 +81,9 @@ export default function Home() {
       try {
         const response = await fetch("/api/generate?prompt="+encodeURIComponent(prompt))
         const body = await response.json();
-        console.log("response:",body.name)
-        if (body.name) {
-          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.name}</span>`;
+        console.log("response:",body.response)
+        if (body.response) {
+          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.response}</span>`;
           console.log(cursorPosition)
           setCursorPosition(cursorPosition);
         }
@@ -182,15 +182,13 @@ export default function Home() {
         <p><span>&rsaquo;</span>Tab to regenerate recommendation.</p>
       </div>
       <div className="container">
-        <div className="container">
-            <div className='inputContainer'>
-              <div id="editableDiv"
-                className="inputBox"
-                contentEditable="true"
-                placeholder="Start typing here..."
-                ref={editableDivRef}></div>
+          <div className='inputContainer'>
+            <div id="editableDiv"
+              className="inputBox"
+              contentEditable="true"
+              placeholder="Start typing here..."
+              ref={editableDivRef}></div>
           </div>
-      </div>
       </div>
       <div className="submit">
         <button className="submit-button" onClick={handleSubmit}>submit</button>
