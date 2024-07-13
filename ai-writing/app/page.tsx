@@ -7,6 +7,7 @@ import { db } from '../firebase';
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 require('dotenv').config({path: '../.env.local'});
 import React, { useRef } from "react"
+import $ from 'jquery'
 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -14,6 +15,8 @@ export default function Home() {
   const [ChatResponse, setResponse] = useState('');
   const [setIntervalTime] = useState('')
   const editableDivRef = useRef<HTMLDivElement>(null);
+  const userActions: [string, number][] = [];
+  const actionNums: { [key:string]:number } = {'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0}
 
   const createRange = (node, targetPosition: number) => {
     let range = document.createRange();
@@ -48,6 +51,7 @@ export default function Home() {
     return range;
   };
 
+  // Set the position of the cursor to targetPosition
   const setCursorPosition = (targetPosition: number) => {
       const range = createRange(editableDivRef.current.parentNode, targetPosition);
       const selection = window.getSelection();
@@ -55,6 +59,7 @@ export default function Home() {
       selection.addRange(range);
   };
 
+  // Get the position of the cursor
   const getCursorPosition = (container: HTMLElement): number => {
     const selection = window.getSelection();
     let charCount = -1;
@@ -69,13 +74,14 @@ export default function Home() {
     return charCount;
   };
 
+  // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
   const handleGenerate = async (cursorPosition: number) => {
     const editableDiv = editableDivRef.current;
-    const div_text = editableDiv?.innerText
-    const suggestion = editableDiv?.querySelector("span.suggestionText")
-    const suggestion_text = suggestion?.textContent
-    const prompt = suggestion_text ? div_text.replace(new RegExp(suggestion_text+'$'),'') : div_text
-
+    // Get prompt excluding the suggestion.
+    const prompt = $('div').contents()
+    .filter(function() {
+      return this.nodeType === 3;
+    }).text()
     console.log("sent", prompt)
     if (prompt) {
       try {
@@ -93,36 +99,48 @@ export default function Home() {
     }
   }
 
+  // Update the logs
+  function update(key:string) {
+    userActions.push([key, Date.now()])
+    actionNums[key]+=1
+  }
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const prompt = editableDiv?.innerText
       const suggestion = editableDiv?.querySelector("span.suggestionText")
       const suggestion_text = suggestion?.textContent
       console.log('prompt: ',prompt, ' suggestion: ',suggestion)
-      console.log(e.key)
       const cursorPosition = getCursorPosition(editableDiv)
       if (e.key=="ArrowRight") {
-        // accept suggestion if exists
+        // Accept suggestion
         if (suggestion_text) {
-          e.preventDefault();
-          suggestion.classList.remove('suggestionText')
-          setCursorPosition(cursorPosition+suggestion_text.length);
+          console.log("accepted")
+          e.preventDefault()
+          suggestion.remove()
+          editableDiv.innerText+=suggestion_text
+          setCursorPosition(cursorPosition+suggestion_text.length)
+          update("Accept")
         }
       } else if (e.key=="Tab") {
-        // regenerate suggestion
+        console.log("tabbed:", suggestion_text)
+        // Regenerate suggestion
         if (suggestion_text) {
           e.preventDefault();
           console.log('regenerating...')
           handleGenerate(cursorPosition);
+          update("Regenerate")
         }
       } else if (e.key=="." || e.key=="?" || e.key=="!") {
-        // generate AI autocompletion at the end of the sentence
-        editableDiv.innerHTML+=e.key + ' '
+        // Generate suggestion
+        editableDiv.innerText+=e.key
         handleGenerate(cursorPosition+1);
+        update("Generate")
       } else {
-        // continue writing removes suggestions
+        // Continue writing removes suggestions
         if (suggestion_text) {
           suggestion.remove()
+          update("Ignore")
         }
       }
     }
@@ -146,12 +164,15 @@ export default function Home() {
   // }, [inputValue]);
 
   const handleSubmit = async () => {
+    const text = editableDivRef.current?.innerText
     setIsPopupVisible(true);
     console.log("logged,",inputValue)
     try {
       await addDoc(collection(db, "user-input"), {
-        input: inputValue,
+        input: text,
         timestamp: new Date(), 
+        actions: userActions,
+        nums: actionNums,
       });
     } catch(e) {
       console.error('error adding document: ', e)
@@ -162,6 +183,12 @@ export default function Home() {
   const handleClosePopup = () => {
     setIsPopupVisible(false);
   };
+
+  const handleSessions = async () => {
+    console.log("session submitted")
+    console.log(userActions)
+    console.log(actionNums)
+  }
 
   return (
    <>
@@ -192,6 +219,7 @@ export default function Home() {
       </div>
       <div className="submit">
         <button className="submit-button" onClick={handleSubmit}>submit</button>
+        <button onClick={handleSessions}>session</button>
       </div>
       {isPopupVisible && (
           <div className="popup">
