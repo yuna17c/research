@@ -8,6 +8,9 @@ import { Timestamp, addDoc, collection } from "firebase/firestore";
 require('dotenv').config({path: '../.env.local'});
 import React, { useRef } from "react"
 import $ from 'jquery'
+import { setCursorPosition, getCursorPosition } from "@/components/cursor"
+import { Event, logEvent, getLogs, Action } from "@/components/log";
+import { createSession } from "@/components/session";
 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -15,68 +18,13 @@ export default function Home() {
   const [ChatResponse, setResponse] = useState('');
   const [setIntervalTime] = useState('')
   const editableDivRef = useRef<HTMLDivElement>(null);
-  const userActions: [string, number][] = [];
+  const userActions: Action[] = [];
   const actionNums: { [key:string]:number } = {'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0}
-
-  const createRange = (node, targetPosition: number) => {
-    let range = document.createRange();
-    // range.selectNode(node);
-    range.setStart(node, 0);
-
-    let pos = 0;
-    const stack = [node];
-    while (stack.length > 0) {
-        const current = stack.pop();
-
-        if (current.nodeType === Node.TEXT_NODE) {
-            const len = current.textContent.length;
-            if (pos + len >= targetPosition) {
-              range.setStart(current, targetPosition - pos)
-                // range.setEnd(current, targetPosition - pos);
-                range.collapse(true);
-              return range;
-            }
-            pos += len;
-        } 
-        else if (current.childNodes && current.childNodes.length > 0) {
-            for (let i = current.childNodes.length - 1; i >= 0; i--) {
-                stack.push(current.childNodes[i]);
-            }
-        }
-    }
-
-    // The target position is greater than
-    // the length of the contenteditable element
-    range.setEnd(node, node.childNodes.length);
-    return range;
-  };
-
-  // Set the position of the cursor to targetPosition
-  const setCursorPosition = (targetPosition: number) => {
-      const range = createRange(editableDivRef.current.parentNode, targetPosition);
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-  };
-
-  // Get the position of the cursor
-  const getCursorPosition = (container: HTMLElement): number => {
-    const selection = window.getSelection();
-    let charCount = -1;
-    if (selection?.rangeCount > 0) {
-      const range = selection.getRangeAt(0);
-      const preCaretRange = range.cloneRange();
-      preCaretRange.selectNodeContents(container);
-      preCaretRange.setEnd(range.startContainer, range.startOffset);
-      charCount = preCaretRange.toString().length;
-      console.log("char", charCount)
-    }
-    return charCount;
-  };
+  const isFirst: boolean = true;
 
   // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
-  const handleGenerate = async (cursorPosition: number) => {
-    const editableDiv = editableDivRef.current;
+  const handleGenerate = async (cursorPosition: number, eventName: string) => {
+    const editableDiv = editableDivRef.current!;
     // Get prompt excluding the suggestion.
     const prompt = $('div').contents()
     .filter(function() {
@@ -87,11 +35,12 @@ export default function Home() {
       try {
         const response = await fetch("/api/generate?prompt="+encodeURIComponent(prompt))
         const body = await response.json();
-        console.log("response:",body.response)
+        console.log("response:", body.response)
         if (body.response) {
           editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.response}</span>`;
           console.log(cursorPosition)
           setCursorPosition(cursorPosition);
+          logEvent(eventName, cursorPosition, body.response)
         }
       } catch(error) {
         console.error(error)
@@ -101,17 +50,22 @@ export default function Home() {
 
   // Update the logs
   function update(key:string) {
-    userActions.push([key, Date.now()])
+    userActions.push({'action':key, 'timestamp':Date.now()})
     actionNums[key]+=1
   }
 
+  // function createLog(type:string, value:string, timestamp:number) {
+  //   log.push([type, value, timestamp])
+  // }
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const prompt = editableDiv?.innerText
-      const suggestion = editableDiv?.querySelector("span.suggestionText")
+      const prompt = editableDiv.innerText
+      const suggestion = editableDiv.querySelector("span.suggestionText")
       const suggestion_text = suggestion?.textContent
-      console.log('prompt: ',prompt, ' suggestion: ',suggestion)
-      const cursorPosition = getCursorPosition(editableDiv)
+      const cursorPos = getCursorPosition()
+      console.log('prompt: ', prompt, ' suggestion: ', suggestion)
+      
       if (e.key=="ArrowRight") {
         // Accept suggestion
         if (suggestion_text) {
@@ -119,8 +73,11 @@ export default function Home() {
           e.preventDefault()
           suggestion.remove()
           editableDiv.innerText+=suggestion_text
-          setCursorPosition(cursorPosition+suggestion_text.length)
+          setCursorPosition(cursorPos+suggestion_text.length)
           update("Accept")
+          logEvent("suggestion-accept", cursorPos)
+        } else {
+          logEvent("cursor-forward", cursorPos)
         }
       } else if (e.key=="Tab") {
         console.log("tabbed:", suggestion_text)
@@ -128,23 +85,30 @@ export default function Home() {
         if (suggestion_text) {
           e.preventDefault();
           console.log('regenerating...')
-          handleGenerate(cursorPosition);
+          handleGenerate(cursorPos, "suggestion-regenerate");
           update("Regenerate")
         }
       } else if (e.key=="." || e.key=="?" || e.key=="!") {
         // Generate suggestion
         editableDiv.innerText+=e.key
-        handleGenerate(cursorPosition+1);
-        update("Generate")
+        logEvent("text-insert", cursorPos, e.key)
+        handleGenerate(cursorPos+1, "suggestion-generate");
+        update("Generate")        
+      } else if (e.key=='ArrowLeft') {
+        logEvent("cursor-backward", cursorPos)
+      } else if (e.key=='Backspace') {
+        logEvent("text-delete", cursorPos)
       } else {
         // Continue writing removes suggestions
         if (suggestion_text) {
           suggestion.remove()
           update("Ignore")
+        } else {
+          logEvent("text-insert", cursorPos, e.key)
         }
       }
     }
-    const editableDiv = editableDivRef.current;
+    const editableDiv = editableDivRef.current!;
     if (editableDiv) {
       editableDiv.addEventListener('keydown', handleKeyDown);
     }
@@ -162,17 +126,28 @@ export default function Home() {
 
   //     return () => clearInterval(intervalTime);
   // }, [inputValue]);
-
+  const handleClick = async () => {
+    console.log("clicked")
+    if (isFirst) {
+      // create session, get session ID
+    }
+    const editableDiv = editableDivRef.current!;
+    const cursorPos = getCursorPosition()
+    logEvent("cursor-select", cursorPos)
+  }
   const handleSubmit = async () => {
+    // const logs = getLogs()
+    // const session = createSession(Date.now(), logs, actionNums, userActions)
     const text = editableDivRef.current?.innerText
     setIsPopupVisible(true);
-    console.log("logged,",inputValue)
     try {
+      // Write to Firebase DB
       await addDoc(collection(db, "user-input"), {
         input: text,
-        timestamp: new Date(), 
+        timestamp: Date.now(),
+        logs: getLogs(),
+        nums: actionNums, 
         actions: userActions,
-        nums: actionNums,
       });
     } catch(e) {
       console.error('error adding document: ', e)
@@ -185,6 +160,8 @@ export default function Home() {
   };
 
   const handleSessions = async () => {
+    const logs = getLogs()
+    console.log(logs)
     console.log("session submitted")
     console.log(userActions)
     console.log(actionNums)
@@ -214,6 +191,7 @@ export default function Home() {
               className="inputBox"
               contentEditable="true"
               placeholder="Start typing here..."
+              onClick={handleClick}
               ref={editableDivRef}></div>
           </div>
       </div>
