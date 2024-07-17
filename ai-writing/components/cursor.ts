@@ -1,5 +1,3 @@
-import { useRef } from "react"
-
 function createRange(node: any, targetPosition: number) {
     let range = document.createRange();
     range.setStart(node, 0);
