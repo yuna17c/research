@@ -68,16 +68,16 @@ h1 {
     align-self: flex-end;
 }
 
-.submit-button {
+button {
     background-color: var(--accent);
     color: white;
     padding: 8px 15px;
-    margin-top: 30px;
     border-radius: 4px;
     transition: background-color 0.5s ease-in-out;
+    margin-top: 30px;
 }
 
-.submit-button:hover {
+button:hover {
     background-color: var(--dark-accent);
 }
 
@@ -121,6 +121,7 @@ h1 {
 .close-button:hover {
     opacity: 1
 }
+
 .popup img {
     width: 20%;
     align-self: center;
@@ -136,4 +137,9 @@ h1 {
     pointer-events: none;
     display: block; 
     color: var(--gray);
-  }
+}
+
+.startButton:disabled {
+   cursor: not-allowed;
+   background-color: #C0C0C0;
+}

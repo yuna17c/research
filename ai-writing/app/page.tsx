@@ -2,15 +2,14 @@
 
 import "./style_main.css";
 import Head from "next/head";
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { db } from '../firebase';
-import { Timestamp, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 require('dotenv').config({path: '../.env.local'});
 import React, { useRef } from "react"
 import $ from 'jquery'
 import { setCursorPosition, getCursorPosition } from "@/components/cursor"
-import { Event, logEvent, getLogs, Action } from "@/components/log";
-import { createSession } from "@/components/session";
+import { logEvent, getLogs, Action } from "@/components/log";
 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -53,10 +52,6 @@ export default function Home() {
     userActions.push({'action':key, 'timestamp':Date.now()})
     actionNums[key]+=1
   }
-
-  // function createLog(type:string, value:string, timestamp:number) {
-  //   log.push([type, value, timestamp])
-  // }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -136,15 +131,13 @@ export default function Home() {
     logEvent("cursor-select", cursorPos)
   }
   const handleSubmit = async () => {
-    // const logs = getLogs()
-    // const session = createSession(Date.now(), logs, actionNums, userActions)
     const text = editableDivRef.current?.innerText
     setIsPopupVisible(true);
     try {
       // Write to Firebase DB
       await addDoc(collection(db, "user-input"), {
         input: text,
-        timestamp: Date.now(),
+        timestamp: String(Date.now()),
         logs: getLogs(),
         nums: actionNums, 
         actions: userActions,
@@ -197,7 +190,7 @@ export default function Home() {
       </div>
       <div className="submit">
         <button className="submit-button" onClick={handleSubmit}>submit</button>
-        <button onClick={handleSessions}>session</button>
+        {/* <button onClick={handleSessions}>session</button> */}
       </div>
       {isPopupVisible && (
           <div className="popup">
