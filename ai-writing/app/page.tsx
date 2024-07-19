@@ -10,16 +10,13 @@ import React, { useRef } from "react"
 import $ from 'jquery'
 import { setCursorPosition, getCursorPosition } from "@/components/cursor"
 import { logEvent, getLogs, Action } from "@/components/log";
+import Image from "next/image";
 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [inputValue, setInputValue] = useState<string>('');
-  const [ChatResponse, setResponse] = useState('');
-  const [setIntervalTime] = useState('')
   const editableDivRef = useRef<HTMLDivElement>(null);
   const userActions: Action[] = [];
   const actionNums: { [key:string]:number } = {'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0}
-  const isFirst: boolean = true;
 
   // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
   const handleGenerate = async (cursorPosition: number, eventName: string) => {
@@ -114,19 +111,7 @@ export default function Home() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const intervalTime = setInterval(() => {
-  //       handleGenerate();
-  //   }, 5000);
-
-  //     return () => clearInterval(intervalTime);
-  // }, [inputValue]);
   const handleClick = async () => {
-    console.log("clicked")
-    if (isFirst) {
-      // create session, get session ID
-    }
-    const editableDiv = editableDivRef.current!;
     const cursorPos = getCursorPosition()
     logEvent("cursor-select", cursorPos)
   }
@@ -145,7 +130,7 @@ export default function Home() {
     } catch(e) {
       console.error('error adding document: ', e)
     }
-    setInputValue('');
+    editableDivRef.current!.innerText = ""
   };
 
   const handleClosePopup = () => {
@@ -164,7 +149,7 @@ export default function Home() {
    <>
     <Head>
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url(&apos;https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap&apos;);
       </style>
     </Head>
     <main>
@@ -183,7 +168,7 @@ export default function Home() {
             <div id="editableDiv"
               className="inputBox"
               contentEditable="true"
-              placeholder="Start typing here..."
+              // placeholder="Start typing here..."
               onClick={handleClick}
               ref={editableDivRef}></div>
           </div>
@@ -196,7 +181,6 @@ export default function Home() {
           <div className="popup">
             <div className="popup-content">
               <button className="close-button" onClick={handleClosePopup}>&times;</button>
-              <img src="/favicon.ico" />
               <h1>Thank you!</h1>
               <p>Your submission has been recorded.</p>
             </div>
