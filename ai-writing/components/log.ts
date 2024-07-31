@@ -26,7 +26,7 @@ export function logEvent(eventName: string, cursorIdx: number, textDelta='') {
       'eventTimestamp': Date.now(),
       'textDelta': textDelta,
       'currentCursor': cursorIdx
-    }  
+    }
     logs.push(log);
 }
 

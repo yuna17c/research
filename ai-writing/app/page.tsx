@@ -5,22 +5,22 @@ import Head from "next/head";
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { addDoc, collection } from "firebase/firestore";
-require('dotenv').config({path: '../.env.local'});
 import React, { useRef } from "react"
 import $ from 'jquery'
 import { setCursorPosition, getCursorPosition } from "@/components/cursor"
 import { logEvent, getLogs, Action } from "@/components/log";
-import Image from "next/image";
+
+require('dotenv').config({path: '../.env'});
 
 export default function Home() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const editableDivRef = useRef<HTMLDivElement>(null);
   const userActions: Action[] = [];
   const actionNums: { [key:string]:number } = {'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0}
-
+  const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
+  
   // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
   const handleGenerate = async (cursorPosition: number, eventName: string) => {
-    const editableDiv = editableDivRef.current!;
     // Get prompt excluding the suggestion.
     const prompt = $('div').contents()
     .filter(function() {
@@ -29,10 +29,13 @@ export default function Home() {
     console.log("sent", prompt)
     if (prompt) {
       try {
+        // Get response from API
         const response = await fetch("/api/generate?prompt="+encodeURIComponent(prompt))
         const body = await response.json();
         console.log("response:", body.response)
+        // Add the response to the page as a suggestion
         if (body.response) {
+          const editableDiv = editableDivRef.current!;
           editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.response}</span>`;
           console.log(cursorPosition)
           setCursorPosition(cursorPosition);
@@ -45,59 +48,61 @@ export default function Home() {
   }
 
   // Update the logs
-  function update(key:string) {
+  function update(key: string) {
     userActions.push({'action':key, 'timestamp':Date.now()})
     actionNums[key]+=1
   }
 
   useEffect(() => {
+    // Handles keyboard actions
     const handleKeyDown = (e: KeyboardEvent) => {
       const prompt = editableDiv.innerText
       const suggestion = editableDiv.querySelector("span.suggestionText")
       const suggestion_text = suggestion?.textContent
       const cursorPos = getCursorPosition()
       console.log('prompt: ', prompt, ' suggestion: ', suggestion)
-      
-      if (e.key=="ArrowRight") {
-        // Accept suggestion
-        if (suggestion_text) {
-          console.log("accepted")
+      if (suggestion_text) {
+        if (e.key=="ArrowRight") {
+          // Accept suggestion
           e.preventDefault()
+          console.log("accepted")
           suggestion.remove()
           editableDiv.innerText+=suggestion_text
           setCursorPosition(cursorPos+suggestion_text.length)
           update("Accept")
           logEvent("suggestion-accept", cursorPos)
-        } else {
-          logEvent("cursor-forward", cursorPos)
-        }
-      } else if (e.key=="Tab") {
-        console.log("tabbed:", suggestion_text)
-        // Regenerate suggestion
-        if (suggestion_text) {
+        } else if (e.key=='Tab') {
+          // Regenerate suggestion
           e.preventDefault();
           console.log('regenerating...')
           handleGenerate(cursorPos, "suggestion-regenerate");
           update("Regenerate")
+        } else if (printable_keys.has(e.key) || e.key===" " || e.key==="Backspace") {
+          // Continue writing removes suggestions
+          suggestion.remove()
+          update("Ignore")
+          logEvent("text-insert", cursorPos, e.key)
         }
+      } else if (e.key=="ArrowRight") {
+        logEvent("cursor-forward", cursorPos)
+      } else if (e.key=="Tab") {
+        console.log("tabbed:", suggestion_text)
       } else if (e.key=="." || e.key=="?" || e.key=="!") {
         // Generate suggestion
+        e.preventDefault()
         editableDiv.innerText+=e.key
         logEvent("text-insert", cursorPos, e.key)
+        setCursorPosition(cursorPos+1);
         handleGenerate(cursorPos+1, "suggestion-generate");
-        update("Generate")        
+        update("Generate")
       } else if (e.key=='ArrowLeft') {
         logEvent("cursor-backward", cursorPos)
+      } else if (e.ctrlKey==true) {
+        e.preventDefault()
       } else if (e.key=='Backspace') {
         logEvent("text-delete", cursorPos)
       } else {
-        // Continue writing removes suggestions
-        if (suggestion_text) {
-          suggestion.remove()
-          update("Ignore")
-        } else {
-          logEvent("text-insert", cursorPos, e.key)
-        }
+        logEvent("text-insert", cursorPos, e.key)
       }
     }
     const editableDiv = editableDivRef.current!;
@@ -111,10 +116,13 @@ export default function Home() {
     };
   }, []);
 
+  // Logs click event
   const handleClick = async () => {
     const cursorPos = getCursorPosition()
     logEvent("cursor-select", cursorPos)
   }
+
+  // Handles submit action
   const handleSubmit = async () => {
     const text = editableDivRef.current?.innerText
     setIsPopupVisible(true);
@@ -133,17 +141,10 @@ export default function Home() {
     editableDivRef.current!.innerText = ""
   };
 
+  // Function to close pop up 
   const handleClosePopup = () => {
     setIsPopupVisible(false);
   };
-
-  const handleSessions = async () => {
-    const logs = getLogs()
-    console.log(logs)
-    console.log("session submitted")
-    console.log(userActions)
-    console.log(actionNums)
-  }
 
   return (
    <>
@@ -153,11 +154,9 @@ export default function Home() {
       </style>
     </Head>
     <main>
-      <div className="title">
-        <h1>Task</h1>
-        <p>The task is to write an email.</p>
-        <h1>Instructions </h1>
-      </div>
+      <h1>Task</h1>
+      <p id="task-desc">Your task is to write an email with the help of AI. A new sentence will be suggested to you once you finish your sentence. </p>
+      <h1>Instructions </h1>
       <div className="instructions">
         <p><span>&rsaquo;</span>Right arrow to accept suggestions.</p>
         <p><span>&rsaquo;</span>Continue writing to ignore suggestions.</p>
@@ -166,16 +165,15 @@ export default function Home() {
       <div className="container">
           <div className='inputContainer'>
             <div id="editableDiv"
+              unselectable="on"
               className="inputBox"
               contentEditable="true"
-              // placeholder="Start typing here..."
               onClick={handleClick}
               ref={editableDivRef}></div>
           </div>
       </div>
       <div className="submit">
         <button className="submit-button" onClick={handleSubmit}>submit</button>
-        {/* <button onClick={handleSessions}>session</button> */}
       </div>
       {isPopupVisible && (
           <div className="popup">

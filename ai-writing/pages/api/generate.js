@@ -1,46 +1,34 @@
-import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
-require('dotenv').config({path: '../../.env.local'});
+require('dotenv').config({path: '../../.env'});
 const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
 const apiKey = process.env.AZURE_OPENAI_KEY;
-import OpenAI from "openai";
+const apiVersion = '2023-05-15';
+const { AzureOpenAI } = require("openai");
 
 export default async function handler(req, res) {
+  const client = new AzureOpenAI(
+    { endpoint, apiKey, apiVersion }
+  );
   const prompt = req.query.prompt
   console.log("received:", prompt)
-  const openai = new OpenAI();
-  const response = await openai.chat.completions.create({
-    model:"gpt-3.5-turbo",
-    messages:[
-        {"role": "system", "content": "You are a helpful assistant who writes the next sentence of a user who is writing an email. You want to help them write an email altogether."},
+  const instruction = "You are a helpful assistant who completes the sentence of a user who is writing an email. Add one sentence continuing the email in a polite manner asking an alumnus of the user's colleague who works at a company the user is interested in if they would speak with the user about their company in a video call."
+  try {
+    const response = await client.chat.completions.create({
+      messages: [
+        {"role": "system", "content": instruction},
         {"role": "user", "content": prompt},
-    ],
-    temperature:1,
-    max_tokens:50,
-    n:3,
-    top_p:0.55
-  });
-  const val = response.choices[0].message.content
-  console.log("generated response:",val)
-  // res.json({val});
-  // const val = "I am eating ice cream."
-  res.status(200).json({ response: val });
+      ],
+      model: 'gpt4'
+    });
+    let val = response.choices[0].message.content
+    console.log(val)
+    // Cut to a single sentence
+    let periodIdx = val.indexOf('.');
+    if (periodIdx!==-1) {
+      val = val.substring(0,periodIdx+1)
+    }
+    res.status(200).json({ response: val });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'can\'t retrieve results from openai.' });
+  }
 }
-  
-  // const client = new OpenAIClient(endpoint, new AzureKeyCredential(apiKey))
-  // try {
-  //   const response = await client.getCompletions('selena_completion', [prompt], {
-  //     maxTokens: 32,
-  //     temperature:1
-  //   });
-  //   let val = response.choices[0].text
-  //   console.log(val)
-  //   // cut to a sentence
-  //   let periodIdx = val.indexOf('.');
-  //   if (periodIdx!==-1) {
-  //     val = val.substring(0,periodIdx+1)
-  //   }
-  //   res.status(200).json({ response: val });
-  // } catch (error) {
-  //   console.error(error);
-  //   res.status(500).json({ error: 'can\'t retrieve results from openai.' });
-  // }}
