@@ -1,24 +1,20 @@
 "use client"
 
 import "../../style_main.css";
-import { GetServerSideProps } from 'next';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { Event } from "@/components/log";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { setCursorPosition } from "@/components/cursor";
-import Head from "next/head";
 import $ from 'jquery'
-import { browserLocalPersistence } from "firebase/auth";
 
-async function getDb(sessionID:string) {
+async function getDb(sessionID: string) {
+  // Get logs of the requested session ID
   const q = query(collection(db, 'user-input'), where('timestamp', '==', sessionID));
   const snapshot = await getDocs(q)
-  var tmpID = ""
   var tmpLogs: Event[] = []
   if (!snapshot.empty) {
     snapshot.forEach(doc => {
-      tmpID = doc.id
       tmpLogs = doc.data().logs
     });
   } else {
@@ -30,6 +26,7 @@ async function getDb(sessionID:string) {
 export default async function SessionReplay( { params }:any) {
   const editableDivRef = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
+  const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
 
   function replayEvent(replayLog: Event) {
     const editableDiv = editableDivRef.current!
@@ -39,11 +36,9 @@ export default async function SessionReplay( { params }:any) {
       return this.nodeType === 3;
     }).text()
     const suggestion_text = suggestion?.textContent
-    const len = currentTxt.length
     // Log variables
     const txt = replayLog.textDelta
     const cursorPos = replayLog.currentCursor
-    console.log("--", replayLog.eventName, txt, cursorPos)
 
     switch(replayLog.eventName) {
       case process.env.TEXT_INSERT:
@@ -51,7 +46,9 @@ export default async function SessionReplay( { params }:any) {
           suggestion.textContent = ''
           suggestion.remove()
         }
-        editableDiv.textContent = currentTxt.substring(0,cursorPos).concat(txt, currentTxt.substring(cursorPos))
+        if (printable_keys.has(txt) || txt===" ") { 
+          editableDiv.textContent = currentTxt.substring(0,cursorPos).concat(txt, currentTxt.substring(cursorPos))
+        }
         break
       case process.env.TEXT_DELETE:
         editableDiv.textContent = currentTxt.slice(0,-1)
@@ -71,9 +68,7 @@ export default async function SessionReplay( { params }:any) {
     }
   }
   const sessionID = params.sessionID;
-  console.log("ID: ", sessionID)
   const doc = await getDb(sessionID);
-  // console.log("doc", doc)
   var prevTime = doc[0].eventTimestamp;
   function sleep(duration:number) {
     return new Promise((resolve) => {
@@ -92,7 +87,7 @@ export default async function SessionReplay( { params }:any) {
       const currTime = log.eventTimestamp
       const waitTime = currTime-prevTime
       prevTime = currTime
-      await sleep(waitTime)
+      await sleep(waitTime/3) 
       replayEvent(log)
     }
     button.current!.disabled = false;
@@ -109,7 +104,6 @@ export default async function SessionReplay( { params }:any) {
             </div>
       </div>
       <button className='submit-button' id='session-button' ref={button} onClick={startReplay}>Start</button>
-          
     </main>
     </>
   )
