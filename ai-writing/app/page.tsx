@@ -18,7 +18,9 @@ export default function Home() {
   const userActions: Action[] = [];
   const actionNums: { [key:string]:number } = {'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0}
   const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
-  
+  let spaceBarTimer: NodeJS.Timeout | null = null;
+  const [isTypingDisabled, setIsTypingDisabled] = useState(false);
+
   // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
   const handleGenerate = async (cursorPosition: number, eventName: string) => {
     // Get prompt excluding the suggestion.
@@ -36,7 +38,7 @@ export default function Home() {
         // Add the response to the page as a suggestion
         if (body.response) {
           const editableDiv = editableDivRef.current!;
-          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">&nbsp;${body.response}</span>`;
+          editableDiv.innerHTML = `${prompt}<span class="suggestionText"">${body.response}</span>`;
           console.log(cursorPosition)
           setCursorPosition(cursorPosition);
           logEvent(eventName, cursorPosition, body.response)
@@ -53,9 +55,21 @@ export default function Home() {
     actionNums[key]+=1
   }
 
+  const handleSpaceBarAction = () => {
+    console.log("generating suggestion")
+    const cursorPos = getCursorPosition()
+    logEvent("text-insert", cursorPos, ' ')
+    handleGenerate(cursorPos, "suggestion-generate");
+    update("Generate")
+  };
+
   useEffect(() => {
     // Handles keyboard actions
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (isTypingDisabled) {
+        e.preventDefault();
+        return;
+      }
       const prompt = editableDiv.innerText
       const suggestion = editableDiv.querySelector("span.suggestionText")
       const suggestion_text = suggestion?.textContent
@@ -83,18 +97,22 @@ export default function Home() {
           update("Ignore")
           logEvent("text-insert", cursorPos, e.key)
         }
+      } else if (e.key==' ') {
+        // Space bar generates suggestion if waited more than a 1.5 second
+        if (spaceBarTimer) {
+          clearTimeout(spaceBarTimer);
+        }
+        spaceBarTimer = setTimeout(() => {
+          e.preventDefault();
+          handleSpaceBarAction();
+        }, 3000);
+      } else if (spaceBarTimer) {
+          clearTimeout(spaceBarTimer);
+          spaceBarTimer = null;
       } else if (e.key=="ArrowRight") {
         logEvent("cursor-forward", cursorPos)
       } else if (e.key=="Tab") {
         console.log("tabbed:", suggestion_text)
-      } else if (e.key=="." || e.key=="?" || e.key=="!") {
-        // Generate suggestion
-        e.preventDefault()
-        editableDiv.innerText+=e.key
-        logEvent("text-insert", cursorPos, e.key)
-        setCursorPosition(cursorPos+1);
-        handleGenerate(cursorPos+1, "suggestion-generate");
-        update("Generate")
       } else if (e.key=='ArrowLeft') {
         logEvent("cursor-backward", cursorPos)
       } else if (e.ctrlKey==true) {
@@ -112,6 +130,9 @@ export default function Home() {
     return () => {
       if (editableDiv) {
         editableDiv.removeEventListener('keydown', handleKeyDown);
+      }
+      if (spaceBarTimer) {
+        clearTimeout(spaceBarTimer);
       }
     };
   }, []);
@@ -155,7 +176,7 @@ export default function Home() {
     </Head>
     <main>
       <h1>Task</h1>
-      <p id="task-desc">Your task is to write an email with the help of AI. A new sentence will be suggested to you once you finish your sentence. </p>
+      <p id="task-desc">You ask your professor, William Smith, you took a class with a while ago to introduce you to someone who may be hiring in your chosen career path.</p>
       <h1>Instructions </h1>
       <div className="instructions">
         <p><span>&rsaquo;</span>Right arrow to accept suggestions.</p>
