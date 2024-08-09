@@ -4,20 +4,26 @@ import { logEvent, getLogs, Action, Event } from "@/components/log";
 import $ from 'jquery'
 
 interface TextInputProps {
-    onContentChange: (content: string, actionNums:{[key:string]:number}, 
-        userActions: Action[], logs: Event[]) => void;
+    onContentChange: (
+        content: string, 
+        actionNums:{[key:string]:number}, 
+        userActions: Action[], 
+        logs: Event[]
+    ) => void;
 }
 
-const TextInput: React.FC<TextInputProps> = ({onContentChange }) => {
+const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
     const editableDivRef = useRef<HTMLDivElement>(null);
-    const userActions: Action[] = [];
-    const actionNums:{[key:string]:number} = {'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0}
+    const [userActions, setUserActions] = useState<Action[]>([])
+    const [actionNums, setActionNums] =  useState<{[key:string]:number}>({'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0});
+    const [loading, setLoading] = useState(false);
     const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
     let spaceBarTimer: NodeJS.Timeout | null = null;
     const [isTypeDisabled, setIsTypeDisabled] = useState(false);
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         const content = editableDivRef.current?.innerText || ''
+        console.log("actionNums:",actionNums, "user",userActions)
         onContentChange(content, actionNums, userActions, getLogs());
     };
 
@@ -42,7 +48,7 @@ const TextInput: React.FC<TextInputProps> = ({onContentChange }) => {
         const prompt: (string|null)[] = [];
         $('div').contents().each(function() {
             if (this.nodeType === 3) {
-                prompt.push(this.nodeValue);
+                prompt.push(this.nodeValue, ' ');
             } else if (this.nodeName === "BR") {
                 prompt.push("\n");
             }
@@ -67,19 +73,23 @@ const TextInput: React.FC<TextInputProps> = ({onContentChange }) => {
             console.error(error)
           } finally {
             setIsTypeDisabled(false);
+            setLoading(false)
           }
         }
     }
 
     function update(key: string) {
         userActions.push({'action':key, 'timestamp':Date.now()})
+        setUserActions(userActions)
         actionNums[key]+=1
+        setActionNums(actionNums)
+        console.log(actionNums)
     }
 
     const handleSpaceBarAction = () => {
         setIsTypeDisabled(true);
         const cursorPos = getCursorPosition()
-        logEvent("text-insert", cursorPos, ' ')
+        setLoading(true)
         handleGenerate(cursorPos, "suggestion-generate");
         update("Generate")
     };
@@ -87,63 +97,84 @@ const TextInput: React.FC<TextInputProps> = ({onContentChange }) => {
     useEffect(() => {
         // Handles keyboard actions
         const handleKeyDown = (e: KeyboardEvent) => {
-          if (isTypeDisabled) {
-            e.preventDefault();
-            return;
-          }
-          const prompt = editableDiv.innerText
-          const suggestion = editableDiv.querySelector("span.suggestionText")
-          const suggestion_html = suggestion?.innerHTML
-          const suggestion_text = suggestion?.textContent
-          const cursorPos = getCursorPosition()
-          console.log('prompt: ', prompt, ' suggestion: ', suggestion)
-          if (suggestion_text) {
-            if (e.key=="ArrowRight") {
-              // Accept suggestion
-              e.preventDefault()
-              console.log("accepted")
-              suggestion.remove()
-              addToLastDiv(editableDiv, suggestion_html, false)
-              setCursorPosition(cursorPos+suggestion_text.length)
-              update("Accept")
-              logEvent("suggestion-accept", cursorPos)
-            } else if (e.key=='Tab') {
-              // Regenerate suggestion
-              e.preventDefault();
-              console.log('regenerating...')
-              handleGenerate(cursorPos, "suggestion-regenerate");
-              update("Regenerate")
-            } else if (printable_keys.has(e.key) || e.key===" " || e.key==="Backspace" || e.key==="Enter" || e.key==="Delete") {
-              // Continue writing removes suggestions
-              suggestion.remove()
-              update("Ignore")
-              logEvent("text-insert", cursorPos, e.key)
+            if (isTypeDisabled) {
+                e.preventDefault();
+                return;
             }
-          } else if (e.key==' ') {
-            // Space bar generates suggestion if waited more than a 1.5 second
-            if (spaceBarTimer) {
-              clearTimeout(spaceBarTimer);
+            const prompt = editableDiv.innerText
+            const suggestion = editableDiv.querySelector("span.suggestionText")
+            const suggestion_html = suggestion?.innerHTML
+            const suggestion_text = suggestion?.textContent
+            const cursorPos = getCursorPosition()
+            if (suggestion_text) {
+                if (e.key=="ArrowRight") {
+                    // Accept suggestion
+                    e.preventDefault()
+                    console.log("accepted")
+                    suggestion.remove()
+                    addToLastDiv(editableDiv, suggestion_html, false)
+                    setCursorPosition(cursorPos+suggestion_text.length)
+                    update("Accept")
+                    logEvent("suggestion-accept", cursorPos)
+                } else if (e.key=='Tab') {
+                // Regenerate suggestion
+                    e.preventDefault();
+                    console.log('regenerating...')
+                    handleGenerate(cursorPos, "suggestion-regenerate");
+                    update("Regenerate")
+                } else if (printable_keys.has(e.key) || e.key===" " || e.key==="Backspace" || e.key==="Enter" || e.key==="Delete") {
+                    // Continue writing removes suggestions
+                    suggestion.remove()
+                    update("Ignore")
+                    logEvent("text-insert", cursorPos, e.key)
+                }
+            } else if (e.key==' ') {
+                // Space bar generates suggestion if waited more than a 1.5 second
+                if (spaceBarTimer) {
+                    clearTimeout(spaceBarTimer);
+                }
+                logEvent("text-insert", cursorPos, ' ')
+                spaceBarTimer = setTimeout(() => {
+                    e.preventDefault();
+                    handleSpaceBarAction();
+                }, 1500);
+            } else {
+                if (spaceBarTimer) {
+                    clearTimeout(spaceBarTimer);
+                    spaceBarTimer = null;
+                }
+                if (e.key=="ArrowRight") {
+                    logEvent("cursor-forward", cursorPos)
+                } else if (e.key=="Tab") {
+                    console.log("tabbed:", suggestion_text)
+                } else if (e.key=='ArrowLeft') {
+                    logEvent("cursor-backward", cursorPos)
+                } else if (e.ctrlKey==true) {
+                    e.preventDefault()
+                } else if (e.key=='Backspace') {
+                    logEvent("text-delete", cursorPos)
+                } else if (e.key=='Enter') {
+                    logEvent("text-insert", cursorPos, '\n')
+                } else {
+                    logEvent("text-insert", cursorPos, e.key)
+                }
             }
-            spaceBarTimer = setTimeout(() => {
-              e.preventDefault();
-              handleSpaceBarAction();
-            }, 2000);
-          } else if (spaceBarTimer) {
-              clearTimeout(spaceBarTimer);
-              spaceBarTimer = null;
-          } else if (e.key=="ArrowRight") {
-            logEvent("cursor-forward", cursorPos)
-          } else if (e.key=="Tab") {
-            console.log("tabbed:", suggestion_text)
-          } else if (e.key=='ArrowLeft') {
-            logEvent("cursor-backward", cursorPos)
-          } else if (e.ctrlKey==true) {
-            e.preventDefault()
-          } else if (e.key=='Backspace') {
-            logEvent("text-delete", cursorPos)
-          } else {
-            logEvent("text-insert", cursorPos, e.key)
-          }
+        //   } else if (spaceBarTimer) {
+        //       clearTimeout(spaceBarTimer);
+        //       spaceBarTimer = null;
+        //   } else if (e.key=="ArrowRight") {
+        //     logEvent("cursor-forward", cursorPos)
+        //   } else if (e.key=="Tab") {
+        //     console.log("tabbed:", suggestion_text)
+        //   } else if (e.key=='ArrowLeft') {
+        //     logEvent("cursor-backward", cursorPos)
+        //   } else if (e.ctrlKey==true) {
+        //     e.preventDefault()
+        //   } else if (e.key=='Backspace') {
+        //     logEvent("text-delete", cursorPos)
+        //   } else {
+        //     logEvent("text-insert", cursorPos, e.key)
+        //   }
         }
         const editableDiv = editableDivRef.current!;
         if (editableDiv) {
@@ -165,10 +196,20 @@ const TextInput: React.FC<TextInputProps> = ({onContentChange }) => {
         <p id="task-desc">You ask your professor, William Smith, you took a class with a while ago to introduce you to someone who may be hiring in your chosen career path.</p>
         <h1>Instructions </h1>
         <div className="instructions">
+            <p>The AI will generate suggestions for you once you pause for a bit after typing space. 
+                The AI is given the following prompt to help make suggestions: 
+                You are a helpful writing assistant that help users complete their emails. The email task is: You ask your professor, William Smith, you took a class with a while ago to introduce you to someone who may be hiring in your chosen career path.</p>
+            <br />
+            <p>Once the suggestion is generated, you can perform the following actions.</p>
             <p><span>&rsaquo;</span>Right arrow to accept suggestions.</p>
             <p><span>&rsaquo;</span>Continue writing to ignore suggestions.</p>
             <p><span>&rsaquo;</span>Tab to regenerate recommendation.</p>
         </div>
+        {loading ? (
+            <div className='loadingMsg'>...GENERATING...</div>
+        ) : (
+            <div className='loadingMsg'></div>
+        )}
         <div className="container">
             <div className='inputContainer'>
                 <div id="editableDiv"
