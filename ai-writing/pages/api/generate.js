@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         {"role": "user", "content": prompt},
       ],
       model: 'gpt4',
-      max_tokens: 50,
+      max_tokens: 32,
       temperature: 1,
       n: 3,
       top_p: 0.55
