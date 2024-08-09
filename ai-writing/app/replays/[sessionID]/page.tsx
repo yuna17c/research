@@ -27,18 +27,48 @@ export default async function SessionReplay( { params }:any) {
   const editableDivRef = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
   const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
+  const addToLastDiv = (divRef: HTMLDivElement, addText: string|undefined, isSuggestion: boolean) => {
+    if (divRef) {
+        const divs = divRef.querySelectorAll('div');
+        const lastDiv = divs[divs.length - 1];
+        const span = isSuggestion ? `<span class="suggestionText">${addText}</span>` : `${addText}`
+        if (lastDiv) {
+            lastDiv.innerHTML+=span;
+        } else {
+            divRef.innerHTML+=span;
+        }
+      }
+  }
+
+  function findIdx(htmlString: string, idx: number): number {
+    let charIndex = 0;
+    let i = 0;
+    while (i < htmlString.length && charIndex < idx) {
+        if (htmlString[i] === '<') {
+            while (i < htmlString.length && htmlString[i] !== '>') {
+                i++;
+            }
+            i++;
+        } else {
+            charIndex++;
+            i++;
+        }
+    }
+    return i
+  }
 
   function replayEvent(replayLog: Event) {
     const editableDiv = editableDivRef.current!
     const suggestion = editableDiv.querySelector("span.suggestionText")!
-    const currentTxt = $('div').contents()
-    .filter(function() {
-      return this.nodeType === 3;
-    }).text()
+    // const currentTxt = $('div').contents()
+    // .filter(function() {
+    //   return this.nodeType === 3;
+    // }).text()
     const suggestion_text = suggestion?.textContent
     // Log variables
     const txt = replayLog.textDelta
     const cursorPos = replayLog.currentCursor
+    console.log(editableDiv.innerHTML)
 
     switch(replayLog.eventName) {
       case process.env.TEXT_INSERT:
@@ -47,23 +77,30 @@ export default async function SessionReplay( { params }:any) {
           suggestion.remove()
         }
         if (printable_keys.has(txt) || txt===" ") { 
-          editableDiv.textContent = currentTxt.substring(0,cursorPos).concat(txt, currentTxt.substring(cursorPos))
+          const i = findIdx(editableDiv.innerHTML, cursorPos)
+          editableDiv.innerHTML = editableDiv.innerHTML.substring(0,i).concat(txt, editableDiv.innerHTML.substring(i))
         }
         break
       case process.env.TEXT_DELETE:
-        editableDiv.textContent = currentTxt.slice(0,-1)
+        const i = findIdx(editableDiv.innerHTML, cursorPos-1)
+        editableDiv.innerHTML = editableDiv.innerHTML.slice(0,i) + editableDiv.innerHTML.slice(i+1)
+        // editableDiv.textContent = currentTxt.slice(0,-1)
         break
       case process.env.SUGGESTION_ACCEPT:
         suggestion.remove()
-        editableDiv.textContent! += suggestion_text
+        addToLastDiv(editableDiv, suggestion?.innerHTML, false)
         break
       case process.env.SUGGESTION_GENERATE:
-        editableDiv.innerHTML = `${currentTxt}<span class="suggestionText"">&nbsp;${txt}</span>`
+        const responseLines = txt.replace(/\n/g, '<br>');
+        addToLastDiv(editableDiv, responseLines, true)
+        // editableDiv.innerHTML = `${editableDiv.innerHTML}<span class="suggestionText"">${txt}</span>`
         break
       case process.env.SUGGESTION_REGENERATE:
-        suggestion.textContent = ' ' + txt
+        // suggestion.textContent = ' ' + txt
+        suggestion.remove()
+        addToLastDiv(editableDiv, txt, true)
       case process.env.CURSOR_BACKWARD || process.env.CURSOR_FORWARD:
-        setCursorPosition(cursorPos)
+        // setCursorPosition(cursorPos)
         break
     }
   }

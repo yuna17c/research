@@ -23,7 +23,7 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         const content = editableDivRef.current?.innerText || ''
-        console.log("actionNums:",actionNums, "user",userActions)
+        console.log("log", getLogs())
         onContentChange(content, actionNums, userActions, getLogs());
     };
 
@@ -65,7 +65,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                 if (suggestion) suggestion.remove();
                 const responseLines = body.response.replace(/\n/g, '<br>');
                 addToLastDiv(editableDiv, responseLines, true)
-                console.log(cursorPosition)
                 setCursorPosition(cursorPosition);
                 logEvent(eventName, cursorPosition, body.response)
             }
@@ -83,7 +82,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
         setUserActions(userActions)
         actionNums[key]+=1
         setActionNums(actionNums)
-        console.log(actionNums)
     }
 
     const handleSpaceBarAction = () => {
@@ -110,23 +108,30 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                 if (e.key=="ArrowRight") {
                     // Accept suggestion
                     e.preventDefault()
-                    console.log("accepted")
                     suggestion.remove()
                     addToLastDiv(editableDiv, suggestion_html, false)
                     setCursorPosition(cursorPos+suggestion_text.length)
                     update("Accept")
                     logEvent("suggestion-accept", cursorPos)
                 } else if (e.key=='Tab') {
-                // Regenerate suggestion
+                    // Regenerate suggestion
                     e.preventDefault();
-                    console.log('regenerating...')
+                    setLoading(true)
                     handleGenerate(cursorPos, "suggestion-regenerate");
                     update("Regenerate")
-                } else if (printable_keys.has(e.key) || e.key===" " || e.key==="Backspace" || e.key==="Enter" || e.key==="Delete") {
+                } else if (printable_keys.has(e.key) || e.key===" ") {
                     // Continue writing removes suggestions
                     suggestion.remove()
                     update("Ignore")
                     logEvent("text-insert", cursorPos, e.key)
+                } else if (e.key==="Backspace" || e.key==="Delete") {
+                    suggestion.remove()
+                    update("Ignore")
+                } else if (e.key==="Enter") {
+                    console.log("ENTER ENTER")
+                    suggestion.remove()
+                    update("Ignore")
+                    logEvent("text-insert", cursorPos, '\n')
                 }
             } else if (e.key==' ') {
                 // Space bar generates suggestion if waited more than a 1.5 second
@@ -155,26 +160,11 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                     logEvent("text-delete", cursorPos)
                 } else if (e.key=='Enter') {
                     logEvent("text-insert", cursorPos, '\n')
+                    console.log("ENTER ENTER")
                 } else {
                     logEvent("text-insert", cursorPos, e.key)
                 }
             }
-        //   } else if (spaceBarTimer) {
-        //       clearTimeout(spaceBarTimer);
-        //       spaceBarTimer = null;
-        //   } else if (e.key=="ArrowRight") {
-        //     logEvent("cursor-forward", cursorPos)
-        //   } else if (e.key=="Tab") {
-        //     console.log("tabbed:", suggestion_text)
-        //   } else if (e.key=='ArrowLeft') {
-        //     logEvent("cursor-backward", cursorPos)
-        //   } else if (e.ctrlKey==true) {
-        //     e.preventDefault()
-        //   } else if (e.key=='Backspace') {
-        //     logEvent("text-delete", cursorPos)
-        //   } else {
-        //     logEvent("text-insert", cursorPos, e.key)
-        //   }
         }
         const editableDiv = editableDivRef.current!;
         if (editableDiv) {
