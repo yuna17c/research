@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "ai-writing-ddc52"
-  }
+    "default": "ai-writing-45138",
+    "ai-writing": "ai-writing-45138"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
