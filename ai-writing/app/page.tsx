@@ -2,13 +2,10 @@
 
 import "./style_main.css";
 import Head from "next/head";
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { db } from '../firebase';
 import { addDoc, collection } from "firebase/firestore";
-import React, { useRef } from "react"
-import $ from 'jquery'
-import { setCursorPosition, getCursorPosition } from "@/components/cursor"
-import { logEvent, getLogs, Action, Event } from "@/components/log";
+import { getLogs, Action, Event } from "@/components/log";
 import TextInput from "@/components/text-input";
 import PreSurvey from "@/components/pre-survey";
 import PostSurvey from "@/components/post-survey";
@@ -28,13 +25,13 @@ export default function Home() {
   const [actionNumLog, setActionNumLog] = useState<{[key:string]:number}>();
   const [userActionLog, setUserActionLog] = useState<Action[]>([]);
 
-  // Pre-experiment survey complete
+  // Pre-experiment survey complete event
   const handleSurveyComplete = (answers: Record<string, string>) => {
     setCurrentStep(1)
     setPreSurveyAnswers(answers)
   };
 
-  // Input complete
+  // Input complete event
   const handleContentChange = (content: string, actionNums: {[key:string]:number}, userActions: Action[], log: Event[]) => {
     setCurrentStep(2)
     setInputContent(content)
@@ -42,7 +39,7 @@ export default function Home() {
     setUserActionLog(userActions)
   }
 
-  // Post-experiment survey complete
+  // Post-experiment survey complete event
   const handleComplete = (answers: Record<string, string>) => {
     handleSubmit(answers)
   }
@@ -52,15 +49,17 @@ export default function Home() {
     setIsPopupVisible(true);
     try {
       // Write to Firebase DB
-      await addDoc(collection(db, "user-input"), {
+      const docRef = await addDoc(collection(db, "user-input"), {
         input: inputContent,
         timestamp: String(Date.now()),
         logs: getLogs(),
         numsActions: actionNumLog, 
         actionLog: userActionLog,
         preSurvey: preSurveyAnswers,
-        postSurvey: answers,
+        postSurvey: answers
       });
+      // Print the doc ID
+      console.log("Added ", docRef.id)
     } catch(e) {
       console.error('error adding document: ', e)
     }

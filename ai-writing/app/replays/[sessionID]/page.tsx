@@ -5,8 +5,6 @@ import { query, collection, where, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { Event } from "@/components/log";
 import { useRef } from "react";
-import { setCursorPosition } from "@/components/cursor";
-import $ from 'jquery'
 
 async function getDb(sessionID: string) {
   // Get logs of the requested session ID
@@ -40,35 +38,15 @@ export default async function SessionReplay( { params }:any) {
       }
   }
 
-  function findIdx(htmlString: string, idx: number): number {
-    let charIndex = 0;
-    let i = 0;
-    while (i < htmlString.length && charIndex < idx) {
-        if (htmlString[i] === '<') {
-            while (i < htmlString.length && htmlString[i] !== '>') {
-                i++;
-            }
-            i++;
-        } else {
-            charIndex++;
-            i++;
-        }
-    }
-    return i
-  }
-
   function replayEvent(replayLog: Event) {
     const editableDiv = editableDivRef.current!
     const suggestion = editableDiv.querySelector("span.suggestionText")!
-    // const currentTxt = $('div').contents()
-    // .filter(function() {
-    //   return this.nodeType === 3;
-    // }).text()
     const suggestion_text = suggestion?.textContent
     // Log variables
     const txt = replayLog.textDelta
     const cursorPos = replayLog.currentCursor
-    console.log(editableDiv.innerHTML)
+    const len = editableDiv.innerHTML.split('<br>').length-1
+    const i = cursorPos+4*len
 
     switch(replayLog.eventName) {
       case process.env.TEXT_INSERT:
@@ -76,15 +54,16 @@ export default async function SessionReplay( { params }:any) {
           suggestion.textContent = ''
           suggestion.remove()
         }
-        if (printable_keys.has(txt) || txt===" ") { 
-          const i = findIdx(editableDiv.innerHTML, cursorPos)
+        if (printable_keys.has(txt) || txt===" ") {
           editableDiv.innerHTML = editableDiv.innerHTML.substring(0,i).concat(txt, editableDiv.innerHTML.substring(i))
+        } else if (txt=="\n") {
+          console.log("newline", editableDiv.innerHTML, ", adding", txt.replace(/\n/g, '<br>'))
+          editableDiv.innerHTML += txt.replace(/\n/g, '<br>');
+          console.log(editableDiv.innerHTML)
         }
         break
       case process.env.TEXT_DELETE:
-        const i = findIdx(editableDiv.innerHTML, cursorPos-1)
-        editableDiv.innerHTML = editableDiv.innerHTML.slice(0,i) + editableDiv.innerHTML.slice(i+1)
-        // editableDiv.textContent = currentTxt.slice(0,-1)
+        editableDiv.innerHTML = editableDiv.innerHTML.slice(0,i-1) + editableDiv.innerHTML.slice(i)
         break
       case process.env.SUGGESTION_ACCEPT:
         suggestion.remove()
@@ -93,15 +72,12 @@ export default async function SessionReplay( { params }:any) {
       case process.env.SUGGESTION_GENERATE:
         const responseLines = txt.replace(/\n/g, '<br>');
         addToLastDiv(editableDiv, responseLines, true)
-        // editableDiv.innerHTML = `${editableDiv.innerHTML}<span class="suggestionText"">${txt}</span>`
         break
       case process.env.SUGGESTION_REGENERATE:
-        // suggestion.textContent = ' ' + txt
         suggestion.remove()
         addToLastDiv(editableDiv, txt, true)
-      case process.env.CURSOR_BACKWARD || process.env.CURSOR_FORWARD:
-        // setCursorPosition(cursorPos)
-        break
+      case process.env.SUGGESTION_CLOSE:
+        suggestion.remove()
     }
   }
   const sessionID = params.sessionID;

@@ -23,7 +23,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         const content = editableDivRef.current?.innerText || ''
-        console.log("log", getLogs())
         onContentChange(content, actionNums, userActions, getLogs());
     };
 
@@ -54,13 +53,18 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
             }
         });
         const promptText = prompt.join('');
-        console.log("sent", promptText)
         if (promptText) {
           try {
             // Get response from API
-            const response = await fetch("/api/generate?prompt="+encodeURIComponent(promptText))
+            const response = await fetch("/api/generate-pos",{
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({prompt: promptText})
+            })
+            // ?prompt="+encodeURIComponent(promptText))
             const body = await response.json();
-            console.log("response:", body.response)
             if (body.response) {
                 if (suggestion) suggestion.remove();
                 const responseLines = body.response.replace(/\n/g, '<br>');
@@ -99,7 +103,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                 e.preventDefault();
                 return;
             }
-            const prompt = editableDiv.innerText
             const suggestion = editableDiv.querySelector("span.suggestionText")
             const suggestion_html = suggestion?.innerHTML
             const suggestion_text = suggestion?.textContent
@@ -115,9 +118,9 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                     logEvent("suggestion-accept", cursorPos)
                 } else if (e.key=='Tab') {
                     // Regenerate suggestion
-                    e.preventDefault();
+                    e.preventDefault()
                     setLoading(true)
-                    handleGenerate(cursorPos, "suggestion-regenerate");
+                    handleGenerate(cursorPos, "suggestion-regenerate")
                     update("Regenerate")
                 } else if (printable_keys.has(e.key) || e.key===" ") {
                     // Continue writing removes suggestions
@@ -125,10 +128,12 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                     update("Ignore")
                     logEvent("text-insert", cursorPos, e.key)
                 } else if (e.key==="Backspace" || e.key==="Delete") {
+                    // Close suggestions
+                    e.preventDefault()
                     suggestion.remove()
                     update("Ignore")
+                    logEvent("suggestion-close", cursorPos, e.key)
                 } else if (e.key==="Enter") {
-                    console.log("ENTER ENTER")
                     suggestion.remove()
                     update("Ignore")
                     logEvent("text-insert", cursorPos, '\n')
@@ -150,8 +155,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                 }
                 if (e.key=="ArrowRight") {
                     logEvent("cursor-forward", cursorPos)
-                } else if (e.key=="Tab") {
-                    console.log("tabbed:", suggestion_text)
                 } else if (e.key=='ArrowLeft') {
                     logEvent("cursor-backward", cursorPos)
                 } else if (e.ctrlKey==true) {
@@ -160,7 +163,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange }) => {
                     logEvent("text-delete", cursorPos)
                 } else if (e.key=='Enter') {
                     logEvent("text-insert", cursorPos, '\n')
-                    console.log("ENTER ENTER")
                 } else {
                     logEvent("text-insert", cursorPos, e.key)
                 }

@@ -45,7 +45,6 @@ export function getCursorPosition(): number {
         preCaretRange.selectNodeContents(editableDiv!);
         preCaretRange.setEnd(range.startContainer, range.startOffset);
         charCount = preCaretRange.toString().length;
-        console.log("char", charCount)
     }
     return charCount;
 };
