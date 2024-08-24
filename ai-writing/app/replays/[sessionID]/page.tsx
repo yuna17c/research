@@ -17,6 +17,7 @@ async function getDb(sessionID: string) {
     });
   } else {
     console.log("Requested session does not exist.")
+    return null
   }
   return tmpLogs
 }
@@ -25,6 +26,12 @@ export default async function SessionReplay( { params }:any) {
   const editableDivRef = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
   const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
+  const sessionID = params.sessionID;
+  const doc = await getDb(sessionID);
+  if (doc==null) {
+    alert("Failed to get session.")
+  }
+  var prevTime = doc![0].eventTimestamp;
   const addToLastDiv = (divRef: HTMLDivElement, addText: string|undefined, isSuggestion: boolean) => {
     if (divRef) {
         const divs = divRef.querySelectorAll('div');
@@ -80,9 +87,7 @@ export default async function SessionReplay( { params }:any) {
         suggestion.remove()
     }
   }
-  const sessionID = params.sessionID;
-  const doc = await getDb(sessionID);
-  var prevTime = doc[0].eventTimestamp;
+  
   function sleep(duration:number) {
     return new Promise((resolve) => {
       setTimeout(resolve, duration)
@@ -96,7 +101,7 @@ export default async function SessionReplay( { params }:any) {
       suggestion.remove()
     }
     editableDivRef.current!.textContent = ''
-    for (const log of doc) {
+    for (const log of doc!) {
       const currTime = log.eventTimestamp
       const waitTime = currTime-prevTime
       prevTime = currTime
