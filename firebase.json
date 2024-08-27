@@ -1,8 +1,6 @@
 {
-  "database": {
-    "rules": "database.rules.json"
-  },
   "hosting": {
+    "site": "ai-writing-45138-5a0c8",
     "source": "ai-writing",
     "ignore": [
       "firebase.json",
@@ -10,7 +8,7 @@
       "**/node_modules/**"
     ],
     "frameworksBackend": {
-      "region": "us-central1"
+      "region": "us-east1"
     }
   }
 }
