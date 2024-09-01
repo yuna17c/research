@@ -29,7 +29,7 @@ const IdPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
                     required
                 />
             </div>
-            <div className='buttons'>
+            <div className='next-button'>
                 <button className="submit-button" type="submit">Next</button>
             </div>
         </form>

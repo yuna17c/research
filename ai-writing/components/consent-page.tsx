@@ -119,7 +119,7 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
                         I do not consent.
                     </label>
                 </div>
-                <div className='buttons'>
+                <div className='next-button'>
                     <button className="submit-button" type="submit" disabled={!allChecked || radioOption==='no' }>Next</button>
                 </div>
             </form>

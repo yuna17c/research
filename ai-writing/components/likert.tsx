@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface LikertScaleProps {
   question: string;
@@ -14,8 +14,12 @@ const LikertScale: React.FC<LikertScaleProps> = ({ question, options, value, onV
   };
 
   return (
-    <div className='likertQuestion'>
-      <p>{question}</p>
+    <div className='likert-container'>
+      <h2 id='likert-question'>{question}</h2>
+      <div className='likert-labels'>
+        <p>Not Confident</p>
+        <p>Confident</p>
+      </div>
       <div className="likert">
         {options.map((option, index) => (
           <label key={index}>
