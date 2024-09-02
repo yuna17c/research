@@ -30,7 +30,6 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
 
     const handleLikertChange = (index: number, value: number, questionNum: number) => {
         var new_idx: string = "q" + questionNum.toString()
-        console.log(questionNum)
         setAnswers((prevAnswers) => ({
             ...prevAnswers,
             [new_idx]: value,
@@ -42,13 +41,13 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
 
     return (
         <>
-            <h1>Demographics Questionnaire</h1>
+            <h1 className='page-title'>Demographics Questionnaire</h1>
             <form id="demographics-form" onSubmit={handleSubmit}>
                 <div className='question'>
-                    <label htmlFor="question1">1. What is your highest level of education?</label>
+                    <label>1. What is your highest level of education?</label>
                     <select
                     name="q1"
-                    value={answers.question1}
+                    value={answers.q1}
                     defaultValue=""
                     onChange={handleInputChange}
                     required
@@ -60,55 +59,55 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                             </option>
                         ))}
                     </select>
-                    {answers.question1==="Others (Please specify)" && (
+                    {answers.q1==="Others (Please specify)" && (
                         <div>
-                            <label htmlFor="otherAnswer">Please specify:</label>
+                            <label>Please specify:</label>
                             <input
                                 type="text"
-                                name="q1-other"
-                                value={answers.otherAnswer}
+                                name="q1other"
+                                value={answers.q1other}
                                 onChange={handleInputChange}
-                                required={answers.question1==="Others (Please specify)"}
+                                required={answers.q1==="Others (Please specify)"}
                             />
                         </div>
                     )}
                 </div>
                 <div className='question'>
-                    <label htmlFor="question2">2. What is your native language?</label>
+                    <label>2. What is your native language?</label>
                     <input
                         type="text"
                         name="q2"
-                        value={answers.question2}
+                        value={answers.q2}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
                 <div className='question'>
-                    <label htmlFor="question3">3. Where is your country of birth?</label>
+                    <label>3. Where is your country of birth?</label>
                     <input
                         type="text"
                         name="q3"
-                        value={answers.question3}
+                        value={answers.q3}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
                 <div className='question'>
-                    <label htmlFor="question4">4. Where is the country you spent the most time in?</label>
+                    <label>4. Where is the country you spent the most time in?</label>
                     <input
                         type="text"
                         name="q4"
-                        value={answers.question4}
+                        value={answers.q4}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
                 <div className='question'>
-                    <label htmlFor="question5">5. Which country's culture do you identify with the most? It can (but does not have to) be your home country or where you spent most time?</label>
+                    <label>5. Which country's culture do you identify with the most? It can (but does not have to) be your home country or where you spent most time?</label>
                     <input
                         type="text"
                         name="q5"
-                        value={answers.question5}
+                        value={answers.q5}
                         onChange={handleInputChange}
                         required
                     />
@@ -117,44 +116,39 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     <h2>6. How would you rate your proficiency in English?</h2>
                     <div className='likerts'>
                     {questions.map((question, index) => (
-                        <LikertScale
-                        key={index}
-                        question={question}
-                        options={[1,2,3,4,5,6,7]}
-                        value={responses[index]}
-                        onValueChange={(value) => handleLikertChange(index, value, index+6)}
-                        />
-                    ))}
-                    </div>
-                    
-                </div>
-                <div className='question'>
-                    <label htmlFor="question7">7. How confident are you in using English for social communication?</label>
-                    <div className='likert-labels'>
-                            <p>Not Confident</p>
-                            <p>Confident</p>
-                        </div>
-                    <div className="likert">
-                    {[1, 2, 3, 4, 5, 6, 7].map((value) => (
-                        <label key={value}>
-                            <input
-                                type="radio"
-                                value={responses[3]}
-                                checked={responses[3]===value}
-                                onChange={()=>handleLikertChange(3,value,7)}
-                                required
+                        <>
+                            <h2 id='likert-question'>{question}</h2>
+                            <LikertScale
+                            key={index}
+                            question={question}
+                            options={[1,2,3,4,5,6,7]}
+                            value={responses[index]}
+                            onValueChange={(value) => handleLikertChange(index, value, index+6)}
+                            label1='Not confident'
+                            label2='Confident'
                             />
-                            {value}
-                        </label>
+                        </>
                     ))}
-                    </div>
+                    </div>   
                 </div>
                 <div className='question'>
-                    <label htmlFor="question8">8. Have you ever used AI tools (e.g. chatGPT, email generator, autocompletion) to assist you to write for social communication purposes? If so, please briefly describe your experience.</label>
+                    <label>7. How confident are you in using English for social communication?</label>
+                    <LikertScale
+                    key={3}
+                    question="7. How confident are you in using English for social communication?"
+                    options={[1,2,3,4,5,6,7]}
+                    value={responses[3]}
+                    onValueChange={(value) => handleLikertChange(3, value, 7)}
+                    label1='Not confident'
+                    label2='Confident'
+                    />
+                </div>
+                <div className='question'>
+                    <label>8. Have you ever used AI tools (e.g. chatGPT, email generator, autocompletion) to assist you to write for social communication purposes? If so, please briefly describe your experience.</label>
                     <input
                         type="text"
                         name="q8"
-                        value={answers.question8}
+                        value={answers.q8}
                         onChange={handleInputChange}
                         required
                     />

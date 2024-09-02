@@ -12,6 +12,7 @@ const IdPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
         onComplete(answers);
     };
     
+    // Handle input box changes
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setAnswers(event.target.value);
     };
@@ -22,8 +23,6 @@ const IdPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
                 <label htmlFor="question1">What is your prolific ID?</label>
                 <input
                     type="text"
-                    id="question1"
-                    name="question1"
                     value={answers}
                     onChange={handleInputChange}
                     required
