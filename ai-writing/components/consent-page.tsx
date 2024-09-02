@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Checkbox from './checkbox';
 
 interface SurveyFormProps {
     onComplete: () => void;
@@ -7,6 +8,7 @@ interface SurveyFormProps {
 const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
     const [checkboxes, setCheckboxes] = useState([false, false, false]);
     const [radioOption, setRadio] = useState('no');
+    const allChecked = checkboxes.every(Boolean);
 
     // Handle checkbox changes
     const handleCheckboxChange = (index: number) => {
@@ -14,9 +16,6 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
         updatedCheckboxes[index] = !updatedCheckboxes[index];
         setCheckboxes(updatedCheckboxes);
     };
-
-    // Determine if all checkboxes are checked
-    const allChecked = checkboxes.every(Boolean);
 
     // Handle radio button changes
     const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +32,7 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
 
     return (
         <>
-            <h1>Consent Form</h1>
+            <h1 className='page-title'>Consent Form</h1>
             <div id="consent-content">
                 <p>Please review the following information letter:<br/>
                 <a href="https://uwaterloo.ca1.qualtrics.com/CP/File.php?F=F_6lJ6Shjn3ZVZsQm" target='blank'>Information Letter</a>
@@ -51,63 +50,30 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
                 </p>
             </div>
             <form id="consent-form" onSubmit={handleSubmit}>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[0]}
-                    onChange={() => handleCheckboxChange(0)}
-                    />
-                    I agree to participate in this study.
-                </label></div>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[1]}
-                    onChange={() => handleCheckboxChange(1)}
-                    />
-                    I am aware that my interactions with the study systems will be logged.
-                </label></div>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[2]}
-                    onChange={() => handleCheckboxChange(2)}
-                    />
-                    I agree to allow my study responses to be captured.
-                </label></div>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[3]}
-                    onChange={() => handleCheckboxChange(3)}
-                    />
-                    I agree to allow my study responses to be captured.
-                </label></div>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[4]}
-                    onChange={() => handleCheckboxChange(4)}
-                    />
-                    I agree to allow logs of my interactions to be used in teaching, scientific presentations, and/or publications.
-                </label></div>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[5]}
-                    onChange={() => handleCheckboxChange(5)}
-                    />
-                    I agree to the storage of my de-identified data in secure online servers.
-                </label></div>
-                <div><label>
-                    <input
-                    type="checkbox"
-                    checked={checkboxes[6]}
-                    onChange={() => handleCheckboxChange(6)}
-                    />
-                    I agree to the use of my de-identified data in any presentation or publication that comes from this research.
-                </label></div>
-
+                <Checkbox 
+                label='I agree to participate in this study.' 
+                checked={checkboxes[0]} 
+                onChange={() => handleCheckboxChange(0)}/>
+                <Checkbox 
+                label='I am aware that my interactions with the study systems will be logged.' 
+                checked={checkboxes[1]} 
+                onChange={() => handleCheckboxChange(1)}/>
+                <Checkbox 
+                label='I agree to allow my study responses to be captured.' 
+                checked={checkboxes[2]} 
+                onChange={() => handleCheckboxChange(2)}/>
+                <Checkbox 
+                label='I agree to allow logs of my interactions to be used in teaching, scientific presentations, and/or publications.' 
+                checked={checkboxes[3]} 
+                onChange={() => handleCheckboxChange(3)}/>
+                <Checkbox 
+                label='I agree to the storage of my de-identified data in secure online servers.' 
+                checked={checkboxes[4]} 
+                onChange={() => handleCheckboxChange(4)}/>
+                <Checkbox 
+                label='I agree to the use of my de-identified data in any presentation or publication that comes from this research.' 
+                checked={checkboxes[5]} 
+                onChange={() => handleCheckboxChange(5)}/>
                 <div id='consent-radio'>
                     <p>By selecting 'I consent', you agree to partcipate in the study.</p>
                     <label>
