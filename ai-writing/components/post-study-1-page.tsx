@@ -14,7 +14,6 @@ const PostStudyPage1: React.FC<SurveyFormProps> = ({ onPostSurveyComplete, task_
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        console.log(answers)
         onPostSurveyComplete(answers, 1, task_num);
     };
     

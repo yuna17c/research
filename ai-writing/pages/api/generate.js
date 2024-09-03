@@ -5,7 +5,6 @@ import { system_instr_neg, system_instr_pos, instruction_pos, instruction_neg } 
 export default async function handler(req, res) {
   const client = new OpenAI();
   const { prompt, ai_type } = req.body;
-  console.log(ai_type)
   const system_instr = ai_type=='pos' ? system_instr_pos : system_instr_neg
   const instruction = ai_type=='pos' ? instruction_pos : instruction_neg
   try {

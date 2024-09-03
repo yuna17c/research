@@ -28,8 +28,8 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
         }));
     };
 
-    const handleLikertChange = (index: number, value: number, questionNum: number) => {
-        var new_idx: string = "q" + questionNum.toString()
+    const handleLikertChange = (index: number, value: number) => {
+        var new_idx: string = index===3 ? 'q7' : 'q6.' + (index+1).toString()
         setAnswers((prevAnswers) => ({
             ...prevAnswers,
             [new_idx]: value,
@@ -123,7 +123,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                             question={question}
                             options={[1,2,3,4,5,6,7]}
                             value={responses[index]}
-                            onValueChange={(value) => handleLikertChange(index, value, index+6)}
+                            onValueChange={(value) => handleLikertChange(index, value)}
                             label1='Not confident'
                             label2='Confident'
                             />
@@ -138,7 +138,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     question="7. How confident are you in using English for social communication?"
                     options={[1,2,3,4,5,6,7]}
                     value={responses[3]}
-                    onValueChange={(value) => handleLikertChange(3, value, 7)}
+                    onValueChange={(value) => handleLikertChange(3, value)}
                     label1='Not confident'
                     label2='Confident'
                     />
@@ -147,8 +147,8 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     <label>8. Have you ever used AI tools (e.g. chatGPT, email generator, autocompletion) to assist you to write for social communication purposes? If so, please briefly describe your experience.</label>
                     <input
                         type="text"
-                        name="last"
-                        value={answers.last}
+                        name="q8"
+                        value={answers.q8}
                         onChange={handleInputChange}
                         required
                     />

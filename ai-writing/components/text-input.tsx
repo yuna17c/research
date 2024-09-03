@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { setCursorPosition, getCursorPosition } from "@/components/cursor"
-import { logEvent, getLogs, Action, Event } from "@/components/log";
+import { logEvent, getLogs, Action, Event, clearLogs } from "@/components/log";
 import $ from 'jquery'
 import { scenario1, scenario2 } from './system-instr';
 
@@ -27,11 +27,12 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
     const page_title = ai_type==='pos' ? 'AI Writing Task 1' : 'AI Writing Task 2'
     const scenario = ai_type==='pos' ? scenario1 : scenario2
     let spaceBarTimer: NodeJS.Timeout | null = null;
-    
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         const content = editableDivRef.current?.innerText || ''
         onContentChange(task_num, content, actionNums, userActions, getLogs());
+        clearLogs()
     };
 
     const addToLastDiv = (divRef: HTMLDivElement, addText: string|undefined, isSuggestion: boolean) => {
@@ -64,7 +65,7 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
         if (promptText) {
           try {
             // Get response from API
-            const response = await fetch("/api/generate-pos",{
+            const response = await fetch("/api/generate",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"

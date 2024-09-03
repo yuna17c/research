@@ -4,7 +4,8 @@ import "./style_main.css";
 import Head from "next/head";
 import React, { useState } from 'react';
 import { db } from '../firebase';
-import { addDoc, collection } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { getLogs, Action, Event } from "@/components/log";
 import TextInput from "@/components/text-input";
 import PreStudyPage from "@/components/pre-study-page";
@@ -15,7 +16,6 @@ import Baseline from "@/components/baseline";
 import InstructionPage from "@/components/instruction-page";
 import PostStudyPage2 from "@/components/post-study-2-page";
 import PostStudyPage1 from "@/components/post-study-1-page";
-import PostProcess from "@/components/post-study";
 
 require('dotenv').config({path: '../.env'});
 
@@ -26,15 +26,19 @@ export default function Home() {
     setIsPopupVisible(false);
   };
 
-  const [currentStep, setCurrentStep] = useState<string>('writing_task1');
-  const [prolificId, setId] = useState<string>("");
+  const [currentStep, setCurrentStep] = useState<string>('id');
+  const [prolificId, setId] = useState<string>('');
   const [demoAnswers, setDemoAnswers] = useState<Record<string, string | number>>({});
-  const [baselineText, setBaselineText] = useState<string>("");
+  const [baselineText, setBaselineText] = useState<string>('');
   const [preStudyAnswers, setPreStudyAnswers] = useState<{[key:number]:number}[]>([]);
   const [postStudyAnswers1, setPostStudyAnswers1] = useState<number[]>([]);
   const [postStudyAnswers2, setPostStudyAnswers2] = useState<number[]>([]);
-  const [inputContent, setInputContent] = useState<string>();
-  const [actionNumLog, setActionNumLog] = useState<{[key:string]:number}>();
+  const [inputContent1, setInputContent1] = useState<string>('');
+  const [inputContent2, setInputContent2] = useState<string>('');
+  const [actionNumLog1, setActionNumLog1] = useState<{[key:string]:number}>({});
+  const [actionNumLog2, setActionNumLog2] = useState<{[key:string]:number}>({});
+  const [log1, setLog1] = useState<Event[]>([]);
+  const [log2, setLog2] = useState<Event[]>([]);
   const [userActionLog, setUserActionLog] = useState<Action[]>([]);
 
   const handleGoBack = () => {
@@ -60,8 +64,8 @@ export default function Home() {
 
   // Prolific id -> demographic questionnaire
   const handleIdComplete = (answer: string) => {
-    setCurrentStep("demo")
     setId(answer)
+    setCurrentStep("demo")
   }
 
   // Demographic questionnaire -> pre-study
@@ -91,57 +95,48 @@ export default function Home() {
   const handleContentChange = (task_num: number, content: string, actionNums: {[key:string]:number}, userActions: Action[], log: Event[]) => {
     if (task_num===1) {
       setCurrentStep("post-1-1")
-      console.log("first writing done")
-      setInputContent(content)
-      setActionNumLog(actionNums)
+      setInputContent1(content)
+      setActionNumLog1(actionNums)
       setUserActionLog(userActions)
+      setLog1(log)
     } else {
       setCurrentStep("post-2-1")
+      setInputContent2(content)
+      setActionNumLog2(actionNums)
+      setLog2(log)
     }
   }
 
   // Post evaluation tasks
   const handlePostEvalComplete = (answers: number[], step: number, task_num: number) => {
+    const curr_step = task_num===1 ? (step===1 ? 'post-1-2' : 'writing_task2') : (step===1 ? 'post-2-2' : '')
+    setCurrentStep(curr_step)
     if (task_num===1) {
-      // first task
-      if (step===1) {
-        setCurrentStep('post-1-2')
-      } else {
-        setCurrentStep('writing_task2')
-      }
       setPostStudyAnswers1(prevAnswers => [...prevAnswers, ...answers])
-    } else {
-      if (step===1) {
-        setCurrentStep('post-2-2')
-      } else {
-        setCurrentStep('')
-      }
+    } else if (step===1) {
       setPostStudyAnswers2(prevAnswers => [...prevAnswers, ...answers])
+    } else {
+      handleSubmit(answers)
     }
   }
 
-  // Post-experiment survey complete event
-  const handleComplete = (answers: Record<string, string>) => {
-    setCurrentStep("writing_task2")
-    handleSubmit(answers)
-  }
-
   // Submit to Firebase
-  const handleSubmit = async (answers: Record<string, string>) => {
+  const handleSubmit = async (answers: number[]) => {
     setIsPopupVisible(true);
     try {
       // Write to Firebase DB
-      const docRef = await addDoc(collection(db, "user"), {
-        input: inputContent,
+      console.log(prolificId)
+      const docRef = doc(collection(db, "user-input"), prolificId);
+      await setDoc(docRef, {
         timestamp: String(Date.now()),
-        logs: getLogs(),
-        numsActions: actionNumLog, 
-        actionLog: userActionLog,
-        preSurvey: preStudyAnswers,
-        postSurvey: answers
+        demographicQuestions: demoAnswers,
+        preStudyAnswers: preStudyAnswers,
+        baselineText: baselineText,
+        aiWritingText: { task1: inputContent1, task2: inputContent2 },
+        numActions: { task1: actionNumLog1, task2: actionNumLog2 },
+        postStudyAnswers: { task1: postStudyAnswers1, task2: [...postStudyAnswers2,...answers] },
+        logs: { task1: log1, task2: log2 }
       });
-      // Print the doc ID
-      console.log("Added ", docRef.id)
     } catch(e) {
       console.error('error adding document: ', e)
     }
@@ -171,8 +166,8 @@ export default function Home() {
           <div className="popup">
             <div className="popup-content">
               <button className="close-button" onClick={handleClosePopup}>&times;</button>
-              <h1>Thank you!</h1>
-              <p>Your submission has been recorded.</p>
+              <h1>Thank you for your participation.</h1>
+              <p>Please use the following link to go back to Prolific</p>
             </div>
           </div>
       )}

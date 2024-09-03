@@ -22,7 +22,6 @@ const PreStudyPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
     
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        console.log(answers)
         onComplete(answers);
     };
 

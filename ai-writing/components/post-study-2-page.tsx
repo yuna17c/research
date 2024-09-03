@@ -15,6 +15,7 @@ const PostStudyPage2: React.FC<SurveyFormProps> = ({ onPostSurveyComplete, task_
         "4. I think AI suggestions are helpful.",
         "5. I think AI suggestions are appropriate to the social situation."
     ]
+    const button_name = task_num===2 ? 'Submit' : 'Next'
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         onPostSurveyComplete(answers, 2, task_num);
@@ -48,7 +49,7 @@ const PostStudyPage2: React.FC<SurveyFormProps> = ({ onPostSurveyComplete, task_
                     ))}
                 </div>
                 <div className='next-button'>
-                    <button className="submit-button">Next</button>
+                    <button className="submit-button">{button_name}</button>
                 </div>
             </form>
         </>
