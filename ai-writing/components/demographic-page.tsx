@@ -147,8 +147,8 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     <label>8. Have you ever used AI tools (e.g. chatGPT, email generator, autocompletion) to assist you to write for social communication purposes? If so, please briefly describe your experience.</label>
                     <input
                         type="text"
-                        name="q8"
-                        value={answers.q8}
+                        name="last"
+                        value={answers.last}
                         onChange={handleInputChange}
                         required
                     />

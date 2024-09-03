@@ -3,9 +3,8 @@
     --text-color: rgb(31, 31, 31);
     --accent: #3685d8;
     --dark-accent: #014792;
-    --padding: 50px;
-    --main-width: 50%;
     --gray: #A6A6A6;
+    --light-gray: #cecece;
 }
 
 body {
@@ -34,14 +33,26 @@ p {
     font-size: 2.2vh;
 }
 
+button:disabled,
+button[disabled]{
+  background-color: var(--light-gray);
+  color: var(--gray);
+}
+button[disabled]:hover {
+    background-color: var(--light-gray);
+}
+.page-title {
+    margin-bottom: 30px;
+}
 .instructions span {
     padding-right: 7px;
 }
-
+.container {
+    margin-top: 10px;
+}
 .inputContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 }
 
 .inputBox {
@@ -67,8 +78,12 @@ p {
     border-color: var(--dark-accent);
 }
 
-.submit {
-    align-self: flex-end;
+.next-button {
+    text-align: right;
+}
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 .submit-button {
@@ -76,7 +91,7 @@ p {
     color: white;
     padding: 8px 15px;
     border-radius: 4px;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
     margin-top: 30px;
 }
 
@@ -121,6 +136,12 @@ p {
 .close-button:hover {
     opacity: 1
 }
+.back-button {
+    background-color: var(--gray);
+}
+.back-button:hover {
+    background-color: #777777;
+}
 
 .suggestionText {
     color: var(--gray);
@@ -135,8 +156,29 @@ p {
    cursor: not-allowed;
    background-color: #C0C0C0;
 }
-#task-desc {
-    margin-bottom: 10px;
+
+/* Consent form */
+#consent-content a {
+    color: var(--dark-accent);
+    text-decoration: underline;
+}
+#consent-radio {
+    margin-top: 30px;
+}
+#consent-form input,
+.likert input {
+    margin-right: 10px;
+}
+
+/* Demographic questionnaire */
+#demographics-form select {
+    border: var(--gray) 1px solid;
+    padding: 3px 5px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+#demographics-form .question {
+    margin-bottom: 30px;
 }
 
 /* Survey */
@@ -163,4 +205,20 @@ input[type="number"] {
     height: 3vh;
     margin-top: 20px;
     color: var(--dark-accent)
+}
+
+/* Likert scale */
+.likerts {
+    margin-top: 10px;
+}
+.likert-container {
+    margin: 10px 0 25px 0;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    padding: 13px 20px;
+}
+.likert-labels,
+.likert {
+    display: flex;
+    justify-content: space-between;
 }

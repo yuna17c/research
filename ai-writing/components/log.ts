@@ -10,7 +10,7 @@ export type Event = {
   'currentCursor': number
 }
 
-const logs: Event[] = []
+var logs: Event[] = []
 
 // Create an event and save it to a list
 export function logEvent(eventName: string, cursorIdx: number, textDelta='') {
@@ -32,4 +32,8 @@ export function logEvent(eventName: string, cursorIdx: number, textDelta='') {
 
 export function getLogs(): Event[] {
   return logs;
+}
+
+export function clearLogs() {
+  logs = []
 }
