@@ -75,7 +75,7 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
                 checked={checkboxes[5]} 
                 onChange={() => handleCheckboxChange(5)}/>
                 <div id='consent-radio'>
-                    <p>By selecting 'I consent', you agree to partcipate in the study.</p>
+                    <p>By selecting &apos;I consent&apos;, you agree to partcipate in the study.</p>
                     <label>
                         <input type="radio" name="choice" value="yes" onChange={handleOptionChange} />
                         I consent.

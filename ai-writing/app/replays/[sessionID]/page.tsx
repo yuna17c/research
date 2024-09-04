@@ -5,32 +5,33 @@ import { query, collection, where, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { Event } from "@/components/log";
 import { useRef } from "react";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
-async function getDb(sessionID: string) {
-  // Get logs of the requested session ID
-  const q = query(collection(db, 'user-input'), where('timestamp', '==', sessionID));
-  const snapshot = await getDocs(q)
-  var tmpLogs: Event[] = []
-  if (!snapshot.empty) {
-    snapshot.forEach(doc => {
-      tmpLogs = doc.data().logs
-    });
+async function getDb(id: string, param: string) {
+  // Get logs of the requested ID
+  console.log(id)
+  const docRef = doc(collection(db, 'user-input'), id);
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap)
+  if (docSnap.exists()) {
+    var tmpLogs = docSnap.data().logs
   } else {
     console.log("Requested session does not exist.")
+    alert("Failed to get session.")
     return null
   }
-  return tmpLogs
+  if (param==='1') return tmpLogs.task1
+  return tmpLogs.task2
 }
 
 export default async function SessionReplay( { params }:any) {
   const editableDivRef = useRef<HTMLDivElement>(null);
   const button = useRef<HTMLButtonElement>(null);
   const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
-  const sessionID = params.sessionID;
-  const doc = await getDb(sessionID);
-  if (doc==null) {
-    alert("Failed to get session.")
-  }
+  const param = params.sessionID.split('-');
+  const sessionID = param[0]
+  const taskNum= param[1]
+  const doc = await getDb(sessionID, taskNum);
   var prevTime = doc![0].eventTimestamp;
   const addToLastDiv = (divRef: HTMLDivElement, addText: string|undefined, isSuggestion: boolean) => {
     if (divRef) {
@@ -115,11 +116,14 @@ export default async function SessionReplay( { params }:any) {
     <>
     <main>
       <h1>Replay session {sessionID}</h1>
-      <div className='inputContainer'>
-            <div id="editableDiv"
-              className="inputBox"
-              ref={editableDivRef}>
-            </div>
+      <h2>Task: {taskNum}</h2>
+      <div className="container">
+        <div className='inputContainer'>
+              <div id="editableDiv"
+                className="inputBox"
+                ref={editableDivRef}>
+              </div>
+        </div>
       </div>
       <button className='submit-button' id='session-button' ref={button} onClick={startReplay}>Start</button>
     </main>

@@ -103,7 +103,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     />
                 </div>
                 <div className='question'>
-                    <label>5. Which country's culture do you identify with the most? It can (but does not have to) be your home country or where you spent most time?</label>
+                    <label>5. Which country&apos;s culture do you identify with the most? It can (but does not have to) be your home country or where you spent most time?</label>
                     <input
                         type="text"
                         name="q5"
