@@ -17,6 +17,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        window.scrollTo(0, 0);
         onComplete(answers);
     };
     
@@ -44,7 +45,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
             <h1 className='page-title'>Demographics Questionnaire</h1>
             <form id="demographics-form" onSubmit={handleSubmit}>
                 <div className='question'>
-                    <label>1. What is your highest level of education?</label>
+                    <p><label>1. What is the highest level of education you’ve completed?</label></p>
                     <select
                     name="q1"
                     value={answers.q1}
@@ -73,7 +74,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     )}
                 </div>
                 <div className='question'>
-                    <label>2. What is your native language?</label>
+                    <p><label>2. What is your native language?</label></p>
                     <input
                         type="text"
                         name="q2"
@@ -83,7 +84,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     />
                 </div>
                 <div className='question'>
-                    <label>3. Where is your country of birth?</label>
+                    <p><label>3. Where is your country of birth?</label></p>
                     <input
                         type="text"
                         name="q3"
@@ -93,7 +94,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     />
                 </div>
                 <div className='question'>
-                    <label>4. Where is the country you spent the most time in?</label>
+                    <p><label>4. Where is the country you spent the most time in?</label></p>
                     <input
                         type="text"
                         name="q4"
@@ -103,7 +104,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     />
                 </div>
                 <div className='question'>
-                    <label>5. Which country&apos;s culture do you identify with the most? It can (but does not have to) be your home country or where you spent most time?</label>
+                    <p><label>5. Which country&apos;s culture do you identify with the most? It can (but does not have to) be your home country or where you spent most time?</label></p>
                     <input
                         type="text"
                         name="q5"
@@ -113,11 +114,11 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     />
                 </div>
                 <div className='question'>
-                    <h2>6. How would you rate your proficiency in English?</h2>
+                    <p>6. How would you rate your proficiency in English?</p>
                     <div className='likerts'>
                     {questions.map((question, index) => (
                         <>
-                            <h2 id='likert-question'>{question}</h2>
+                            <p className='sub-question'>{question}</p>
                             <LikertScale
                             key={index}
                             question={question}
@@ -132,7 +133,7 @@ const DemographicPage: React.FC<SurveyFormProps> = ({ onComplete, onBack }) => {
                     </div>   
                 </div>
                 <div className='question'>
-                    <label>7. How confident are you in using English for social communication?</label>
+                    <label>7. How confident are you in using English for social communication? Social communication involves navigating social spaces, building connections, and establishing positive relationships while interacting with others, beyond simply delivering information.</label>
                     <LikertScale
                     key={3}
                     question="7. How confident are you in using English for social communication?"

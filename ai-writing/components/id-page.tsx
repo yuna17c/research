@@ -10,6 +10,7 @@ const IdPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         onComplete(answers);
+        window.scrollTo(0, 0);
     };
     
     // Handle input box changes

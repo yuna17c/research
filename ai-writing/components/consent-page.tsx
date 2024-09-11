@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Checkbox from './checkbox';
 
 interface SurveyFormProps {
-    onComplete: () => void;
+    onComplete: (step: string) => void;
 }
 
 const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
-    const [checkboxes, setCheckboxes] = useState([false, false, false]);
+    const [checkboxes, setCheckboxes] = useState([false, false, false, false, false, false ]);
     const [radioOption, setRadio] = useState('no');
     const allChecked = checkboxes.every(Boolean);
 
@@ -26,7 +26,8 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
         event.preventDefault();
         if (allChecked && radioOption==='yes') {
             // Proceed only if all checkboxes are checked and I consent is selected
-            onComplete(); 
+            onComplete('id'); 
+            window.scrollTo(0, 0);
         }
     };
 
@@ -77,12 +78,12 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
                 <div id='consent-radio'>
                     <p>By selecting &apos;I consent&apos;, you agree to partcipate in the study.</p>
                     <label>
-                        <input type="radio" name="choice" value="yes" onChange={handleOptionChange} />
-                        I consent.
+                        <p><input type="radio" name="choice" value="yes" onChange={handleOptionChange} />
+                        I consent.</p>
                     </label>
                     <label>
-                        <input type="radio" name="choice" value="no" onChange={handleOptionChange} />
-                        I do not consent.
+                        <p><input type="radio" name="choice" value="no" onChange={handleOptionChange} />
+                        I do not consent.</p>
                     </label>
                 </div>
                 <div className='next-button'>
