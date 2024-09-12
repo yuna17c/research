@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { setCursorPosition, getCursorPosition } from "@/components/cursor"
 import { logEvent, getLogs, Action, Event, clearLogs } from "@/components/log";
 import $ from 'jquery'
-import { scenario1, scenario2 } from './system-instr';
+import { PRINTABLE_KEYS, WRITING_INFO_INSTR, WRITING_SCENARIO_TYPE, WRITING_TASK_INSTR } from './variables';
+import { addToLastDiv, replace_newline } from '@/app/utils';
 
 interface TextInputProps {
     onContentChange: (
@@ -13,40 +14,32 @@ interface TextInputProps {
         logs: Event[]
     ) => void;
     onBack: () => void;
-    ai_type: "pos" | "neg";
+    task_num: number;
+    ai_type: string;
+    scenario: WRITING_SCENARIO_TYPE
 }
 
-const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type }) => {
+const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, task_num, ai_type, scenario }) => {
     const editableDivRef = useRef<HTMLDivElement>(null);
     const [userActions, setUserActions] = useState<Action[]>([])
     const [actionNums, setActionNums] =  useState<{[key:string]:number}>({'Generate':0, 'Accept':0, 'Regenerate':0, 'Ignore':0});
     const [loading, setLoading] = useState(false);
-    const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
     const [isTypeDisabled, setIsTypeDisabled] = useState(false);
-    const task_num = ai_type==='pos' ? 1 : 2
-    const page_title = ai_type==='pos' ? 'AI Writing Task 1' : 'AI Writing Task 2'
-    const scenario = ai_type==='pos' ? scenario1 : scenario2
+    const ai_type_let = task_num===2 ? 'A' : 'B'
+    const page_title = 'Writing Task ' + task_num.toString() + ' - with AI tool ' + ai_type_let
+    const task = replace_newline(WRITING_TASK_INSTR)
+    const info = replace_newline(scenario.info)
     let spaceBarTimer: NodeJS.Timeout | null = null;
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        window.scrollTo(0, 0);
         const content = editableDivRef.current?.innerText || ''
         onContentChange(task_num, content, actionNums, userActions, getLogs());
         clearLogs()
     };
 
-    const addToLastDiv = (divRef: HTMLDivElement, addText: string|undefined, isSuggestion: boolean) => {
-        if (divRef) {
-            const divs = divRef.querySelectorAll('div');
-            const lastDiv = divs[divs.length - 1];
-            const span = isSuggestion ? `<span class="suggestionText">${addText}</span>` : `${addText}`
-            if (lastDiv) {
-                lastDiv.innerHTML+=span;
-            } else {
-                divRef.innerHTML+=span;
-            }
-          }
-    }
+    
 
     // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
     const handleGenerate = async (cursorPosition: number, eventName: string) => {
@@ -72,7 +65,8 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
                 },
                 body: JSON.stringify({
                     prompt: promptText,
-                    ai_type: ai_type
+                    ai_type: ai_type,
+                    scenario: scenario.text,
                 })
             })
             const body = await response.json();
@@ -133,7 +127,7 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
                     setLoading(true)
                     handleGenerate(cursorPos, "suggestion-regenerate")
                     update("Regenerate")
-                } else if (printable_keys.has(e.key) || e.key===" ") {
+                } else if (PRINTABLE_KEYS.has(e.key) || e.key===" ") {
                     // Continue writing removes suggestions
                     suggestion.remove()
                     update("Ignore")
@@ -149,12 +143,13 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
                     update("Ignore")
                     logEvent("text-insert", cursorPos, '\n')
                 }
-            } else if (e.key==' ') {
+            } else if (e.key==' ' || e.key=='Enter') {
                 // Space bar generates suggestion if waited more than a 1.5 second
                 if (spaceBarTimer) {
                     clearTimeout(spaceBarTimer);
                 }
-                logEvent("text-insert", cursorPos, ' ')
+                const key = e.key==' ' ? ' ' : '\n'
+                logEvent("text-insert", cursorPos, key)
                 spaceBarTimer = setTimeout(() => {
                     e.preventDefault();
                     handleSpaceBarAction();
@@ -172,8 +167,6 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
                     e.preventDefault()
                 } else if (e.key=='Backspace') {
                     logEvent("text-delete", cursorPos)
-                } else if (e.key=='Enter') {
-                    logEvent("text-insert", cursorPos, '\n')
                 } else {
                     logEvent("text-insert", cursorPos, e.key)
                 }
@@ -192,23 +185,25 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, ai_type 
           }
         };
       }, [isTypeDisabled]);
-
+   
     return (
         <>
         <h1 className='page-title'>{page_title}</h1>
         <h2>Task</h2>
-        <p>The following scenario describes a situation where you will be writing an email to someone to make a request. Imagine you are in that scenario (you may want to recall your experience if you have encountered a similar situation before) and write an email in the text box below, and feel free to fill in the details with your own situation or preferences. You can use the AI tool we provide to help you write the email. Feel free to incorporate as many suggestions from the AI tool as you see appropriate. Imagine in the following scenario, you are writing an email to make a request. You can write collaboratively with the AI tool we provide you. Please try your best to write socially appropriate message so that the email request you wrote is most likely to get accepted by the receiver. </p>
+        <p>{task}</p>
         <br/>
         <h2>Scenario</h2>
-        <p>{scenario}</p>
-        <br/>
+        <p>{scenario.text}<br/><br/>
+        {WRITING_INFO_INSTR}<br/><br/>
+        {info}
+        </p>
         <h2>Instructions </h2>
         <div className="instructions">
             <p>Assume that the AI tool has already asked you to provide the scenario context so that it can give you customized suggestions.
                 To use the AI tool:</p>
             <br/>
             <p>Once the suggestion is generated, you can perform the following actions.</p>
-            <p><span>&rsaquo;</span>Initiate AI generation: press pace bar and wait for a few seconds pause for a short while after typing space</p>
+            <p><span>&rsaquo;</span>Initiate AI generation: press space bar and wait for a few seconds</p>
             <p><span>&rsaquo;</span>Right arrow to accept suggestions.</p>
             <p><span>&rsaquo;</span>Continue writing to ignore suggestions.</p>
             <p><span>&rsaquo;</span>Tab to regenerate recommendation.</p>

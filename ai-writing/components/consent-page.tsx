@@ -36,7 +36,7 @@ const ConsentPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
             <h1 className='page-title'>Consent Form</h1>
             <div id="consent-content">
                 <p>Please review the following information letter:<br/>
-                <a href="https://uwaterloo.ca1.qualtrics.com/CP/File.php?F=F_6lJ6Shjn3ZVZsQm" target='blank'>Information Letter</a>
+                <a href="https://drive.google.com/file/d/1AS96DGK5bVJP_PTP9bk1myQGAolE0JUh/view?usp=sharing" target='blank'>Information Letter</a>
                 <br/><br/>
                 By providing your consent, you are not waiving your legal rights or releasing the investigator(s) or involved institution(s) from their legal and professional responsibilities.
                 <br/><br/>

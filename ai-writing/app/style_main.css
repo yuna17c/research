@@ -6,7 +6,17 @@
     --gray: #A6A6A6;
     --light-gray: #cecece;
 }
-
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* 32px on smaller screens */
+    }
+    h2 {
+        font-size: 1.5rem; /* 24px on smaller screens */
+    }
+}
+html {
+    font-size: 16px; /* Base font size */
+}
 body {
     display: flex;
     justify-content: center;
@@ -23,15 +33,19 @@ main {
     padding: 55px;
     color: var(--text-color);
 }
-
 h1 {
-    font-size: 3vh;
+    font-size: 2.3rem;
 }
-
+h2 {
+    font-size: 1.8rem;
+}
 p {
-    opacity: 0.85;
-    font-size: 2.2vh;
+    opacity: 0.95;
+    font-size: 1rem;
 }
+/* form label p {
+    opacity: 0.95;
+} */
 
 button:disabled,
 button[disabled]{
@@ -122,6 +136,10 @@ button[disabled]:hover {
 .popup-content p {
     padding: 0 50px;
 }
+.popup-content a {
+    color: var(--accent);
+    text-decoration: underline; 
+}
 .close-button {
     color: black;
     align-self: flex-end;
@@ -177,7 +195,8 @@ button[disabled]:hover {
     margin-top: 10px;
     border-radius: 3px;
 }
-#demographics-form .question {
+#demographics-form .question,
+#post-survey-form .question {
     margin-bottom: 30px;
 }
 
@@ -204,7 +223,8 @@ input[type="number"] {
 .loadingMsg {
     height: 3vh;
     margin-top: 20px;
-    color: var(--dark-accent)
+    color: var(--dark-accent);
+    font-style: italic;
 }
 
 /* Likert scale */
@@ -221,4 +241,33 @@ input[type="number"] {
 .likert {
     display: flex;
     justify-content: space-between;
+}
+
+.likert-labels p {
+    font-size: 0.9em;
+}
+
+.sub-question {
+    font-size: 0.94em;
+    opacity: 0.9;
+}
+.bold {
+    font-weight: 600;
+}
+
+.instr-vid {
+    margin-top: 20px;
+}
+
+#options { 
+    text-decoration: underline;
+    color: var(--dark-accent);
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#testbox {
+    padding-top: 50px;
 }

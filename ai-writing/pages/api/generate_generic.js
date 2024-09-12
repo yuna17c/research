@@ -1,17 +1,14 @@
 require('dotenv').config({path: '../../.env'});
 import OpenAI from "openai";
-import { SYSTEM_INSTR_NEG, SYSTEM_INSTR_POS, INSTR_BEG, INSTR_END, INSTR_POS, INSTR_NEG } from '../../components/variables'
+import { INSTR_BEG, INSTR_END, INSTR_GENERIC } from '../../components/variables'
 
 export default async function handler(req, res) {
   const client = new OpenAI();
-  const { prompt, ai_type, scenario } = req.body;
-  const system_instr = ai_type=='pos' ? SYSTEM_INSTR_POS : SYSTEM_INSTR_NEG
-  const general_instr = ai_type=='pos' ? INSTR_POS : INSTR_NEG
-  const instruction_total = general_instr + INSTR_BEG + scenario + 'The email task is:' + INSTR_END
+  const { prompt } = req.body;
+  const instruction_total = INSTR_GENERIC + INSTR_BEG + INSTR_END
   try {
     const response = await client.chat.completions.create({
       messages: [
-        {"role": "system", "content": system_instr},
         {"role": "system", "content": instruction_total},
         {"role": "user", "content": prompt},
       ],
