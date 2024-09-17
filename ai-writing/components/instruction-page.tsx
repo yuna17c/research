@@ -149,7 +149,7 @@ const InstructionPage: React.FC<CompleteProps> = ({ onComplete }) => {
             </div>
             <div id='testbox'>
                 <h2>Test Box</h2>
-                <p>You can try using the tool here before you start your tasks. The content you write here will not be recorded or used.</p>
+                <p>In the following textbox, you can try out the AI tool and its functions. Your writing here will not be recorded.</p>
                 {loading ? (
                     <div className='loadingMsg'>...GENERATING...</div>
                 ) : (

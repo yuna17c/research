@@ -32,14 +32,13 @@ const TextInput: React.FC<TextInputProps> = ({ onContentChange, onBack, task_num
     let spaceBarTimer: NodeJS.Timeout | null = null;
 
     const handleSubmit = (event: React.FormEvent) => {
+        logEvent('Click-next',0)
         event.preventDefault();
         window.scrollTo(0, 0);
         const content = editableDivRef.current?.innerText || ''
         onContentChange(task_num, content, actionNums, userActions, getLogs());
         clearLogs()
     };
-
-    
 
     // Call API to generate suggestion from OpenAI model and move the cursor to cursorPosition
     const handleGenerate = async (cursorPosition: number, eventName: string) => {

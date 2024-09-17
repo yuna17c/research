@@ -1,23 +1,42 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { WRITING_INFO_INSTR, WRITING_SCENARIO_TYPE } from './variables';
 import { replace_newline } from '@/app/utils';
+import { start } from 'repl';
 
 interface TextInputProps {
     onContentChange: (
-        content: string
+        content: string,
+        duration: number,
     ) => void;
     scenario: WRITING_SCENARIO_TYPE
 }
 
 const Baseline: React.FC<TextInputProps> = ({ onContentChange, scenario }) => {
+    const [startTime,setStartTime] = useState<number>(0)
+    
     const editableDivRef = useRef<HTMLDivElement>(null);
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         const content = editableDivRef.current?.innerText || ''
-        onContentChange(content);
+        onContentChange(content, Date.now()-startTime);
         window.scrollTo(0, 0);
     };
     const info = replace_newline(scenario.info)
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (startTime==0) setStartTime(Date.now());
+        }
+        const editableDiv = editableDivRef.current!;
+        if (editableDiv) {
+            editableDiv.addEventListener('keydown', handleKeyDown);
+          }
+        return () => {
+            if (editableDiv) {
+              editableDiv.removeEventListener('keydown', handleKeyDown);
+            }
+        };
+    })
 
     return (
         <>

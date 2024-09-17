@@ -51,14 +51,14 @@ export type SCENARIOS_TYPE = {
 export const PRE_STUDY_SCENARIOS = [
     { id:1, text:"You’re working on a project that involves coordinating with other teams. You ask a colleague from a different department, whom you’ve worked with occasionally and whose role includes handling interdepartmental communications, if they could help review and ensure that all necessary information is properly prepared before you finalize your report for submission to your supervisor."},
     { id:2, text:"You need to request a meeting with a team member in your department to discuss potential collaboration on a project. You’ve interacted a few times but haven’t worked closely together." },
-    { id:3, text:"You’re enrolled in a course and have interacted with the course TA during office hours. You write an email to ask if the TA could clarify a specific concept from a recent class discussion or recommend some additional study materials related to the topic." },
+    { id:3, text:"You’re working on a course project for a class and attended a TA-led review session last week. You send an email asking the TA for clarification on how to apply a key concept discussed during the review to your project, and if they could point you toward any relevant examples or references that might help." },
     { id:4, text:"You are starting a research project and you recall a senior researcher in your department, with whom you’ve had several conversations during department events, whose expertise closely aligns with your topic. You believe they might be interested in collaborating but are uncertain about their availability." },
-    { id:5, text:"You are working on a project with a colleague, and you’re at a stage where you need their part of the work to be completed in order to proceed with your own tasks. You write an email about their progress and find out if they can finish their part within the week to keep the project on schedule." },
-    { id:6, text:"You’re working on a group project for a university course and have had a few discussions with your project advisor. You write an email to ask if the advisor could provide feedback on your current project outline or suggest any resources that might help improve your presentation." },
-    { id:7, text:"You ask your professor, Alex Morgan, who taught a large lecture class you attended a few years ago but with whom you had little direct interaction, to introduce you to someone who may be hiring in your chosen career path."},
-    { id:8, text:"You are organizing a major event and need a high-profile sponsor to secure the necessary funding. You decide to reach out to Alex Morgan, a CEO of a leading company, whom you met briefly at a fundraising event, to request sponsorship."},
-    { id:9, text:"You are going to a conference next week, and you know one of your colleagues, Alex Morgan, are going to the same conference and they also don’t have a car.. You write an email to ask if it’s possible to share a ride to the venue."},
-    { id:10, text:"You’ve recently taken up a new hobby, hiking, and you know that your colleague, Alex Morgan enjoy s similar activities. You’re writing an email to ask if he/she’d like to join you for a hike this weekend."},
+    { id:5, text:"You and a colleague are preparing for an upcoming team presentation. You’ve completed your part, but your colleague is responsible for compiling all the sections into a final document. You send them a message to see if they need any support finishing up the compilation and to check whether they’ll be able to share the final draft before the weekend so there’s time for review." },
+    { id:6, text:"You’re part of a research group for a university course, and you’ve been meeting regularly with your project advisor. You write an email to request feedback on your recent data analysis and ask if they could recommend any tools or references to enhance your final report." },
+    { id:7, text:"You ask your professor who taught a large lecture class you attended a few years ago but with whom you had little direct interaction, to introduce you to someone who may be hiring in your chosen career path."},
+    { id:8, text:"You are organizing a major event and need a high-profile sponsor to secure the necessary funding. You decide to reach out to a CEO of a leading company, whom you met briefly at a fundraising event, to request sponsorship."},
+    { id:9, text:"You are going to a conference next week, and you know one of your colleagues are going to the same conference and they also don’t have a car. You write an email to ask if it’s possible to share a ride to the venue."},
+    { id:10, text:"You’ve recently taken up a new hobby, hiking, and you know that your colleague enjoys similar activities. You’re writing an email to ask if he/she’d like to join you for a hike this weekend."},
 ]
 
 export const LIKERT_QUESTIONS = [
@@ -109,4 +109,13 @@ export const POST_STUDY_QUESTIONS = [
     "3. I am confident that the message will be perceived positively by the receiver.",
     "4. I think AI suggestions are helpful.",
     "5. I think AI suggestions are appropriate to the social situation."
+]
+
+export const CONSENT_LST = [
+    'I agree to participate in this study.',
+    'I am aware that my interactions with the study systems will be logged.',
+    'I agree to allow my study responses to be captured.' ,
+    'I agree to allow logs of my interactions to be used in teaching, scientific presentations, and/or publications.',
+    'I agree to the storage of my de-identified data in secure online servers.',
+    'I agree to the use of my de-identified data in any presentation or publication that comes from this research.',
 ]

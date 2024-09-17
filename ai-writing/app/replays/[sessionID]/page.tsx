@@ -20,8 +20,9 @@ async function getDb(id: string, param: string) {
     alert("Failed to get session.")
     return null
   }
-  if (param==='1') return tmpLogs.task1
-  return tmpLogs.task2
+  return tmpLogs[param]
+  // if (param==='1') return tmpLogs.task1
+  // return tmpLogs.task2
 }
 
 export default async function SessionReplay( { params }:any) {
@@ -30,7 +31,7 @@ export default async function SessionReplay( { params }:any) {
   const printable_keys = new Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?")
   const param = params.sessionID.split('-');
   const sessionID = param[0]
-  const taskNum= param[1]
+  const taskNum= param[1] + '-' + param[2]
   const doc = await getDb(sessionID, taskNum);
   var prevTime = doc![0].eventTimestamp;
   const addToLastDiv = (divRef: HTMLDivElement, addText: string|undefined, isSuggestion: boolean) => {

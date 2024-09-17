@@ -18,6 +18,8 @@ const GeneralInstructionPage: React.FC<CompleteProps> = ({ onComplete }) => {
                 <p><span>&rsaquo;</span>Do not use additional AI tools, for example, ChatGPT</p>
                 <br/>
                 <p>If you fail to follow these instructions, you might face denial of payment.</p>
+                <br/>
+                <p>Your email will be reviewed by individuals who could realistically be the recipients. These reviewers will rate the email's social appropriateness and the likelihood of providing a favorable response. The top 10% participants with the highest ratings across three emails will receive an additional £3 reward.</p>
             </div>
             <div className='nav-buttons'>
                 <button className="submit-button" onClick={handleSubmit}>Next</button>
