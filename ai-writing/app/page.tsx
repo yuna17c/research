@@ -19,7 +19,6 @@ import PostStudyPage1 from "@/components/post-study-1-page";
 import GeneralInstructionPage from "@/components/general-instr-page";
 import { shuffle } from "./utils";
 import { CONSENT_LST, PRE_STUDY_SCENARIOS, SCENARIOS_TYPE, WRITING_SCENARIO_TYPE, WRITING_SCENARIOS } from "@/components/variables";
-import OptionsPage from "@/components/options-page";
 
 require('dotenv').config({path: '../.env'});
 
@@ -30,7 +29,7 @@ export default function Home() {
     setIsPopupVisible(false);
   };
 
-  const [currentStep, setCurrentStep] = useState<string>('baseline');
+  const [currentStep, setCurrentStep] = useState<string>('consent');
   const [prolificId, setId] = useState<string>('');
   const [demoAnswers, setDemoAnswers] = useState<Record<string, string | number>>({});
   const [baselineText, setBaselineText] = useState<string>('');
@@ -41,6 +40,7 @@ export default function Home() {
   const [inputContent2, setInputContent2] = useState<string>('');
   const [actionNumLog1, setActionNumLog1] = useState<{[key:string]:number}>({});
   const [actionNumLog2, setActionNumLog2] = useState<{[key:string]:number}>({});
+  const [baselineLog, setBaselineLog] = useState<string[]>([]);
   const [log1, setLog1] = useState<Event[]>([]);
   const [log2, setLog2] = useState<Event[]>([]);
   const [baselineDuration, setDuration] = useState<number>(0);
@@ -91,10 +91,11 @@ export default function Home() {
   }
 
   // Baseline -> AI writing tool instruction
-  const handleBaselineComplete = (content: string, duration: number) => {
+  const handleBaselineComplete = (content: string, duration: number, logs: string[]) => {
     setCurrentStep("instruction2")
     setBaselineText(content)
     setDuration(duration)
+    setBaselineLog(logs)
   }
 
   // AI writing tool instruction -> text input
@@ -155,7 +156,8 @@ export default function Home() {
         aiWritingText: { [ai_task_1]: inputContent1, [ai_task_2]: inputContent2 },
         numActions: { [ai_task_1]: actionNumLog1, [ai_task_2]: actionNumLog2 },
         postStudyAnswers: { set1: postStudyAnswers1, set2: [...postStudyAnswers2,...answers] },
-        logs: { [ai_task_1]: log1, [ai_task_2]: log2 }
+        logs: { [ai_task_1]: log1, [ai_task_2]: log2 },
+        baselineLog: baselineLog,
       });
     } catch(e) {
       console.error('error adding document: ', e)
