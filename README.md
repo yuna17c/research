@@ -10,13 +10,13 @@ This is a research project exploring how different tones of AI suggestions impac
 ## Features
 **Interactive Writing Tool**: Users interact with an AI-powered text editor that provides writing suggestions in varying tones. The suggestions are generated after users type space and wait with no other action for 1.5 seconds. GPT4o API is used to generate suggestions. \
 **Replay Function**: Each user submission is recorded and can be replayed at the URL /replays/[session-id]. \
-**Survey Integration**: Before and after the writing task, users complete a survey to provide more background on themselves [WIP].\
-**Data Analysis**: The repository includes scripts and notebooks for analyzing the collected data, focusing on how users responded to different politeness strategies [WIP]. 
+**Survey Integration**: Before and after the writing task, users complete a survey to provide more background on themselves.\
+**Data Analysis**: The repository includes scripts and notebooks for analyzing the collected data, focusing on how users responded to different politeness strategies. 
 
 ## Project Structure
 `ai-writing/`: Contains the code for the interactive writing tool. \
 `notebook/`: Includes scripts for various AI prompting experiments. \
-`analysis/`: Includes scripts and Jupyter notebooks for analyzing the data [WIP].
+`analysis/`: Includes scripts and Jupyter notebooks for analyzing the data.
 
 ## How to Run
 1. Install dependencies \
