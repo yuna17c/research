@@ -21,7 +21,7 @@ const IdPage: React.FC<SurveyFormProps> = ({ onComplete }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="question1">What is your prolific ID?</label>
+                <label htmlFor="question1">What is your partiicpant ID?</label>
                 <input
                     type="text"
                     value={answers}

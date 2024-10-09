@@ -79,10 +79,10 @@ export default function Home() {
   // Pre-study survey -> homepage 
   const handleSurveyComplete = (answers: {[key:number]:number[]}) => {
     // Pick the order of AI type
-    setAiTypeOrder(['pos','neg']);
+    setAiTypeOrder(['neg','pos']);
     // Randomize the orders of scenarios
     setWritingScenarios(shuffle(WRITING_SCENARIOS))
-    setCurrentStep("instruction1")
+    setCurrentStep("baseline")
     setPreStudyAnswers(answers)
   };
 
@@ -175,7 +175,7 @@ export default function Home() {
         {currentStep=="id" && <IdPage onComplete={handleIdComplete} />}
         {currentStep==="demo" && <DemographicPage onComplete={handleDemoComplete} onBack={handleGoBack} />}
         {currentStep==="pre" && <PreStudyPage onComplete={handleSurveyComplete} onBack={handleGoBack} scenarios={preStudyScenarios} />}
-        {currentStep==="instruction1" && <GeneralInstructionPage onComplete={handleNextStep} />}
+        {/* {currentStep==="instruction1" && <GeneralInstructionPage onComplete={handleNextStep} />} */}
         {currentStep==="baseline" && <Baseline onContentChange={handleBaselineComplete} scenario={writingScenarios[0]}/>}
         {currentStep==="instruction2" && <InstructionPage onComplete={handleNextStep} />}
         {currentStep==="writing_task1" && <TextInput onContentChange={handleContentChange} onBack={handleGoBack} task_num={2} ai_type={aiTypeOrder[0]} scenario={writingScenarios[1]} />}

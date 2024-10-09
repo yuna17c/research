@@ -43,9 +43,6 @@ p {
     opacity: 0.95;
     font-size: 1rem;
 }
-/* form label p {
-    opacity: 0.95;
-} */
 
 button:disabled,
 button[disabled]{
