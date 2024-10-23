@@ -1,6 +1,9 @@
 from retrieve import get_key
 from firebase_admin import firestore
 
+def process_text(txt):
+    return "".join([c for c in txt if c not in ".,?;:!()"])
+
 # return two dictionaries: lengths and percents
 # lengths is a dictionary of a list: [length of accepted suggestions, length of total suggestions]
 # percents is a dictionary of length of accepted suggestions/length of total suggestions
@@ -25,21 +28,36 @@ def calculate_accepted_suggestions():
             start_time = logs[key][0]['eventTimestamp']
             end_time = logs[key][-1]['eventTimestamp']
             suggestion_lst = []
+            suggestion_dic = {}
             accept_lst = []
             final_lst = []
             # each log event
             for logEvent in logs[key]:
-                if logEvent['eventName']=='suggestion-generate':
-                    suggestion_lst.append(logEvent['textDelta'])
-                elif logEvent['eventName']=='suggestion-accept':
+                evtName = logEvent['eventName']
+                if evtName=='suggestion-generate' or evtName=='suggestion-regenerate':
+                    suggestion_lst.append(process_text(logEvent['textDelta']))
+                elif evtName=='suggestion-accept':
                     accept_lst.append(suggestion_lst[-1])
-
+            
             for accepted in accept_lst:
-                for word in accepted.split():
-                    if word in full_text[key]:
-                        final_lst.append(word)
+                word_list = accepted.split()
+                found = [False] * len(word_list)
+                first_word = process_text(word_list[0])
+                processed_full = process_text(full_text[key])
+                if first_word in processed_full:
+                    found[0] = True
+                for i in range(len(word_list)):
+                    word = " ".join(word_list[i:min(len(word_list),i+2)])
+                    processed = process_text(word)
+                    if processed in processed_full:
+                        found[i] = True
+                    if found[i] or found[i-1]:
+                        final_lst.append(word.split(" ")[0])
 
             # lengths
+            print(suggestion_lst)
+            print(accept_lst)
+            print(final_lst)
             total_l = sum([len(i) for i in suggestion_lst])
             final_l = sum([len(i) for i in final_lst])
             lengths[doc.id][key] = [final_l, total_l]
