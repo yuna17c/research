@@ -1,0 +1,1589 @@
+,ID,D1,D1-other,D2,D3,D4,D5,D6.1,D6.2,D6.3,D7,D8,PRE1.1,PRE1.2,PRE1.3,PRE2.1,PRE2.2,PRE2.3,PRE3.1,PRE3.2,PRE3.3,PRE4.1,PRE4.2,PRE4.3,PRE5.1,PRE5.2,PRE5.3,PRE6.1,PRE6.2,PRE6.3,PRE7.1,PRE7.2,PRE7.3,PRE8.1,PRE8.2,PRE8.3,PRE9.1,PRE9.2,PRE9.3,PRE10.1,PRE10.2,PRE10.3,Baseline Text,Baseline Duration,Option,AI Task 1,AI Text 1,POST1.S,POST1.S-reason,POST1.P,POST1.P-reason,POST1.D,POST1.D-reason,POST1.1,POST1.2,POST1.3,POST1.4,POST1.5,AI Task 2,AI Text 2,POST2.S,POST2.S-reason,POST2.P,POST2.P-reason,POST2.D,POST2.D-reason,POST2.1,POST2.2,POST2.3,POST2.4,POST2.5
+0,0921_TEST,Bachelor's degree,,jl,jk,l,jkl,1,1,1,1,wkfjl,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,1,1,1,baseline text. copied text,15138.0,1,3-pos,"Hi, what's up? I hope you're doing absolutely fantastic! 😊
+
+I wanted to touch base about our group project. We've made some good progress and have put together a preliminary.
+
+
+Did you want to meet today?",1,,1,,1,,2,2,2,2,2,2-neg,"Hi Jamie!
+
+I hope you are doing well. I had been wondering if you might provide an update on your part of the project. There wouldn’t, I suppose?",1,,1,,1,,3,3,3,3,3
+1,123,"Some high school, no diploma",,1,1,1,1,2,2,2,2,1,1,1,1,7,7,7,1,1,1,1,1,1,6,6,6,4,4,4,1,1,1,3,3,3,2,2,2,5,5,5,qweqewerw,,2,2-neg,this is the first task - colleague task,1,first negative,1,,1,,1,1,1,1,1,3-pos,21435345,2,second positive,2,213124,2,123,2,2,2,2,2
+2,1239432,"Some high school, no diploma",,1,1,1,1,2,2,2,2,123,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,"Hello, this message is typed on an ipad",,1,2-pos,"Hello Lee,
+
+
+Hope you're doing absolutely fantastic! I just wanted to check in and see how things are going with your part of the project. You've been doing such an Great job with everything so far and it's truly been a delight working with you. I was wondering if you think you might be able to wrap up your section by the end of this
+",2,,2,,3,,2,3,3,3,4,3-neg,"This is looking great so far, but I had been wondering if I could possibly trouble you for some feedback on our current project outline. I understand you must be incredibly busy",3,,2,,4,,4,3,4,4,4
+3,55cff4a834e9060012e57407,Bachelor's degree,,English,United Kingdom,United Kingdom,Japan,7,7,7,7,"Yes, I have used ChatGPT before to generate ideas for essays and to summarise readings I found difficult. ",4,5,5,6,4,3,3,4,4,5,6,3,4,5,6,2,5,4,6,7,5,6,7,5,3,6,4,3,3,2,"Dear Jamie,
+
+
+I hope you've been well! I'm just writing to you today to find out how you've been progressing with our Market Analysis Report for Q4 and if it will be possible for you to have your parts completed for this week? It would be great to recieve an update from you about how you've been finding compiling and analyzing the customer feedback data and if you've run into any problems thus far. If so, we could work through them together to make sure that the project is progressing smoothly and remains on schedule, and it'll also help me to complete my own parts of the project.
+
+
+Thank you for your hard work and I would really appreciate hearing from you! 
+Kind regards,
+R",343518.0,1,3-pos,"Dear Dr. Morgan,
+
+
+Thank you for your guidance during our last meeting, we really appreciate and value all of your feedback regarding our project outline. I was wondering if you could take a look at our current draft and perhaps be able to provide some additional insights or suggestions? Your expertise is absolutely invaluable to us, and I believe your input could really elevate our presentation.
+
+
+As you know, our project is focused around marketing strategies for our new eco-friendly product line, and I'm aiming to highlight innovative approaches that can capture our target audience's attention. If you have any recommended resources or recent studies that could further enhance our understanding, that would be fantastic! 
+
+I understand you're incredibly busy, but any time you could spare to review our draft would be greatly appreciated. We're aiming to make this project as comprehensive and impactful as possible, and your guidance has always been spot-on. We're really excited about this project and your support means the world to us. 
+
+
+Kind regards,
+R",2,"The contents of the message felt as if there was much mutual respect and passion for the project, which made me feel closer and more familiar with the reciever.",5,"I think the reciever will always be slightly more powerful if they are a tutor or in a leadership role, however the students also had a reasonable amount of power over their project which I think was reflected in the email.",4,I think the request was neither particularly demanding or undemanding - it seemed like a very common email you would write to a lecturer overseeing a project.,5,5,6,7,6,1-neg,"Dear Mr. Morgan,
+
+
+I hope this email finds you well. I am a student enrolled in your Data Visualization Techniques course and have a question to ask regarding our most recent class discussion, as I had been wondering if I could possibly trouble you to clarify a concept on quantum entanglement. I understand that you must be very busy, but I am having some difficulty grasping the intricacies of this topic. Could you perhaps direct me towards some additional study materials or resources that might help me to understanding this concept further? I would be immensely grateful for any guidance you could provide that would help me to grasp this concept a little better.
+
+I apologize for any inconvenience this request may cause. I am aware that your time is valuable, and I deeply appreciate your assistance.
+Thank you very much for your understanding and support.
+
+Sincerely,
+Emily Thompson",6,The formal nature of the language used and the topic made the email feel much for cold and the reciever far more unfamiliar.,7,"Again, the language used made me feel as I was an inconvenience or that I was asking a great favour of the TA, which lead me to feel that I had very little power in this interaction.",5,"I don't think the request is overly demanding, however the formality of the email made it feel as if I was making a big ask of the teacher.",4,5,5,6,6
+4,55d51a6b8ce09000127d4821,Bachelor's degree,,English,England,England,England,7,7,7,7,Only to help me reword some work emails,6,4,6,5,4,5,4,4,3,5,5,6,3,4,3,3,5,3,6,6,5,7,7,6,5,4,2,3,4,1,"Hi Jamie, 
+
+
+How's it going?
+
+
+I just wanted to check in to see where you were at currently with the project. It would be great to catch-up sometime this week so we can go over it in a bit more detail, since it is fairly time sensitive and I can't start to create the presentation slides until you have compiled all the relevant data. 
+
+
+Let me know when works for you.
+
+
+Best,
+
+
+
+
+
+",138937.0,1,3-pos,"Hello Taylor, 
+
+
+Hope you're well and having a fantastic week! We’ve made some great progress on our project and are really excited about how it's shaping up.
+
+We were wondering if you might have any time to take a look at our current project outline and provide some 
+feedback? Your insights have always been incredibly valuable to us, and we believe your input could really help to refine our presentation even further. We know how busy you are, but if you could spare a few moments, it would be much appreciated. 
+
+
+
+Maybe you could also suggest any resources or readings that might help us polish our work? 
+
+
+Thanks for all your guidance so far.
+
+
+Best regards,
+Alex and the Team
+
+P.S. We really appreciate all the fantastic advice you've given us so far. It’s been incredibly helpful",3,,5,,5,,2,2,5,6,6,1-neg,"Hi Alex,
+
+
+I hope you are doing well. I had been wondering if I could ask for a bit of your time to clarify a concept from our recent class discussion. 
+
+
+It's to do with the difference between bar charts and line graphs for showing trends. Would you, by any chance, be able to provide some additional explanation on this topic? I am particularly interested in understanding the scenarios where one might be more appropriate than the other.
+
+
+Or if you could recommend some additional study materials that cover this topic in more detail, it would be greatly appreciated. 
+
+
+Many thanks in advance for your assistance. 
+
+Best",4,,5,,3,,4,4,5,6,6
+5,56cb314508d7300005fd312a,Master's degree,,Bulgarian,Bulgaria,UK,Bulgaria,6,6,7,6,"No, only for qustioning different topics.",5,4,4,4,4,5,5,4,3,7,2,2,3,5,6,5,4,4,6,4,3,7,3,2,3,4,5,5,4,3,"Dear Taylor,
+
+
+I a was working on a project ""Developing a marketing strategy for a new eco-friendly product launch."" and we had a few discussion with you about it.
+
+
+I will be very gratefull if you could take a look at my project and provide a feedback and if possible a few suggestions to resources to improve my presentation?
+
+
+Best Regards,
+Mr. X",,1,2-pos,"Hi Jamie,
+
+
+
+Hope you're doing fantastic! I was just thinking about our project ""Marker Analysis Report for and how incredible it's shaping up. Your insights have been absolutely marvelous so far!
+
+Is it possible for you to finish your part within this week? I know how dedicated you are, and your contributions are always top-notch. We're aiming to keep everything completed as soon as possible as the directors will be very pleased if we do that.
+
+
+I really appreciate all the hard work you've put in. If there's anything you need or any way I can assist to make this happen, just let me know.
+
+
+Regards,
+X",2,It is my colleague and we shoudl know eachother well if we are working on the same project.,5,In this scenarion I felt that I have some influence on his descision.,6,The request was demanding.,6,5,6,6,6,1-neg,"Dear Alex,
+
+I hope this email finds you well. I had been wondering if I could possibly trouble you to clarify a concept from our recent class discussion. Specifically, I am struggling to find the difference between bar charts and line graphs. Would you, by any chance, be able to provide some additional explanation or perhaps recommend some study materials that could help me understand this better? 
+
+
+Many thanks
+X",3,,3,,5,,6,6,6,7,7
+6,58adfc6e7cf56d0001f931a2,"Some college, no degree",,English,United States of America,United States of America,America,7,7,7,7,"No, and I try not to as much as possible. I even disable auto-complete on new phones because I personally don't like it.",6,4,5,4,6,5,6,5,7,5,4,5,6,4,5,3,5,5,4,6,3,4,6,5,6,7,7,5,3,5,"Good Evening, Alex Morgan,
+
+
+I need some assistance with looking up some additional materials for my Data Visualization Techniques concerning the difference between bar charts and line graphs, as I want to be able to figure out the best way to check trends.
+
+Therefore, any materials that can help with this will be well welcome.
+
+Yours, 58
+",224612.0,2,3-neg,"Hello Dr. Taylor Morgan
+
+
+I'm working on a group project for my course Strategic Marketing Management, as you well know. My project topic is on the best ways to develop a marketing strategy and implementing into a new product launch that will be eco-friendly focused. While I have been working diligently on the project to hit the goals that I'm looking for, I have been running into issues finding the best resources for our group to use.
+
+
+As such, I've attached the current project outline and some relevant documents that we have thus far. I was wondering if you had feedback and if you have resources to presentation on the market segmentation for product launches.
+
+Yours, 58
+",6,"I don't know them, why would I be close to them?",7,They can decide to help me or not. ,3,I just make it sound if there was some advice that they could give me.,1,1,1,1,1,2-pos,"Hey, Lee
+
+
+Sorry to bother you, but you know our project for the Q4 Analysis Report? I was wondering if you have finished your part of the project, and if you haven't, do you think you can finish it within the week? I have already completed my sections creating the slides, and now I just need your sections to complete it.
+
+Thanks, 58
+",3,"We are actually working closely to together, 3 makes the most sense.",5,"I just need their half, but if they don't give it, we are before going to be in trouble.",2,I think it's pretty reasonable to ask for their half of the project,1,1,2,1,1
+7,594a964c215cbd000146de75,Bachelor's degree,,English,United States,United States,Mexico,7,7,7,7,No.,5,4,4,5,4,4,6,6,6,5,5,7,3,4,1,3,7,4,6,7,6,7,7,7,4,4,4,4,4,4,"Hello Dr. Morgan!
+
+
+I hope you are having a good week so far. I am a student in I am reaching out to ask if you could look over my current project outline and provide any feedback or suggest any resources that might help me improve it. My project topic is on developing a marketing strategy for a new eco-friendly product launch.
+
+
+I am looking forward to hearing from you and thank you for taking the time out of your day to read this email.
+
+
+Kindly,
+xxxxx xxxxx",2929759.0,2,1-neg,"Hi Alex,
+
+
+This is xxxx. I am reaching out to ask if you could help clarify a concept you covered in the Data Visualization Techniques course. I am having a difficult time understanding the difference between bar charts and line graphs for showing trends. I hope this isn’t going to bother you too much, but could you possibly provide some additional explanation or examples to help me grasp this concept better?
+
+
+Thank you so much, and I hope you are having a great day. I am sorry to trouble you with this, but your insights have always been incredibly helpful.
+
+
+Kindly,
+xxxx",5,,6,,5,,3,3,4,2,5,2-pos,"Hi Jamie,
+
+
+I hope you're having a wonderful week. I just wanted to check in and see how things are going with your part of the project. I am in the process of creating the presentation slides based on the analysis and I was hoping to have your input on the data interpretation by Friday. I am looking forward to seeing what you have so far.
+
+
+Let me know if that works for you or if you need any help to wrap things up. Your insights are always so valuable, and I know your contributions will make the presentation truly extraordinary.
+
+
+Kindly,
+xxxx",4,,4,,2,,4,4,4,3,5
+8,596f003434773e0001fc0d28,Bachelor's degree,,English,Canada,Canada,Canada,7,7,7,7,"Sometimes on my email, it offers predictive text suggestions when writing an email message",6,7,7,6,4,3,6,7,3,5,5,6,3,6,6,3,5,3,7,7,3,7,7,6,4,4,1,5,4,5,"Hi Jamie,
+
+
+I hope things are going well for you this week.
+
+
+Wanted to quickly check in and see where you're at with your part of the project?  I'm looking at our project schedule and see this next stage ideally needs to be finished up by Friday.  Let me know if I can be of any assistance, or if there are any barriers to meeting that deadline for which we may need to adjust our schedule to accommodate.
+
+
+Thanks so much - really value your efforts and collaboration on the work thus far!
+
+
+Molly
+",212887.0,2,1-neg,"Hi Alex,
+
+
+
+I hope this email finds you well. I had a question relating to material that was discussed in the last class.
+
+
+Could you explain more about the difference between showing trends on a bar chart vs. a line graph? I'm not quite understanding the key points and would appreciate any help around this.  Also, would you be able to recommend some additional study materials or resources that might help clarify this topic further?
+
+
+
+Thanks in advance for your help.
+
+
+Molly
+",3,,3,,5,,4,3,5,4,5,3-pos,"Hi Dr. Morgan,
+
+
+I've been working on the outline for the marketing strategy project.  I think I'm close to finishing, but I would appreciate your feedback to make sure I'm on the right track.  Also, if you have any suggestions for resources or materials that could enhance our presentation, that would be much appreciated.
+
+
+Thanks in advance,
+Molly
+",3,,7,,4,,5,3,6,4,5
+9,59ada0805ea0f30001281732,Associate's degree,,english,england,england,british,7,7,7,7,"yes, used to help with work and make quizzes",5,4,2,5,4,3,5,6,3,3,5,4,3,4,2,6,5,5,6,5,6,6,6,7,3,4,2,3,4,2,"Hi there,
+
+I hope you're well.
+
+I was just writing regarding the Strategic Marketing Management course that I am currently enrolled in. 
+The current group project I am working on entitled ""Developing a marketing strategy for a new eco-friendly product launch"" is going well but i was hoping for some feedback from you and possible suggestions for some resources that would help us improve our presentation?
+
+Hope to hear from you soon,
+Many thanks.
+",,2,1-neg,"Hi there, 
+
+I hope you're well.
+
+I was writing regarding the Data Visualisation Techniques course I'm currently enrolled on. I was hoping you'd be able to clarify a specific concept from the most recent class discussion or possibly recommend some additional study materials that would be of use?
+
+Many thanks.
+
+
+",5,just an assistant in a course of many people,5,they have more knowledge than I and i am making a request to them.,3,,3,1,4,3,3,2-pos,"Hi there,
+
+I hope you're well.
+
+I was just writing regarding the Markey Analysis Report for Q4 that we have been collaborating on. Your insights and contributions have been absolutely fantastic so far, and I genuinely appreciate all the hard work you've put in. 
+
+I was wondering if you could let me know when you're likely to have your section completed? We're aiming to keep everything on schedule, and having your part by the end of the week would be absolutely marvelous. 
+
+If there's any issues or if you need any assistance, please don't hesitate to reach out. We're all in this together, and I'm more than happy to lend a hand if need be.
+
+Hope to hear from you soon!
+
+Take care and talk to you later,
+
+Best.
+",3,we have been working on a project so aren't strangers,4,,2,,6,7,7,6,6
+10,5aafd9eff69e940001d88bf4,Bachelor's degree,,English,England,England,English,7,7,7,7,No experience,4,6,6,5,4,4,4,7,6,4,4,4,2,4,5,3,6,5,5,7,4,7,7,4,3,4,4,4,4,3,"Hi Alex,
+I really enjoyed the recent class discussion on data visualization techniques. I found it very interesting and informative, however I'm struggling a bit with the difference between bar charts and line graphs for showing trends. Any chance you could explain it in a different way or have you any recommendations for some additional reading that would help me to get my head round it? It would be really helpful for the rest of the course.
+Many thanks, 
+Anj
+
+
+
+",540329.0,2,3-neg,"Dear Dr Morgan,
+As you know from our previous discussions, our group has been diligently working on the project outline for our upcoming presentation. I had been wondering if you might be able to review where we're currently at and give us some interim feedback. I'd also appreciate any suggestions you might have for resources to improve the section on market segmentation. Obviously you have a very busy schedule, but your insights would be incredibly valuable to us. 
+Many thanks for your consideration, I really look forward to hearing your thoughts.
+Best regards,
+Anj",4,There is always a hierarchical distance between a tutor/mentor and the student/mentee.,7,The tutor is the one with the resources and knowledge.,5,The request will require time and mental energy.,3,2,6,2,5,2-pos,"Hey Jaime,
+I was just checking in to see how you were getting along with your part of our joint project. Compiling and analyzing customer feedback data is quite a time consuming task so I hope we're still making good progress with the schedule. I know you've been putting in a lot of effort, and I can't wait to create the presentation slides based on your stellar work. It would be good if everything is in place for me to start that next week.
+
+
+If you need any help with anything or just a willing ear you know where I am!
+
+
+Talk to you soon
+Anj
+
+
+
+
+
+",3,I have to have a degree of closeness as we're working together.,5,We're co-dependent to get this project completed on time but I'll be under pressure if my partner doesn't complete their part on time,4,"I'm just giving a little nudge, not a major push at this point.",4,1,5,1,1
+11,5aca8df5436f550001000d03,Bachelor's degree,,English,New Zealand,New Zealand,New Zealand,5,6,6,6,no,4,4,5,6,3,4,5,7,3,6,7,4,3,2,3,3,7,4,7,7,5,7,7,7,3,2,3,2,5,6,"Jamie, I need to check on your progress on the customer feedback data as I need your work by this time next next week so I can complete the presentation slides based upon your analysis. Could you please give me an idea when you think you will finished and have sent your part of the project to me?
+
+
+
+Thanks,
+{signed with my name}
+",270567.0,2,3-neg,"Dr. Morgan
+
+I would like me feedback on the project outline if possible. I would appreciate any suggestions on improving the outline and in particular for resources you think would help improve our work.
+
+
+Thank you
+{signed with my name}
+Dr. Morgan,
+
+I am sorry to bother you, but I had been wondering if I could possibly trouble you for some feedback on our project outline.",4,"With the supervisor its a mid ground as its someone I'd have worked and talked with, I'm assuming a lot, but it would still feel quite formal as they are there in a professtional postion and are not a friend. ",5,"In this case they have a lot of authority over me, as they work for the University and are doing their job helping me. They are there to help me, but my work and grades would be dependant on how much and well they do help and guide me.",3,"I do think that this would be on the lighter end of demands, espically if they understand teh material well already so would have a good idea of what to suggest and the amount of work I was requesting wasn't too hmuch. They are also there to help with requests like this, so it's not expected that they will be asked for help.",3,1,4,2,2,1-pos," Alex, I need help fully understanding the difference between bar charts and line graphs for showing trends as I don't think I fully grasped the differences in class. Could you please recommend some extra reading material for on the topic?
+
+
+Thanks
+{signed with my name}
+
+",3,While defintly not friends I would assume that a student and a TA would have a reasonbly close but still formal realtionship - depnding class size of course.,6,Because I was asking for extra help that might not come up on a regular bais ,6,"Bex=cause the TA might have to spend time thinking about the question, looking up info on resourses to recommend, and them recommend them.",2,1,5,2,3
+12,5b1dfad43522660001b4510d,Bachelor's degree,,English,Scotland,Scotland,Scotland,7,7,7,7,I have tried it once for contacting customer support using ChatGPT,2,5,4,3,4,2,3,4,2,4,5,4,2,5,4,3,4,3,6,6,3,6,7,6,4,5,4,3,3,4,"Dear Jamie Lee
+
+
+I just want to follow up with you in regards to the project we are working on together and let you know where I'm at. I've currently done everything I can at the moment and just waiting on receiving the customer feedback data analysis from you so I can create the presentation slides from it. There is no immediate rush for today but if you could let me know if you can finish the analysis by the end of the week just to keep the ball rolling that would be great Jamie!
+
+
+Best Wishes
+Chelsea",,2,1-neg,"Dear Alex Morgan
+
+
+I hope this email finds you well. Could I possibly trouble you to clarify the difference between bar charts and line graphs for showing trends? and recommend study materials related to it? Thanks so much for you time.
+
+
+
+Kind Regards,
+
+
+Chelsea
+
+
+
+",6,It feels detached not putting in much effort to write the email because I didn't completely come up with it myself so it seems less personal,3,I think it leans towards me because they are a teaching assistant and I'm within my rights to ask for their assistance as that is a part of their job,1,Since it is a part of their job I don't think it's too demanding as they will be used to it,3,2,4,4,4,3-pos,"Dear Dr. Taylor Morgan
+
+
+
+I hope this email finds you well. I wanted to express my gratitude for your invaluable guidance so far on our project. Your insights have been absolutely fantastic. I just wanted to ask if you could take a moment to review our current project outline for developing a marketing strategy for the new eco-friendly product launch. Your feedback would be incredibly helpful to ensure we're on the right track. I would also like to ask suggestions for resources to improve the presentation on market segmentation. We really want to make sure our presentation is as impactful and thorough as possible.
+
+Thank you so much for your time and support,
+
+
+Chelsea",3,I feel like I found a better balance of my own words and thoughts and the AI assistant,4,I think it's in the middle ground as we are collaborating to make the product launch as best as it possibly can be.,3,They might be busy so it could be a little demanding but not too time consuming ,4,5,6,6,5
+13,5b4d41e13d01bd0001ec46c2,Bachelor's degree,,English,US,US,UK,7,7,7,7,I use chatGPT to check official work documents.,4,4,5,5,5,5,4,3,5,5,7,7,1,3,3,2,5,5,5,6,6,4,4,6,2,4,3,5,4,4,"Project Name: market Analysis Report for Q4
+
+
+Hi Jamie Lee,
+
+
+I am writing to see how you are doing with the info I requested.  I have finished up my part of the assignment (see attachment for the creation of presentation slides based upon the analysis) - an outline....and would like to know if you have made more progress since the last time we spoke.  
+
+
+Would you be able to finish up compiling and analyzing the customer feedback data, so that we can make sure to keep the project on schedule.
+
+
+Thanks so much,
+
+
+John",441883.0,2,1-neg,"Course Name: Data Visualization Techiniques
+
+
+Hi Alex Morgan, I am enrolled in a course (Data Visualization Techiniques - The difference between bar charts and line graphs for showing trends).  I had been wondering if you could possibly clarify a specific concept from our recent class discussion.  
+
+
+Thanks so much,
+John",7,It does not feel like its me writing it entirely,6,"They are not an AI, they feel more organic to the process",2,Not that demanding.  Its a TA's job to be helpful,2,2,3,2,2,3-pos,"Course Name: Strategic Marketing Management
+
+
+
+Dear  Dr. Taylor Morgan
+
+
+I am currently working on developing a marketing strategy for a new eco-friendly product launch.  I would like to request some feedback on the project outline and suggestions for resources to improve the presentation on market segmentation, if you have some time.    
+
+
+...could you take a look at our current project outline and provide any feedback or suggestions? We really value your insights and think they could make a huge difference.
+
+
+Thanks so much,
+John
+
+
+
+
+
+",7,"The AI writes differently to me, I had a hard time feel connected",3,My email comes off awkwardly,1,its just a request for help.  most people will be ok with this,1,1,2,1,1
+14,5baa3265c0a8c000014bea73,Bachelor's degree,,Hindi,UK,UK,UK,7,7,7,7,"No, not for social communication.",4,6,3,5,4,3,4,7,2,4,7,2,4,4,4,4,7,2,5,7,2,7,7,2,3,4,1,3,4,1,"Dear Dr. Morgan,
+
+
+I was wondering if it would be at all possible for you to provide me with some feedback and suggestions to improve my presentation regarding market segmentation for the eco-friendly team project?
+
+
+Yours Faithfully,
+Bishan
+
+
+
+",,1,2-pos,"Dear Jamie, 
+
+
+I hope you're doing fantastic. I wanted to get an update on your progress regarding the project we're working on. 
+
+
+I assume you have completed or nearly completed your part but if you haven't, would it be at all possible for you to complete your part by the end of the week? I really need your part so that I can create the presentation slides and stick to the schedule.
+
+
+Looking forward to hearing from you.
+Bishan",4,,4,,3,,6,4,7,1,4,1-neg,"Dear Alex, 
+
+
+I was wondering if I could possibly trouble you to clarify how trends in bar charts and line graphs occur as I found them somewhat confusing during our last class discussion. 
+
+
+I understand you're very busy, but any additional explanation or resources you could provide would be immensely helpful.
+
+
+I hope to hear from you soon.
+
+
+Best, 
+Bishan
+
+
+
+",3,,7,,2,,6,6,7,6,6
+15,5c0244a7d183df000141f793,Master's degree,,English,Hong Kong,Canada,Chinese Canadian culture,7,7,7,7,No,6,4,4,5,4,4,5,5,4,5,6,4,5,4,3,6,6,4,7,7,3,7,7,3,4,4,4,4,4,4,"Hi Alex,
+
+
+Re: The difference between bar charts and line graphs for showing trends
+
+
+
+We were discussing this concept recently, and I am wondering if you have time to clarify a few more fine points for me? Alternatively, are there any additional materials I can access for further study?
+
+Thank you!",115380.0,2,2-neg,"Hi Jamie,
+
+
+Can I get an update on the progress of this project on your end? Just a reminder that we'll need all parts finished within the week to make sure we're on schedule to finish. If you have the customer feedback data ready to go, please go ahead and send it my way.
+
+
+Thank you!
+
+
+
+
+",5,,4,,3,,3,2,3,2,1,3-pos,"Hello Dr. Morgan,
+
+
+I've drafted my project outline and would love for you to review and provide feedback; outline is attached. Also, I would much appreciate if you have any further suggestions for resources that can help improve my presentation.
+
+Thank you.
+
+",5,,5,,3,,2,2,2,2,2
+16,5c4f5967aac8be0001716a65,"Some college, no degree",,English,Ireland,Ireland,Irish,7,7,7,6,"Yes, to assist with writing emails to correct grammatical errors and to convey my thoughts in a clear easy to understand manner.",3,5,4,3,4,3,5,4,2,4,6,5,2,2,2,4,3,2,6,6,5,6,7,6,4,5,4,5,4,4,"Subject: Feedback on Develop Developing a marketing strategy for a new eco-friendly product launch
+
+
+
+
+Dear Dr. Taylor Morgan,
+
+
+
+
+I hope you are well, I am writing to ask for your feedback on my current group project. We are struggling to come up with any viable new eco-friendly product ideas. We have brainstormed several ideas (which I've attached), but none of them feel grounded in reality or seem like they will capture the attention of a real audience. 
+
+
+
+
+I would greatly appreciate it if you could provide some critical feedback and if possible any resources or books that provide insight into addressing our dilemma.
+
+
+
+
+Thank you for your time and attention.
+
+
+
+
+Regards,
+
+
+
+
+Student X",839944.0,1,2-pos,"Subject: Quick Check-In on Project Progress
+
+Hey Jamie,
+
+Hope all is well!
+
+It's getting towards the end of Q4 now and I'm very happy with what you have contributed so far. Your insights have been absolutely marvelous and have really pushed our project forward.
+
+I was just wondering if you could give me an update on the customer feedback data? We're aiming to wrap things up by the end of the week and have the slides ready for the presentation.
+
+I know you've been juggling a lot lately and I don't want to add any extra pressure, but your piece is so crucial to our timeline. If there's anything I can do to help you out, don't hesistate to give me a shout. We’re a team, after all, and I’m here to support you in any way I can.
+
+Best Regards,
+
+
+Alex",3,It looks like the two work closely together as their work is closely related.,2,I am more powerful as I have completed my duties and I am relying on my team member to produce the material needed to complete the project,2,It may come across demanding but it is a mutual demand that needs to be met by both members in order to complete the project and meet the deadline,3,3,6,6,4,1-neg,"Hey Alex,
+
+I hope you are well!
+
+
+I just finished a class on data visualization techniques.
+
+I'm finding it all very interesting but I am having a bit of trouble understanding the difference between bar charts and line graphs for showing trends.
+
+I hope this isn’t going to bother you too much, but could you possibly clarify the distinction between these two types of charts?
+
+Also, if you would have any additional resources I can tackle to deepen my understanding I would appreciate it immensely.
+
+
+Thank you so much for your time and assistance.
+
+Best regards,
+
+Phil Collins",5,,6,,5,,3,3,6,5,6
+17,5cab7cc86d3a6e001519d9e9,High school diploma or equivalent,,English,United States,United States,United States,7,7,7,7,No,4,4,5,5,4,3,6,6,6,3,7,2,3,4,2,5,7,5,7,7,1,6,7,6,5,4,4,2,4,1,"Hi Jamie. I wanted to know how your progress is going on the market analysis project? I've done all I need to do to this point, but in order to keep this project on schedule, we will need to finish it by the end of the week. If you haven't finished your task yet and want some help, let me know. Thanks. ",285918.0,1,1-pos,"Hi, Alex. I'm reaching out to you because I wanted to get some clarification on the concept we discussed in class last week. I feel that I don't have a good grasp on it and I was hoping you could help me out. Also, do you have any additional study materials or resources that you think might be helpful? Thanks.",4,"It's my course TA that I have interacted with before, so while I don't feel really close with them, I don't feel too distant from them either.",5,They are in a higher professional position than me.,2,It's not that demanding. I am only asking for clarification and perhaps some study materials which shouldn't be difficult for the TA to provide.,7,5,6,7,7,3-neg,"Hi, Dr. Morgan. I was wondering if you could provide some feedback on the product launch presentation outline we have been working on? I understand that you are busy, so if you can't provide feedback at this moment, would you be able to suggest any resources that might help us improve our presentation? Any help you could provide would be invaluable to the success of our project and greatly appreciated. Thank you.",5,This seems like someone who is quite a bit higher in authority than me and not someone I would be that close with.,6,"This person is a doctor, meaning they definitely have higher qualifications than me.",4,"It may or may not be that demanding, depending on how busy they are at the moment.",7,5,6,7,7
+18,5d3587a13e11900001093ae8,Doctorate degree,,Russian,Russia,England,England,7,7,7,7,Yes I use chatgpt sometimes to help write emails to save time ,4,4,3,5,4,5,5,4,3,6,4,6,2,4,2,2,6,3,6,7,6,7,7,7,2,4,2,1,4,2,"Dear Jamie, 
+
+
+I hope this email finds you well! I am currently planning to start working on the presentation on customer feedback data, and have made some drafts but would of course need your input after you have finished with data analysis. I was wondering, would it be possible for you to send it to me by the end of the week? I have a lot going on at the moment and want to make sure we complete this on time. 
+
+
+Thanks so much for your help in advance! 
+
+
+Best wishes,
+X ",89708.0,1,3-pos,"Dear Dr Morgan, I hope you're doing absolutely fantastic! We’ve made some great progress on our project and are really excited about how it's shaping up. We’ve put together a preliminary outline and would love to get your expert feedback on it. Your insights have always been incredibly valuable to us, and we believe your suggestions could make a lot of difference in refining our presentation.
+
+Could we perhaps schedule a quick meeting sometime this week to go over the outline? We’re eager to hear your thoughts and make any necessary improvements. Also, if you have any recommended resources or materials that could help us enhance our presentation, we would be very grateful. 
+
+Thank you so much for your continuous support and encouragement. We really appreciate your time and expertise.
+
+Looking forward to hearing from you. 
+
+
+Best wishes,
+X",3,We work closely together but not like friends ,6,Supervisor on this project has a lot more power ,3,I think providing feedback should be rather quick ,5,5,6,6,6,1-neg,"Dear Alex,
+
+I hope this email finds you well. I had been wondering if I could ask for some clarification regarding the differences between bar charts and line graphs showing trends that was discussed in our recent class. I understand that you must be quite busy, but I would greatly appreciate it if you could possibly provide some additional insights on this topic. Specifically, I am particularly interested in understanding how to choose between these two types of graphs when presenting data trends.
+
+Additionally, if there are any supplementary materials or resources that you could recommend, it would be immensely helpful. I am eager to deepen my understanding and ensure that I am well-prepared for our upcoming assignments. 
+
+
+Thank you so much for your help in advance! 
+
+
+Best wishes,
+X",5,We have only met briefly but I need more context here anyway ,4,I think we are similar in this instance ,5,Asking for extra materials or explanations could be demanding on people. ,6,6,6,6,6
+19,5d8cef3c28e183001a335ab0,Bachelor's degree,,English,United Kingdom,United Kingdom,United Kingdom,7,7,7,7,no,5,4,5,5,4,4,6,5,6,5,6,5,5,3,5,6,7,3,6,7,6,7,7,4,4,5,6,2,4,3,"Hi Alex, 
+
+
+Hope you are well. I take the course Data Visualization Techniques, which you support with. I was wondering if you would be able to clarify what the difference is between bar charts and line graphs, for showing trends. Would you recommend any additional study materials to help me learn more about this topic?
+
+
+Thank you so much for your help, 
+Amy ",156926.0,1,2-pos,"Dear Jamie Lee, 
+
+
+I hope your part of the Market Analysis Report for Q4 project is going well. I'm now at the stage where I need to combine my part of the project with yours to move forward. Please let me know where you're up to and if you are likely to finish it within the week. I'm really keen to stay on schedule and I would love to hear your anaylsis of the customer feedback data. 
+
+
+Hope to hear from you soon. 
+Thanks 
+
+
+
+
+
+Best regards,
+Alex
+
+P.S. By the way, how did your weekend hiking trip go? I remember you mentioning it last week. Hope",5,As they were a colleague I was working with rather than someone I know well on a personal level ,3,I felt slightly more powerful as I was the one chasing up the other person,5,It requires them to work a bit quicker and putting pressure on them,5,3,5,2,3,3-neg,"Good evening Dr Morgan,  
+
+
+I hope this email finds you well. I had been wondering if I could possibly trouble you for some feedback on our current project outline, which I have attached. We have made progress since our last discussion and would greatly appreciate your feedback to ensure we are on the right track. Alternatively, I would welcome any suggestions of resources which may improve our presentation.
+
+We understand that your schedule is busy so I really appreciate any feedback you may have. 
+Thank you so much.
+
+
+Best wishes, Emily Johnson
+University of New Haven
+Project Management Team",5,Distance as they are not a friend or on the same power level as me,7,"I am making a demand and asking for a favour from them , and they have more knowledge than me",6,Requesting feedback takes effort to read and share their thoughts ,6,5,6,6,6
+20,5dfedfbb557425b599c8c523,"Some college, no degree",,English,UK,UK,UK,7,7,7,7,no,5,7,4,6,4,4,7,7,6,3,4,4,2,4,5,5,6,4,7,7,4,7,7,4,3,4,3,3,4,4,"Hi Jamie
+I just wanted to check in with you regarding the  Market Analysis Report for Q4.  I've completed the presentation slides and wondered how you were getting on with the customer feedback data?  I'll need the results as soon as possible so that I can add them to the slides.  Do you think they'll be done this week? Give me a shout if you need any help with them, I know you have a lot of work on at the moment.
+
+
+Thanks
+
+",210778.0,1,3-pos,"Hi Dr Morgan
+I wonder if it would be possible for you to take a look at our current project outline? We've put a lot of effort into it and would love to hear your thoughts. Your feedback is always incredibly helpful. I also wondered if you had any suggestions for any other resources that we should  use to improve the presentation.
+
+
+Thank you very much",6,I don't feel that I know them very well,7,,6,,6,5,6,5,5,1-neg,"Hi Alex
+I wondered if you might be able to clarify a concept from our recent class discussion. I am having a bit of trouble understanding the application of differential equations. I hope this isn’t too much of an imposition, but could you possibly provide some additional explanation or examples?
+
+
+So that I can get on top of the subject, I would greatly appreciate any recommendations for additional study materials or resources that might help. 
+
+
+Thank you very much for your time
+
+
+
+
+
+and assistance with this matter. I understand you must be quite busy, but your guidance would be invaluable to me.
+
+Kind regards,
+Emily",5,,7,,7,,5,5,6,5,5
+21,5e00fbbf5777b5cea2d27c6a,Bachelor's degree,,Korean,South Korea,USA,USA,7,7,7,7,"Yes, I have used AI tools like ChatGPT for social communication purposes. For instance, I once used ChatGPT to help me draft a heartfelt birthday message for a friend. I wanted to make sure it was both personal and well-written, so I provided some details about our friendship and the AI helped me craft a message that was warm and sincere. It saved me a lot of time and the end result was really appreciated by my friend. Overall, it was a positive experience and I would definitely use AI tools for similar purposes in the future.",4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,"Subject: Clarification on Bar Charts vs. Line Graphs
+
+Hi Alex,
+
+I hope you're doing well. I had a question from our recent class discussion that I wanted to clarify. We briefly talked about the differences between bar charts and line graphs for showing trends, and I’m still a bit unsure about when to use one over the other.
+
+Could you explain a bit more about how each type of chart is best suited for different types of data trends? If you have any additional resources or reading materials on this, I’d really appreciate it!
+
+Thanks so much for your help!",130574.0,2,3-neg,"Dear Dr. Morgan,
+
+I hope this email finds you well. I had been wondering if I could possibly trouble you for some feedback on our current project outline. We have made good progress
+
+and believe that your insights would be invaluable at this stage. I understand that you have a very busy schedule, but any suggestions or resources you could recommend?",4,,4,,4,,5,5,5,5,5,2-pos,"Hi Jamie,
+
+Hope you're doing absolutely fantastic! I just wanted to check in and see how things are going with your part of the project. Your work is always so great.
+
+I'm really looking forward to seeing what you've come up with this time. You know how much we all rely on your incredible skills to keep everything running smoothly.
+
+So, do you think you might be able to wrap up your section by the end of the week? It would be such a big help to keep you on track. I know you've got a lot on your plate, but your contributions are always so spot-on and make a world of difference. If there's anything you need, let me know.",4,,4,,4,,4,4,4,4,4
+22,5e2c8f69cad44b2bc5ce9a34,Bachelor's degree,,English,England,England,England,7,7,7,7,No,4,5,4,5,4,3,4,5,2,3,6,4,2,4,5,2,6,3,7,7,7,5,7,6,2,4,1,3,4,4,"Good Morning Dr. Morgan,
+
+
+Re: Strategic Marketing Management Course.
+
+
+I hope you have had time to read my current project outline regarding the abovementioned course.  I would like, at this stage, to obtain your feedback regarding said proposals and would welcome your input and constructive criticisms in order to move this project towards completion.
+
+
+Kind Regards,
+
+
+Alex Thomas",,1,1-pos,"Good Morning Mr Morgan, 
+
+
+Re: Course Name: Data Visualization Techiniques
+
+I would like your guidance to clarify the following, if possible: The difference between bar charts and line graphs for showing trends.
+
+
+If you could get back to me with some information, that would be great.
+
+
+Thank you - Alex Thomas Hey [TA's Name],
+
+I hope you're doing well! I really appreciated your insights during the last office hours – you have a knack for making complex",3,,6,They have the information and clarification that the sender requires,5,,2,1,5,3,2,2-neg,"Hi Jamie, 
+
+
+I had been wondering if you might be able to provide an update on your progress with the project. I understand that you may have other commitments, but am keen to press on with the project.  If you could complete and return to me your section by the end of this week, it would be greatly appreciated. 
+
+
+Kind regards - Alex Thomas",2,Familiar with colleague,4,,6,,5,6,5,7,6
+23,5ed94af267e7bf10f180c5b0,Master's degree,,Korean,South Korea,Canada,Korean,6,7,7,7,"Yes, I have asked it to create emails and given some bullet points to formulate it with ",3,4,5,5,4,5,6,6,3,4,6,5,4,3,6,3,6,4,5,7,5,6,7,2,3,4,6,3,4,6,"Hello Dr.Morgan,
+
+
+Hope you are having a good day. I want to first thank you about the last meeting we had, your valuable comments helped me have a better start to this project. Today,I am reaching out to you to request a quick meeting to discuss the current project I am working on, in the topic of marketing strategy development for a new eco-friendly product launch. I have done some further research since our last meeting and have created a project outline. Since this is my first time building a project outline for strategic marketing management project, I would truly appreicate if we can have a quick in-person meeting to review this project outline. Would you have any availability next week?
+I am also looking to receive some suggestions for resources to improve the presentation on market segmentation. If there is anything you expect me to prepare in order to better the review session, please also let me know.
+Thank you.
+
+
+Best Regards,",407527.0,1,2-pos,"Hello Jamie Lee,
+
+I hope you had a wonderful weekend. I am following up on our current proejct progress, and wanted to check in and see how things are going with your part of the project. 
+With the presentation date quickly apporaching,  I’m really looking forward to seeing what you’ve been working on. Could you kindly provide an update on your progress? It would be absolutely fantastic if we could have your section completed by the end of the week to keep up with planned proejct scheudle. 
+Thanks a million. Your input is always so invaluable, please let me know if there is anything I can assist with your work on feedback compliation and analysis. Any heads for roadblocks would be also highly appreciated so we can tackle them together.
+
+Have a good afternoon!
+Regards",3,Coworkers so close but didn't think we are work besties so a 3.,4,I would not think I would be necessarily at a higher managment position given the scenario and think we are at a similar senority level,5,It could be quite demanding knowing someones work is dependent on me so a 5. ,3,5,5,3,5,1-neg,"Hello Alex,
+
+
+Hoping you are enjoying the nice weather out. I had been wondering if I could possibly trouble you to clarify a concept from our recent class discussion. I am having some difficulties grasping the concpet of differential equations, particularly the method of solving second-order linear differential equations with constant coefficients.
+A quick review for evaluating the differences of bar cahrts and line graphs for treands analysis that were used during the lecture would be immensely helpful. Additionally, if you could possibly recommend any supplementary study materials or resources that might aid in my understanding, it would be greatly appreciated. I would like to come more prepared to the review. I understand that you must be very busy, but any assistance you could provide would be invaluable to me. 
+
+Thank you.
+
+
+Regards,",6,"TAs are not that closer like professors, they to me, at least felt very distant knowing they mark my paper and work.",7,"TA has a say, not myself",6,It will requrie their personal time to send me an email back with answers or to set up a time so it will be very demanding as they are usually very busy,3,3,4,4,4
+24,5ee1cf1e0df8e55c6b9e1f1a,Master's degree,,Bangla,Canada,Bangladesh,Bangladesh,5,5,5,4,Yes,3,4,2,5,4,3,4,4,4,2,4,3,3,4,3,1,5,2,4,7,7,7,7,7,2,3,4,3,4,6,"Hi Jamie, 
+
+
+Hope things are going well with you. Just wanted to check-in and see how much progress you have made in compiling and analyzing customer feedback data for the ""Market Analysis Report for Q4""? I have been asked to create presentation slides based on the analysis by end of next week and was wondering if it would be possible for you to finish your part within the week?
+
+
+Please let me know at your earliest convenience and we can speak should you have any questions. ",131663.0,2,1-neg,"Hi Alex, 
+
+
+I hope that you are doing well! I was just wondering if it would be possible for you to go over a question I had for data visualization techniques? I wanted to know the specific differences between bar charts and line graphs, particularly in terms of their most effective use cases. I understand that you must be quite busy, but I appreciate your prompt response. 
+
+
+Thanks,",5,,7,They have the opportunity to respond to me or not ,5,,4,6,5,6,5,3-pos,"Hello Dr. Morgan, 
+
+
+I hope you are well! I am a student in your Marketing Management course and had a question regarding the ""Developing a marketing strategy for a new eco-friendly product launch"" project. I was wondering if you would be able to provide me with more feedback on the project outline and suggestions for resources to improve the presentation on market segmentation? 
+
+
+Thank you so much for your time and guidance so far. Your insights have been absolutely invaluable, and I truly appreciate your support.
+
+
+",4,,7,,4,,5,4,5,6,5
+25,5f3fbbb2edd4d20456a952a4,Master's degree,,Greek,Cyprus,Cyprus,Cyprus,7,7,7,7,Yes i have used ChatGPT to draft emails and get ideas on projects,3,5,5,6,4,4,6,5,3,5,5,4,1,2,5,3,5,5,6,6,6,7,7,7,2,4,1,1,4,1,"Hi Jamie,
+
+
+This is in regards to the Market Analysis Report for Q4 project. I need to create a presentation based on the analysis of the customer feedback data, however i need your input in order to proceed. Can you please let me know when you are going to be done with your part as we need to submit this the soonest.
+
+
+Thanks.",,2,1-neg,"Hi Alex, I hope this email finds you well. I had been wondering if I could ask for some clarification regarding the concept of differential equations that we discussed in last. I would greatly appreciate it if you have some time. Could you possibly explain the part about the initial value problems in a bit more detail? I found that section particularly challenging and would benefit from a deeper understanding. 
+
+
+Thanks again,",4,I don't feel particularly close or distant.,5,The receive is more powerful as i need his help.,5,Slightly demanding as they will need to dedicate some time.,6,6,7,7,7,3-pos,"Hi Dr Taylor, 
+
+I hope you're doing absolutely fantastic! I wanted to reach out because our group has made some great progress on our project outline, and we’re really excited. We were wondering if you could take a look at what we've done so far and provide some feedback. Your insights have always been incredibly valuable to us.
+
+
+Thanks again.",3,They are a professor so i feel a bit close to them. ,5,I need their input. ,5,They need to dedicate time and effort to help me.,7,7,7,7,7
+26,601b28841ca7bb2f8edaa293,Associate's degree,,English,USA,USA,USA,7,7,7,7,No.,4,4,5,4,4,5,6,5,3,3,6,2,2,3,1,2,5,2,7,7,6,5,7,3,3,6,6,2,4,2,"Hi Alex,
+
+
+I was hoping you could provide some clarification regarding the most recent class discussion.  My question is basically, when is it more appropriate to use a line graph vs. a bar chart?  Can they be used for the same situations?  Are there any situations where only one of them can be used?  I did some of my own research, and I found a few links, but I'm still not entirely sure I understand.  If you have any advice or resources, I would very much appreciate it!  
+
+
+Thanks,
+John Doe",249386.0,2,3-neg,"Hi Dr. Morgan,
+
+
+I was hoping that you might be able to provide some feedback on our current project outline.  We have made significant progress, but I believe your insights could greatly enhance the quality of our work.  If you have any suggestions or resources that might help improve our presentation, it would be greatly appreciated. I understand that you have a busy schedule, but any guidance that you could possibly offer would be invaluable to us. We are aiming to finalize our outline by the end of this week.  Thank you very much for your time and consideration.
+
+Best regards,
+Emily Johnson",3,"My project advisor is probably not available for friendly chats, but has a responsibility to be helpful to students and faculty whenever it's convenient.  ",5,"The receiver has a higher level of social status, but part of their job is to serve the needs of students.",3,"It's presumably part of the project advisor's job to be helpful in this instance, and it shouldn't take more than a few minutes.",3,2,5,7,7,2-pos,"Hi Jamie,
+
+
+Wondered if you could give me an update on your progress.  If you could finish up your part within the week, that would be really helpful for staying on schedule.  ",3,"This person is on my team, but they have been less helpful recently.  ",2,"My coworker will probably get in trouble if he doesn't get his work done, and I probably won't.  I am in a better position in terms of how I will be viewed.  ",6,"There is an element of forcefulness and urgency to my request, even though the request is not a special favor.  ",7,1,5,6,5
+27,60723c224e9193e5d5fe5712,"Some college, no degree",,Italian,Italy,Italy,United Kingdom,7,7,7,7,I have to make the process speedier,4,4,4,5,4,5,6,5,3,5,5,6,3,4,3,5,6,6,5,6,7,6,7,5,3,4,2,3,4,5,"Hi Jamie,
+
+How's it going?
+
+
+As discussed, I'm about to start working on the slides for the Q4 Market Analysis Report and will need your analysis of customer feedback to complete my deck. I was wondering if you've already started compiling it and whether you think it'll be ready by EOW? It'd be really helpful if you could send it through by Friday so I can get to those slides next week and we can turn this in on time.
+
+
+Thanks and kind regards,",172641.0,1,3-pos,"Dear Dr Morgan,
+
+
+I hope you're well.
+
+
+As discussed during our previous meeting, we've made significant progress on our project outline. We would greatly appreciate your expert feedback to ensure this is in line with your expectations. 
+
+
+We were also wondering if you could kindly provide some suggestions on resources to improve our presentation on market segmentation.
+
+
+We look forward to hearing your thoughts and thank you in advance for your help and support.
+
+
+Kind Regards,
+
+
+C & team",5,"this is a professional environment and a person more senior than me, I wouldn't consider us close",6,the receiver is more powerful because they're in an authority position over me,3,it's their job,3,1,5,2,2,1-neg,"Dear Alex, 
+
+
+
+I hope this email finds you well. 
+
+
+Based on the recent class discussion on Data Visualisation, I had been wondering if I could ask for some clarification regarding the difference between bar charts and line graphs for showing trends. Additionally, if there are any supplementary materials or resources that you could possibly recommend, it would be immensely helpful.
+
+
+Thank you in advance for your help.
+
+
+BR,
+
+C",4,,5,,3,,3,4,5,3,3
+28,609911e00dd4843e39cb88ac,Bachelor's degree,,English,England,England,England,7,7,7,7,I have used Gemini and GPT for work purposes every now and then ,3,4,2,4,4,3,5,6,2,3,5,3,3,3,3,4,5,3,5,5,6,7,6,6,3,3,2,2,2,1,"Dear Dr Morgan,
+
+
+I hope you are well. I am writing regarding a group project which involves strategic market management. Our focus is to develop a strategy for a new eco-friendly launch.
+
+
+I have outlined the project and i was hoping you could provide me with some feedback. I would appreciate any of your ideas for the marketing and recommendations for additional support / strategic plans that will improve the presentation.
+
+
+I hope this summarizes everything and i look forward to hear your ideas. 
+
+
+Kind Regards
+
+
+A",315575.0,1,1-pos,"Dear Alex,
+
+I hope you're doing absolutely fantastic! I wanted to thank you again for the incredible support you provided during our last office hours. Your insights were incredibly helpful.
+
+
+I want to talk about our last class discussion about Data Visualization Techniques.  I'm still puzzled with line graphs and bar charts when it comes to trends.
+
+
+Please help me understand the key differences between them, especially in terms of their best use cases. I feel like I'm missing some crucial points that would really help.
+
+
+Many Thanks",4,,4,,3,,5,6,7,7,7,2-neg,"Hi Jamie,
+
+
+I hope you are well. I am looking to gain insight of the customer feedback data for the analysis report. Would you, by any chance, be able to provide an update on your progress with the data compilation? 
+
+
+Many thanks",5,,4,,5,,5,5,6,6,7
+29,60cee4ec871f36088fe20ff3,Master's degree,,Chinese,China,China,China,4,4,5,3,I often use AI to help me polish emails when I need to send them at work.,4,6,5,5,4,3,5,6,6,3,6,4,3,4,4,3,6,6,7,7,7,6,7,7,4,4,1,3,4,1,"嗨，Jamie，
+
+
+希望您收到这封邮件后一切顺利。我写信是为了询问我们第四季度项目市场分析报告的更新情况。我想问一下汇编和分析客户反馈数据的进度，以便我可以根据分析结果创建演示文稿幻灯片。您是否可以在本周内完成？
+
+
+感谢并问候，
+温",495485.0,2,1-neg,"Hi Alex,
+
+I apologize for the interruption, but I had been wondering if I could possibly ask for your assistance with a concept discussed in our recent class session. The topic of differential equations was quite challenging for me, and I am struggling to fully grasp the method we covered. More specificly, I would like to ask about the difference between bar charts and line graphs for showing trends.
+
+Could you perhaps provide some additional clarification on this method? I understand you must be very busy, but any help you could offer would be greatly appreciated.
+
+
+Furthermore, if you could possibly recommend any additional study materials or resources that might aid in my understanding, it would be immensely helpful. I am committed to improving my comprehension of the subject and would be extremely grateful for any guidance you can provide.
+
+Thank you very much for your time and consideration.
+
+Best regards,
+
+[Your Name]Best regards,
+
+Jordan Smith",5,"We don't have a very close relationship, but we have been in contact.",6,"I need the receiver to give me advice, and this process is actually a process he controls.",5,My request requires the receiver to spend a significant amount of time to help me.,6,5,7,7,7,3-pos,"Dear Dr. Johnson,
+
+I hope this email finds you well. Our team has made significant progress on our project, and we are quite excited about the direction it's heading. We truly value your insights and expertise regarding marketing strategy, and we were wondering if you could spare some time to review our current project outline. The topic of our project is Developing a marketing strategy for a new eco-friendly product launch. Your feedback would be incredibly beneficial to us.
+
+Additionally, if you have any recommendations for resources or materials that could enhance our presentation, we would be absolutely fantastic. We’re eager to ensure our project is as polished and impactful as possible, and your guidance would be instrumental in achieving that. 
+
+Thank you for your continued support and encouragement throughout this process. We really appreciate your dedication to helping us succeed.
+
+Looking forward to hearing from you soon!
+
+Best regards,
+
+Alex, Jamie, and the Team",6,"We don't have a close relationship, although we do have contact.",7,Obviously the receiver has more power and he will influence us.,6,I think our request will cost the receiver a lot of time and effort. He needs to help us revise and give suggestions.,6,6,7,7,7
+30,610f08f3d1314c14931e2829,Master's degree,,Yoruba,Nigeria,USA,NIgeria,7,7,7,7,I have used AI to make corrections to my sentences before sending an email or sending a status update on LinkedIn.,2,6,4,6,6,7,6,7,2,5,7,7,3,4,3,4,7,4,6,7,4,7,7,4,5,4,4,6,4,4,"Hello Alex,
+
+
+I am a student enrolled in the course 'Data Visualization Techniques' and would like to ask for some clarifications regarding bar charts and line graphs for showing trends. I currently have some challenges with showing trends using bar charts and line graphs, I was unable to get good explanations from searching the web. Could you clarify how to go about this it recommend an additional study material I could use.
+
+
+Thank you.
+
+
+Regards,
+Arike Asake",,1,3-pos,"Dr. Morgan,
+
+
+
+I trust you are doing great. I would like to request for a feedback regarding our group project on developing a marketing strategy for a new eco-friendly product launch. We've made some great progress and have put together a comprehensive outline that we're quite excited about. It would be absolutely marvelous if you could take a look at it and share your insights.
+
+Additionally, if you have any resources or materials that you think might be beneficial for our presentation on market segmentation, we would be delighted to incorporate them. We know how insightful your recommendations have been in the past, and we're eager to make our project as outstanding as possible.  
+
+Thank you so much for your time and support, Dr Morgan. We truly appreciate it!
+
+Warm regards,
+
+[Your Name]
+[Your Group Name]
+[Your Contact Information]",2,I have interacted with the receiver several times in the past and so do not feel socially distant to them.,6,The receiver is in a more powerful position than me.,6,,4,2,6,6,4,2-neg,"Hello Jamie,  
+
+
+I hope this email finds you well. I had been wondering if you might provide an update on your progress with the project. Do you think you would be able to complete your part of the work before the end of the week? I am aware that you must be very busy and I apologize for any inconvenience this request may cause. However, it would be immensely helpful if you could send in your completed part by the end of the week as it is crucial for the overall timeline of our project. Can you please confirm this by tomorrow? Thank you so much for your understanding and cooperation. I truly appreciate your efforts and look forward to your response.
+
+Best regards,
+[Your Name]",5,,4,,3,,5,3,5,6,6
+31,613fa50d01542277d8eaf5e4,"Some college, no degree",,Taishanese,Canada,Canada,"Chinese, mainly Hong Kong and Guang Dong culture",6,5,6,6,"Yes for ChatGPT and some writing assistants. I typically used it to define certain complex concepts or help me better plan out how to talk about certain topics within an essay paper. I found it helpful to chose the ideas itself to explore, but was rather skeptical of the information provided since no real sources were provided and it sounded really generalized.",3,5,4,6,5,4,4,3,3,3,5,3,4,3,3,3,4,3,7,7,6,6,7,6,2,5,3,3,4,2,"Hello Alex,
+
+
+I'm taking Data Visualization Techniques with you and I had a question regarding a concept that was covered in a recent class discussion.
+Would you be able to help clarify the difference between bar charts and line graphs for showing trends?
+If you have any resources or study materials to help with this topic, I would much appreciate it.
+
+
+Thanks.
+
+",217617.0,1,3-pos,"Greetings Dr. Morgan,
+
+I hope you're doing absolutely fantastic! We've made some great progress on our marketing strategy project and are really excited about the direction it's heading. We were wondering if you could spare a moment to review our current project outline? Your insights have always been incredibly valuable to us, and we believe your feedback could really help us make our ideas presentable.
+
+Could you please take a look and let us know if there are any areas we should focus on or improve? Also, if you have any recommendations for improving our presentation on market segmentation?
+
+We'd be absolutely thrilled to hear your thoughts! Your expertise in this area is just extraordinary, and any suggestions you have would be immensely appreciated.
+ 
+
+Thank you so much for your continued support and guidance. We know how busy you are, so we truly appreciate any time you can spare to help us",2,"With the generated email suggestions, I certainly felt a lot closer to the supervisor and like I had maybe been in touch with them already enough to have them recognize me. ",5,,3,I definitely think that other groups may have a similar idea or wish to receive certain resources. Maybe it is a bit more demanding on the part of the supervisor checking each individual group's progress but it would make sense that they would willing to do so without any pushback.,3,2,6,5,4,2-neg,"Hi Jamie,
+
+
+I hope things are coming along with the Market Analysis Report. I was wondering how things are progressing on your end with the project in compiling and analyzing customer feedback. I am just now about to work on creating the presentation slides, but will need your portion of the work to finalize it.
+How soon do you think you will have most of your part ready within this week? I would much like to get ahead of the schedule if possible, so we can just relax afterwards.
+
+
+Thanks.
+
+",3,As a group member and having decided on who was doing which role for the presentation we'd both have to trust one another somewhat. Otherwise I would say we are very distant and not on the same wavelength to get it finished quickly.,5,"They get the last say, especially because I feel like I might be a little pushy in the email. If they say they can't be done sooner, then I just can't do a whole lot to force it.",5,,6,6,4,2,5
+32,61479ed0d0f07687537f23a5,Master's degree,,Portuguese,Spain,Spain,Portugal,5,5,6,6,no,4,4,5,4,4,6,6,6,6,3,5,4,3,4,3,4,6,5,5,6,6,6,6,6,2,4,1,2,4,2,"Dear Dr Morgan, 
+
+I hope you are well. I thought I would email you to let you know that we have completed the outline for our group project on Strategic Marketing Management, which was focused on developing a marketing strategy for a new eco-friendly product launch. We have encountered a few problems, in particular with the presentation, and we would very much like to receive your feedback on our outline. Furthermore, we would benefit from your advice on suggestions for resources to improve the presentation on market segmentation. 
+
+Please let us know when you have some time to help us with our project. 
+
+Kind regards, 
+
+Lina 
+
+",424167.0,1,2-pos,"Dear Jamie Lee, 
+
+I hope you are having a good day. I just wanted to check in and see how things are going with your part of the project. I know you have been putting a lot of effort into it, and I must say, it's looking great so far. Could you let me know if you think you will be able to wrap it up by the end of this week or if you need a bit more time to get everything perfect? Your dedication and attention to detail are really inspiring and I appreciate all the hard work you have been putting in. 
+
+I believe we both agree that it's really important for us to stay on track, so we can meet the deadlines and keep everything running smoothly. Let's make sure that we continue to support each other and keep the momentum going. I'm confident that we can pull this off together.
+
+Thanks a million for all your effort. If you need any help or if there is any way I can assist, just give me a shout and I'll be right there. 
+
+Looking forward to seeing you soon. 
+
+Best regards, 
+
+>>>>>>
+",3,"Because the receiver of the email is a colleague, someone I work with, but he/she is not necessarily a friend. ",4,"If we are working on a project together, I assume we are influencing each other equally. ",3,"If we are working as a team, and there are deadlines that we have to meet, it's not demanding to enquiry about my colleague's part of the work. ",4,3,5,6,5,1-neg,"Dear Alex, 
+
+I hope you are well. I have been wondering if you might possibly have a moment to clarify the concept of Bayesian inference that we discussed in the last class. I understand that you must be very busy, but I would greatly appreciate any additional explanation or resources you could provide. Would there, by any chance, any possibility of your providing some information or perhaps recommending some study materials related to Bayesian inference? I apologise for any inconvenience that this may cause. Your assistance would be greatly appreciated and I would be eternality grateful for your help. 
+
+Thank you so much for your time and consideration. 
+
+Best regards, 
+
+>>>>>>>
+",3,Because I work with that person but I don't have any other social contact with him.,5,,4,"we should work together, we should be equal",3,3,4,5,5
+33,6151b373b274d12a949a4369,Bachelor's degree,,"English, Bulgarian",Bulgaria,Bulgaria,Bulgaria,7,7,7,7,Yes - I wrote a condolence card with one more recently,5,4,5,5,4,4,4,6,4,3,5,4,3,4,2,3,5,3,5,5,5,5,6,5,4,4,3,3,4,3,"Hi Jamie
+
+
+Hope all is well - looking forward to working together on the Q4 report!
+
+
+I'm planning out my work for the rest of the week and wanted to check in with you on the customer feedback piece. When do you think you might have finished compiling and analysing the data? I was thinking of setting some time aside on Thursday pm/Friday am to do the slides - let me know if that works for you.
+
+
+
+Best
+Annie",160518.0,1,1-pos,"Dear Alex,
+
+I hope you're doing well! I wanted to say how much I appreciated your help during office hours last week. 
+
+I have  a specific question that I wanted to ask - can you please clarify what the difference is between bar charts and line graphs for showing trends?
+
+
+I would very much appreciate additional study materials related to this if you have any available.
+
+Best
+Annie",3,,5,,3,,3,5,5,3,3,3-neg,"Dear Dr Morgan
+
+I hope this email finds you well. I am writing to seek your valuable feedback on our current project outline. We have made significant progress in developing a marketing strategy for our eco-friendly product, and I would love your feedback.
+
+
+It would be very useful to me if you could suggest any resources that might help improve your presentation.
+
+
+Best
+Annie",5,,5,,3,,4,4,5,4,5
+34,61539b3fa541b182c0fadde1,Professional degree,,Russian,USSR,USSR,Russia,7,7,7,7,No,2,4,6,2,3,6,2,6,6,3,6,6,2,4,6,2,7,6,3,7,3,6,7,7,2,4,2,2,4,2,"Dear Alex. 
+I need your help on understanding specific concept from the recent class discussion. I am not sure I understand correctly the difference between bar charts and line graphs for showing trends. Can you please clarify it. It would be very nice if you can also recommend some additional study materials related to the topic. ",347542.0,1,2-pos,"Hi Jamie. I am waiting for when you will finish your part of work for our project that I can complete mine Hey Jamie,
+
+Hope you're doing fantastic! I was just wondering how things are going with your part of the project. I'm really excited to dive into my   section, but I need your brilliant work to get started. You know how it is – teamwork makes the dream work, right?
+
+Do you think you  could wrap up your section by the end of the week? It would be absolutely marvelous to keep everything on track. If there's anything you need or if you've hit a snag, just let me know. We can totally brainstorm together and sort it out. After all, we're in this together, buddy",1,,4,,5,,6,6,7,7,7,3-neg,"Dear Dr. Taylor Morgan.
+Can you please provide your feedback in my current project and suggest ant resourcs that my help to improve my presentation? I am sorry to bother you, but I was hoping you might be able to review our current project outline. Your insights would be invaluable to us.",2,,7,,6,,6,6,7,6,7
+35,6156fef09d1ab07148870099,Bachelor's degree,,Englisk,United Kingdom,United Kingdom,United Kingdom,7,7,7,7,yes to help me improve on letters i have written to make them sound more professional or more friendly,3,5,4,4,4,3,2,6,4,4,6,4,3,2,2,2,6,5,6,7,7,5,7,7,3,6,4,3,4,1,"Hi Jamie
+
+
+I'm just wanting to catchup on your progress on the compiling and analyzing customer feedback data for the Market Analysis Report for Q4. I'm just looking at the schedule and all feedback data should be passed to me by the end of the week so I can make a start on the presenation slides next week.
+
+
+If you could let me know when you expect to me able to pass me these feedback data over, I would be grateful.
+
+
+Please reach out if you need anything else from me in the meantime.
+
+
+Thanks
+
+",291038.0,1,1-pos,"Hi Alex
+
+
+Thanks for spending some time with me during office hours last week. It was incredibly helpful, and I truly appreciate your insights.
+
+I was hoping you could clarify the difference between the bar charts and the line graphs showin trends, when I got back home I was struggling to remember how you descibed it on how to plot it myself. Could you possibly go over that again? Your explanations are always so clear and easy to follow. Also, if you have any additional study materials or resources to pass on, that would really help me.
+
+
+Thanks
+
+
+
+",2,They will know me as we have worked together,5,"they are more powerful as they know the details and I dont, but they helped me before so they are obviously willing and helpful",6,Its demanding as i am asking them to repeat what they have already told and and also i am asking for them to provide resources which require them to do more work for me,2,2,7,4,5,3-neg," I am sorry to bother you, but I had been wondering if you might have a moment to review our current project outline. I think we have implemented all your advice from the meetings, so would be grateful if you could have a read through and let us know if you feel there is anything we have missed out.
+
+
+ I've looked into the market segmentation you mentioned last week, but I am struggling to find any relevant resources myself. You did mention you had some contacts we could use, so wondering if its possible to get these from you.
+
+
+We have a meeting in two  week, so maybe we can go through it then, which gives you some time to review it at your convience.
+
+
+Thanks",2,,6,,3,,3,3,7,4,5
+36,616ca5967d36f0000bd47b78,Bachelor's degree,,Vietnamese,Vietnam,Vietnam,Vietnam,7,7,7,7,"Yes, I have used chatGPT to assist me to draft or edit emails and other documents",3,4,3,4,4,4,3,4,3,4,5,5,2,2,2,2,5,4,6,6,6,6,6,5,3,4,2,2,4,1,"Hi Dr. Morgan,
+
+Hope you're doing well! I wanted to reach out to see if you could take a look at our current outline for the project in Strategic Marketing Management. We've made some progress on the marketing strategy for the eco-friendly product launch, but we’d love your feedback to make sure we're on the right track.
+
+Also, we’re particularly focusing on market segmentation for the presentation, so if you have any resources or suggestions that could help us improve that section, it would be much appreciated!
+
+Thanks so much in advance, and so sorry for the last-minute ask!
+
+Sincerely,",44117.0,2,1-neg,"Hey there,
+
+Hope you’re doing well! I was hoping you could help clarify something from the recent class. I’m a bit stuck on understanding the difference between when to use a bar chart versus a line graph for showing trends. I know we talked about it briefly, but I’m still not 100% sure how to decide wwhich is better in certain situations.
+
+Also, if you have any extra resources or readings that go deeper into this, I’d really appreciate it!
+
+Thanks so much for your help!",3,,5,,3,,4,4,4,6,6,2-pos,"  
+Hey Jamie,
+
+
+Hope you're doing well! Just wanted to check in on the customer feedback data for the Market Analysis Report. I’m getting started on the presentation slides and would need your analysis to finish up. Do you think you’ll be able to wrap it up by the end of the week? 
+
+
+No rush, just trying to keep everything on track for our deadline. Let me know if you need any help!
+
+
+Thanks! ",3,,4,,3,,4,4,4,5,5
+37,622892a4907d13ea54e3c17e,Doctorate degree,,Spanish,Spain,Spain,"None, Europe?",7,7,7,7,Yes,4,4,3,5,4,2,4,5,2,4,6,4,3,4,3,5,6,4,6,6,5,7,7,6,5,4,2,2,4,1,"Dear Jamie,
+
+ 
+
+I’m just checking if you have had a chance to compile and analyze the data so I can then create a presentation. We would need to have the whole thing ready within the next two weeks to be able to deliver on time. Let me know if there is anything I can help you with.
+
+ 
+
+All the best
+
+ 
+
+Colin",124222.0,2,1-neg,"Dear Alex
+
+
+ I hope this email finds you well. I had been wondering if help me clarify the difference between bar charts and line graphs discussed last class.
+ 
+Thank you and best wishes,
+Colin",4,It would be the standard feeling I would feel in real life,5,Because I am learning from their teaching,5,Maybe the receiver will be tired of having done that already,4,5,5,3,4,3-pos,"Dear Dr Morgan 
+ I hope you're doing well
+My group mates and I have made some progress on our project outline and are quite excited about the direction it's taking. 
+We were wondering if you could spare a moment to review our current project outline? Your feedback would be very helpful in ensuring we're on the right track.
+Many thanks in advance for your help.
+Colin
+
+",4,,6,,6,Providing feedback is not trivial!,6,5,6,5,5
+38,6267c3d17f88988d0d787c7f,Bachelor's degree,,Filipino,Philippines,USA,USA,7,7,7,7,yes,6,4,4,3,1,4,7,7,5,7,7,5,2,2,2,4,7,2,7,7,7,7,7,4,3,4,3,1,4,4,"Subject Bar Charts vs. Line Graphs
+
+
+Hi Alex,
+
+
+I hope you are doing well. I wanted to follow-up with regard to the last discussion about visualization techniques specifically the differences between bar charts and line graphs for showing trends.
+
+
+I still quite don't understand as to when it it is more appropriate to use one over the other. Could you help me explain this? In addition, if you have recommendations for further reading or study materials that covers deeper explanation into this topic, I would greatly appreciate it.
+
+
+Thank you for your help!
+
+
+Regards,
+
+
+XXX",497759.0,2,3-neg,"Subject: Feedback Solicitation Project Outline
+
+
+Dear Dr. Morgan,
+
+
+ I hope this isn't too much of an imposition, but I had been wondering if you might have a moment to review our current project outline. We would greatly appreciate any feedback you could provide, as it would be invaluable to our progress. Additionally, if there are any resources or materials you might suggest that could enhance our presentation, we would be most grateful for your recommendations.
+
+I understand that your schedule is quite demanding, and I apologize for any inconvenience this request may cause. However, your expertise and guidance would be incredibly beneficial to our project.
+
+Thank you very much for considering our request. We would be eternally grateful for any assistance you could offer.
+
+
+Best regards,
+
+Emily Johnson
+University of Springfield
+Department of Environmental Science
+",6,,6,,5,,5,6,7,7,7,2-pos,"Subject: Quick Check-In on Project Progress
+
+Hey Sam,
+
+Hope you're having an absolutely fantastic day! I just wanted to touch base with you about the progress on the project. Your contributions have been nothing short of extraordinary so far, and I can't wait to see the final touches you're adding.
+
+I was wondering if you might be able to wrap up your part by the end of this week? We're really on a roll here, and keeping things on schedule would be absolutely marvelous for all of us. I know how dedicated you are, and your input has always been top-notch. If there's anything you need from my end to help speed things along, just let me know. We're in this together, after all!
+
+Also, how about we catch up for a coffee sometime soon? It would be great to chat and maybe brainstorm a bit more about our next steps. Plus, I could use a break from the screen, and I'm sure you could too!
+
+Thanks a million, Sam. You're the best, and I really appreciate all the hard work you're putting into this. Let's make this project shine together!
+
+Looking forward to hearing from you soon.
+
+Cheers,
+Alex",4,,4,,5,,6,7,7,7,7
+39,62b0ff84054c6ca32f481c65,High school diploma or equivalent,,English,USA,USA,USA,7,7,7,7,"I cannot see the question it's like black at the bottom of the screen from where it fades so I can't answer the question sorry I cannot see it the middle of the screen is gray background, the bottom is black besides this text box, the blue next button, and the gray back button ",6,4,3,7,4,4,4,6,4,2,7,4,3,4,4,5,6,4,7,7,4,7,7,4,4,4,4,2,4,4,"Alex Morgan,  
+
+
+I appreciate all the help during office hours recently. It's been a great help! I hope that you can help me by clarifying another question I have from the most recent class discussion. I am a bit uncertain about the specific differences between bar charts and line graphs when it comes to displaying trends over time.  
+
+
+Could you please explain the difference between the two? Additionally, any insights you can provide I would be grateful. 
+
+
+Thank You.",335703.0,2,2-neg,"Jamie,  
+
+
+ I was wondering if you might be able to provide an update on where things stand with your part of the project. I understand that you might be quite busy, but am curious if you can have it done by tomorrow morning.  
+
+
+I apologize for any inconvenience this may cause and truly appreciate all of your hard work. If there are any obstacles or additional resources that you might need please feel free to reach out. It would be immensely helpful to have your section completed by then, as it will allow us to stay on schedule and move forward with the next phase. Thank you once again for your dedication to this project.
+
+Best regards,
+[Your Name]",4,I feel neutral I don't know how to explain neutral but it's neither positive nor negative distance socially close or far away I feel nothing.,4,Because we are colleagues on the same level so I don't think they have that authority over me nor do I have authority over them.,4,How demanding it could be to someone else is different for everyone. Everyone handles things a certain way and what is demanding to one person might not be for the other and I believe everyone should take that into consideration before they make a decision when it comes to someone else.,6,6,6,7,7,3-pos,"Dr. Taylor Morgan, 
+
+
+
+I hope you're doing absolutely fantastic! Our group has been working diligently on our project, and we're really excited about the progress we've made so far. We believe that your insights could be incredibly valuable at this stage. Could you kindly take a look at our current project outline and provide any feedback or suggestions you might have? We truly value your expertise and think your input could make a world of difference.
+
+Additionally, if you have any recommendations for resources or tools that could help us enhance our presentation, we'd be immensely grateful. Your guidance has always been spot-on, and we know that any advice you provide will be incredibly beneficial. 
+
+Thank you so much for your time and support, Dr. Morgan. We really appreciate all the help you've given us so far and are looking forward to your invaluable feedback. It’s always a pleasure working with you, and we’re eager to make this project the best it can be with your expert advice.
+
+Warm regards,
+
+Alex, Jamie, and the Project Team P.S. We were thinking of scheduling a quick meeting to discuss your feedback in person, if that works for you. Would you be available sometime next",4,,6,,4,,6,6,6,7,7
+40,63039f41fa5c21d483996be2,Associate's degree,,English,United Kingdom,United Kingdom,United Kingdom,7,7,7,7,"Chat Gpt, Dalle 2, Grammarly",5,5,5,1,3,1,5,5,5,2,4,4,3,2,1,5,6,4,6,6,6,7,7,7,6,7,7,2,5,4,"Hi Jamie Lee,
+                       I'm enquiring about the project that's due to be finished this week. I was just wondering if you can finish your part of the project before the current deadline? Please reply to me and let me know.
+
+
+Best Regards, ",180667.0,1,1-pos,"Hi Alex, I am writing to ask for a bit of help with a concept we discussed in class last week. Your explanations are always so clear and helpful, and I really appreciate your time. Could you explain to me a bit more about The difference between bar charts and line graphs for showing trends?
+
+
+Regards
+
+
+
+
+
+
+",2,"I feel quite close to this person because we have just done a class together, but not really close.",5,I feel the reciever knows more about the subject than I do.,3,It is just a simple question about the teaching and is not too much to ask.,7,4,6,6,7,3-neg,"Dear Dr. Morgan, I hope this email finds you well. I had been wondering if I could possibly trouble you for some feedback on our current project outline. Could you suggest any resources that might help improve my presentation? I understand that you must be very busy, but your insights would be incredibly valuable to me. We are aiming to ensure that our project meets the highest standards and any guidance you could provide would be greatly appreciated.
+
+If it wouldn't be too much trouble, could we perhaps schedule a brief meeting at your earliest convenience to discuss this further? I apologize for any inconvenience this request may cause, but your expertise would be immensely beneficial to our progress.
+
+Thank you very much for your time and consideration. I would be eternally grateful for any assistance you could offer.
+
+Best regards,
+Alex Johnson",4,I don't feel either distant or close to this person.,4,I don't feel as if I am more powerful or the reciever is more powerful.,5,I think it's slightly demanding but not too much hassle,7,7,7,7,7
+41,636166e1694fe8d9ed77dd68,Bachelor's degree,,English,Philippines,USA,USA,7,7,7,7,"Yes, I have used it to get information for conversational purposes",4,4,3,6,2,5,5,6,4,6,6,4,2,2,3,5,6,5,6,5,7,6,7,5,5,7,6,1,2,1,"Hello Alex Morgan,
+
+
+I am in the Data Visualization Techiniques class that you are a TA for and I am reaching out to you for some clarification in regards to the difference between bar charts and line graphs for showing trends. I have tried to look for information myself but I have not found sufficient explanations that is clear to me. If you could help to clarify or point me to somewhere I could get more information about the topic, it would be very helpful.
+
+
+Thank you",287332.0,2,2-neg,"Hello Jamie Lee,
+
+I hope this message finds you well. I had been wondering if you might be able to provide an update on your progress with the project. It would be greatly appreciated if you could possibly let me know how things are going on your end. I understand you may have other commitments, but we are aiming finish by the end of the week to stay on schedule. I apologize for any inconvenience this may cause, but if you could manage to complete your part within this timeframe, it would be immensely helpful. I understand that this might be a bit of an imposition, but if you need any help or support, please do not hesitate to let me know. I would be more than willing to assist in any way possible to ensure we meet our deadline. Thank you very much for your attention to this matter. Your cooperation is highly valued, and I look forward to your response.
+
+Best regards,
+Alex",5,,6,,2,,2,1,5,7,6,3-pos,"Hello Dr. Taylor Morgan, 
+ I hope all is well, we have made progress on our project and are really excited about the direction it's taking. Your insights have been absolutely invaluable so far, and we were wondering if you could take a look at our current project outline. We're really keen on making sure we're on the right track and would love to hear any feedback or suggestions you might have. Your expertise always brings such fantastic clarity and depth to our work.
+
+Additionally, if you could recommend any resources or materials that might help us enhance our presentation, It would be very helpful. We truly value your guidance and want to ensure we're delivering something extraordinary.
+
+Thanks so much for your continuous support and encouragement, Dr. Morgan. We're really looking forward to your feedback and any advice you can offer.
+
+Best regards",5,,6,,2,,5,4,7,6,6
+42,639b9ab341f4429b1b3c06a2,"Some college, no degree",,English,United States,United States,United States,7,7,7,7,No,4,4,5,5,4,4,7,6,6,4,6,5,6,4,4,5,6,5,7,6,6,7,7,6,5,4,5,3,4,4,"Hi Jamie,
+
+
+I hope this email finds you well.
+
+
+I wanted to touch base on our progress with the Market Analysis Report for Q4. As you know, your task of compiling and analyzing the customer feedback data is crucial for moving forward with the presentation slides.
+
+
+I'm curious to know if you're on track to complete your portion of the project by the end of the week. This would help us stay aligned with our overall timeline and ensure we deliver the report on time.
+
+
+Please let me know if you need any additional help or resources to help you finish up.
+
+
+Thanks,
+John Doe
+
+",50935.0,2,1-neg,"Dear Mr. Morgan,
+
+
+
+I hope this email finds you well. I had been wondering if I could possibly trouble you to clarify a concept from our recent class discussion on quantum mechanics? I am sorry to bother you, but I found the topic of wave-particle duality particularly challenging. Could you perhaps provide a bit more explanation or recommend some additional study materials that might help me grasp the concept better? I understand you must be very busy, but your guidance would be immensely appreciated. Thank you very much for your time and assistance.
+
+Best regards,
+John Doe",4,,4,,5,,6,5,7,7,7,3-pos,"Dear Dr. Morgan, 
+
+
+I hope you're doing well. 
+
+
+We've been making some solid progress on our group project, and we're really excited about the direction it's heading. We were hoping you could take a look at our current project outline and give us some feedback. Your insights have always been incredibly valuable to us, and we know how much you care about the success of your students.
+
+We believe your expertise could really help us refine our ideas and ensure we're on the right track. It would be absolutely marvelous if you could spare some time to review our outline. We're particularly keen on making sure our presentation is both comprehensive and engaging. You know how important it is to captivate our audience, and we really want to make sure we're hitting the mark.
+
+If you have any specific resources or readings that you think might enhance our understanding or improve our presentation, we'd be delighted to hear about them. Your recommendations have always been fantastic and have made a significant difference in our work. We're aiming to deliver something extraordinary, and your guidance would be incredibly appreciated.
+
+Could we perhaps schedule a brief meeting sometime this week to discuss your thoughts? We’re flexible with timing and can adjust to fit your schedule. Your support means the world to us, and we truly value the time and effort you put into helping us succeed.
+
+Looking forward to hearing from you soon. Thank you so much for considering our request, Dr. Morgan. Your dedication to our growth and learning is something we genuinely admire and appreciate.
+
+Warm regards,
+John and the entire project team",6,,7,,6,,6,5,7,7,7
+43,63a32488e685c05e9fb5988e,Bachelor's degree,,Russian,Latvia,United Kingdom,United Kingdom,7,7,7,7,used chatGPT to correct syntax/grammar,6,4,4,6,4,4,7,6,4,6,6,4,3,5,3,6,5,4,7,7,2,7,7,3,4,4,2,2,4,4,"Subject: Feedback on the project outline
+
+
+Dear Dr. Morgan,
+
+
+I am attending the course ""Strategic Marketing Management"" and  currently working on the project ""Developing a marketing strategy for a new eco-friendly product launch"". I've already had several meetings with you about this project.
+
+
+Would you be able to provide feedback on my current project outline as well as suggest any resources to improve presentation?
+
+
+Please, find attached the project outline.
+
+
+Sincerely,",707600.0,1,1-pos,"Subject : Clarification on Recent Class Discussion
+
+Hi Alex,
+
+I hope you're doing well! I wanted to reach out because I found our recent class discussion on quantum entanglement absolutely fascinating. Your explanations were so clear and insightful, but there's just one concept I'm still grappling with.
+
+Could you possibly give me a bit more detail on how entanglement can be maintained over long distances? It's such a mind-boggling topic, and I'd love to understand it better. I feel like getting a solid grasp on this will really help me with our upcoming assignments.
+
+Also, if you have any additional resources or study materials that you think might help, I'd be incredibly grateful. I know you're busy, but your guidance has always been so invaluable to me and the rest of the class. You're always so generous with your time and knowledge, and it makes a huge difference for us.
+
+I really appreciate all the support you provide. Looking forward to your insights and any recommendations you might have.
+
+Best regards,
+[",3,teaching assistant is closer to students than doctors and professors,6,,4,,4,3,4,6,6,2-neg,"Hi Jamie,
+
+I hope this message finds you well. I am writing to inquire about the progress on your part of the project. Could you possibly let me know if there is any chance of your being able to complete it by the end of this week? I understand that you might be quite busy, but it would greatly help in keeping the project on schedule. If there are any obstacles or if you need any assistance, please do not hesitate to let me know. I would be more than willing to offer my support in any way possible.
+
+Thank you very much for your attention to this matter. I would be eternally grateful if you could prioritize this task, as it is crucial for our project's timely completion and success.
+
+I apologize for any inconvenience this request may cause and appreciate your understanding and cooperation.
+
+Best regards,
+[Your Name]",1,it's a colleague in the same situation,4,,6,,6,5,6,7,7
+44,6496f9fbc2928ee6956ef623,High school diploma or equivalent,,English,United States Of America,United States Of America,United States Of America,7,7,6,7,No,6,3,5,5,6,7,4,5,6,7,5,3,4,5,7,3,5,4,6,4,2,4,2,4,5,6,7,3,5,7,"Subject: Update on Market Analysis Report for Q4
+
+Hi Jamie,
+
+I hope you’re doing well! I wanted to touch base regarding the Market Analysis Report for Q4. I’m currently preparing the presentation slides, and I’m eager to incorporate your findings from the customer feedback data.
+
+Could you let me know how your progress is coming along? If possible, it would be great to have your analysis completed by the end of the week. This will help us stay on schedule for our project timeline.
+
+Thanks for your hard work on this—I really appreciate it! Looking forward to hearing from you soon.",22733.0,2,1-neg,"Subject: Clarification on Class Discussion
+
+Hi Alex,
+
+I hope you’re doing well! I wanted to reach out regarding our recent class discussion in Data Visualization Techniques. I’m hoping you could help clarify the difference between bar charts and line graphs, particularly in how they are used to show trends.
+
+Additionally, if you have any recommendations for extra study materials that could deepen my understanding of this topic, I would greatly appreciate it.
+
+Thank you for your help!",5,,3,,6,,6,7,5,3,4,3-pos,"Subject: Request for Feedback on Project Outline
+
+
+Dear Dr. Morgan,
+
+
+I hope this message finds you well. I am writing to ask if you could provide feedback on our current project outline for the Strategic Marketing Management course. We are focusing on developing a marketing strategy for a new eco-friendly product launch, and your insights would be invaluable.
+
+
+Additionally, if you have any suggestions for resources that could help enhance our presentation, particularly regarding market segmentation, I would greatly appreciate it.
+
+
+Thank you for your guidance and support!",5,,6,,3,,3,5,7,5,6
+45,64d6c42e2328deb02a2fedb9,Bachelor's degree,,Tagalog,Philippines,Philippines,Philippines,7,7,7,7,"Yes. I use it to create a formal email, a fun Facebook post, minutes of meeting, sql statements.",3,5,3,5,5,5,5,5,3,4,6,5,2,3,2,3,5,3,7,7,6,7,7,7,2,6,2,2,5,2,"Dear Alex,
+
+
+  How are you? Hope you are doing fine. I recently attended a TA led course about Data Visualization Techniques. It was very helpful and insightful. I do have some questions on some of the key concept and hopefully you can answer me or point me to a good resource material. Here are my questions:
+
+
+1. When is it good to use a bar chart vs line graphs?
+2. Is there any good color combination to use to be able to make the charts standout?
+3. Is there specific things that can be put into the X Axis vs the Y axis so that my audience will understand the charts better?
+
+
+ Thank you for any help that you can provide to me.  Looking forward to attend more TA led courses.
+
+
+Regards,
+Prolific user",212019.0,1,2-pos,"Dear Jaime,
+I have finished the sections on data analysis and preliminary results. They’re looking absolutely fantastic, if I do say so myself! How’s your part coming along? 
+I know things are busy and you've got a lot on your plate, but your insights are always so invaluable. If  you could wrap up that would be absolutely marvelous! It would really help us stay on track with our timeline. I’m really excited to see what you’ve been working on.
+
+
+Regards
+Prolific User",3,I think we are not socially distant as I have worked with that person in the past. So it is just on the verge of professional and friedly.,5,I feel like the receiver is more in control as I need that person to finish their part.,4,The letter is just straightforward and friendly.,6,6,7,6,6,3-neg,"Dear Dr. Morgan,
+
+
+I hope this email finds you well. I had been wondering if I could possibly trouble you for some feedback on our current project outline.
+
+
+
+We have made significant progress since our last discussion and believe that your insights would be invaluable at this stage.
+
+Would it be possible for you to review the attached outline at your earliest convenience?  I understand that you must have a very busy schedule, but your expertise would greatly benefit our project.  If you could perhaps suggest any additional resources or references that might help us improve our presentation, it would be immensely appreciated. 
+
+
+Thank you very much for your time and consideration. We would be eternally grateful for any guidance you can provide.
+
+Best regards,
+
+Emily Johnson
+Universityof Central Studies
+Department of Environmental Science
+Project Team Leader",3,Just enough distant for a student/professor relationship.,7,,5,,7,7,7,7,7
+46,650b03136ab3d4c832d98b71,Associate's degree,,"Hebrew, English",Israel,United States,United States,5,6,6,7,I had ChatGPT help me write some of the emails I needed to send recently for my work communications.,5,4,4,6,4,5,5,4,5,5,4,3,3,4,4,5,4,3,5,5,5,7,7,7,2,4,5,1,4,2,"Hi Jamie, 
+
+
+I know this might be somewhat intrusive. But I am asking if you could possible hurry up and finish your part this project, so that I could get on with what I need to do. I know that compiling and analyzing customer feedback data can be a very time-consuming task, but I need your part to allow me to finish what I need to do. I need you to be done within this week, so that I can finish my part of the work on time.
+ 
+Sincerely,
+Jack.",,2,3-neg,"Hello Dr.Morgan,
+
+
+I am writing to inquire if you might possibly have a moment to review our current project outline. We would greatly appreciate any feedback you could provide, as it would be helpful to ensure that we are on the right track. Additionally, if there are any resources or references that you think might enhance our presentation, we would be most grateful for your recommendations. I understand that your schedule is quite busy, and I apologize for any inconvenience this request may cause. However, your insights would be invaluable to us and significantly contribute to the quality of our work.
+
+Thank you very much for your time and consideration. We look forward to your response at your earliest convenience. Your expertise and guidance are highly valued, and we hope that you might be able to assist us in refining our project outline.
+
+Thank you once again for your time and support. 
+Jack.
+
+Best regards,
+[Your Name]",7,,6,,3,,3,1,6,7,7,1-pos,"Hello Ms.Morgan,
+
+
+
+I hope you're doing wonderfully! I wanted to reach out because I found our recent class discussion on quantum entanglement absolutely fascinating. However, I'm still a bit puzzled about some of the intricacies. Could you possibly clarify the concept of quantum superposition for me? I think I might have missed a key point during the lecture, and I'd love to get a better grasp on it. Your explanations are always so clear and insightful, and I truly appreciate your ability to break down complex topics into understandable bits.
+
+Additionally, if you have any recommended readings or resources that could help deepen my understanding of quantum super position, that would be absolutely fantastic! I'm eager to dive deeper into the subject and make sure I'm fully prepared for our next discussion.
+
+Thank you so much for your time and assistance. I really value your support and guidance throughout this course. It's been incredibly helpful, and I feel so fortunate to have you as our TA. Your dedication and passion for the subject truly shine through, and it makes a world of difference for students like me.
+
+Looking forward to hearing from you soon. I'm excited to continue learning and growing in this fascinating field, and your help means a lot to me.
+
+Best regards, Jack",6,,4,,5,,2,1,7,7,7
+47,65181c2f753b188afdddd2c4,Bachelor's degree,,Tagalog,Philippines,United States,United States,6,6,6,6,I regularly use ChatGPT to help improve the sentences that I write for a report.,4,4,4,4,4,4,4,5,5,4,4,3,3,4,3,5,5,5,6,6,6,7,7,7,4,6,5,4,4,2,"Hi Jamie,
+
+
+I hope you are doing well today. I just wanted to follow up on your progress in compiling and analyzing customer feedback data. How far are you on the task? Would it be possible if you could finish the task within this week, so I could start creating the presentation slides based on the analysis? Also, do not hesitate to reach out to me if you need any help. Thanks Jamie!",448117.0,2,1-neg,"Hi Alex, 
+
+
+I hope you are doing well. I was just wondering if it is okay with you to clarify a specific concept from our recent class discussion about data visualization techniques? I understand that you must be quite busy, but I would greatly appreciate it if you could possibly explain how heat maps work in greater detail. I am still having trouble understanding it better. I would also appreciate if you could perhaps recommend some additional study materials or resources that might help me grasp the concept more thoroughly. Thank you Alex for your time and assistance. I realize that this may be a bit of an imposition, and I apologize for any inconvenience this might cause.
+
+",4,,5,,5,,5,4,5,5,5,3-pos,"Hello Dr. Morgan,
+
+
+I hope you are doing well. I just wanted to let you know that we made significant progress on our presentation, and we’re quite excited about the direction it’s taking. We were wondering if you could spare a few moments to review our presentation and provide us some feedback. Your insights have always been incredibly valuable to us, and we believe your feedback could really elevate our work. Thank you Dr. Morgan!",6,,6,,4,,5,5,6,5,5
+48,651b29ff3a6cadf518640abe,Bachelor's degree,,Chinese,China,China,China,7,7,7,7,"As one of my job assignment, I used chatGPT and got help from the AI to prepare an email about promoting a tour to customers.",4,5,5,5,4,3,5,7,3,3,7,3,2,4,1,3,7,3,5,7,3,6,7,5,2,4,6,2,4,2,"To: Alex Morgan
+From: Susan White
+Re: Course Name: Data Visualization Techiniques
+
+
+Hello Mr. Morgan, 
+My name is Susan White. I am a student of your Data Visualization Techiniques class. I have a question about the materials that you taught in the recent class. It was about bar charts and line graphs. Could you please clarify the difference between bar charts and line graphs for showing trends? I would be most grateful if you could also recommend some additional study materials related to the topic. Thank you in advance for your time and help.
+
+
+Yours Sincerely,
+Susan White
+",478069.0,2,2-neg,"To: Jamie Lee
+
+From: Susan White
+Re:  Market Analysis Report for Q4
+
+
+Hello Jamie,
+I hope this email finds you well. I had been wondering if I could possibly inquire about the progress on your part of compiling and analyzing customer feedback data. I need your data to finish my job on creating the presentation slides based on the analysis. We are aiming for a deadline of next Friday, and it would be immensely helpful to know if you might be able to complete your tasks by then. I understand that you must bequite busy, and I apologize for any inconvenience this request may cause. However, your timely completion is crucial for us to keep the project on schedule. Could you, by any chance, provide an update on your progress? If there are any challenges or if you require any assistance, please do not hesitate to let me know. I would be more than willing to offer any support that might help expedite the process.
+
+Your efforts and contributions are highly valued and I truly appreciate your hard work on this project.
+
+Thank you very much for your time and attention to this matter. I look forward to your response at your earliest convenience.
+
+Best regards,
+Susan White",3,,4,,2,,5,6,5,7,6,3-pos,"To: Dr. Taylor Morgan
+From : Susan White and the Project Team
+Re: Developing a marketing strategy for a new eco-friendly product launch
+
+
+Hello Dr. Morgan,
+Thanks a million for all the guidance you've given us so far. We've made some great progress on our project outline, and we’re really excited about where we're heading with it. Your insights have been absolutely invaluable, and we truly appreciate your support.
+
+We were wondering if you could take a look at our current project outline and provide any feedback or suggestions you might have. We're keen to ensure that we're on the right track and would love to hear your suggestions for any resources that help improve our presentation. We know how busy you are, so any time you could spare would be absolutely fantastic. Your expertise always brings such a fresh perspective, and we’re confident that your input will help us refine our strategy even further.
+
+Also, if there are any specific areas you think we should focus on or any particular aspects that might need more attention, we’d be thrilled to hear your thoughts. We’re aiming to make this project as comprehensive and impactful as possible, and your guidance would be instrumental in achieving that.
+
+Thank you once again for your continued support and encouragement. We’re really looking forward to your feedback and any advice you can share. Your dedication to helping us succeed is truly appreciated, and we feel incredibly fortunate to have you as our advisor.
+
+Warm regards,
+
+Susan White and the Project Team
+
+
+",5,,7,,5,,5,4,5,6,7
+49,6562025a6e3331528cf8fb3d,High school diploma or equivalent,,Japanese,Japan,Japan,Japan,5,5,5,5,No,3,5,5,4,4,5,4,5,5,4,5,5,2,4,5,3,6,5,5,7,6,5,7,7,4,4,4,4,5,4,"Hey Jamie, how have you been?
+I have a quick question regarding to the project: Market Analysis Report Q4. I have finished my part yesterday but in order to proceed, I need your part ASAP. I would like to know if you already have finished or not. 
+If you have, could you send it over to me? And if not, could you please finish with in few days so I can finish this project on schedule?
+
+
+Since deadline is coming up next week, I need to know what your status is. Please let me know today about your status.
+
+
+Best regards,
+K
+
+",408057.0,1,3-pos,"Hello Dr. Taylor, I hope you're doing fantastic.
+We've made some solid progress on our project and wanted to get your invaluable feedback on our current outline. Your insights have always been incredibly helpful, and we really appreciate your guidance.
+
+Could you possibly take a look at our outline and let us know if there are any areas that could use some improvement? We're aiming to make this presentation as impactful as possible, and your expertise would be absolutely invaluable in achieving that.
+
+Additionally, if you have any resources or references that you think might enhance our presentation, we'd be thrilled to incorporate them. We know how you always have the best recommendations up your sleeve, and we're eager to make our project shine.
+
+Thank you so much for your time and support, Dr. Taylor. We really couldn't do this without you. We're so grateful for all the help you've provided us so far. Looking forward to hearing your thoughts and suggestions.
+
+Best wishes,
+
+Emily, Jake, and the Team",2,The receiver already has helped out sender as a professor few times before and the sender feel comfortable so I think they're close,5,The receiver has a choice if he rejects or help over this project.,5,"Since receiver needs to use his time to review, it still is demanding a little for him.",3,3,6,6,6,1-neg,"Hello Dr. Morgan,
+
+I hope this email finds you well. I had been wondering if I could possibly trouble you for some clarification on the concept of the difference between bar charts and line graphs for showing trends that we discussed in last week's lecture. I found the topic quite fascinating, but I am still grappling with some of the nuances. 
+
+Would it be possible for you to provide a bit more detail or perhaps recommend some additional study materials that might help deepen my understanding? I understand that you must be quite busy, and I apologize for any inconvenience this request may cause. However, your guidance would be immensely valuable to me.
+
+Thank you very much for your time and consideration.
+
+Your expertise and insights have always been incredibly helpful, and I truly appreciate your willingness to support students in their learning journey.
+
+
+Best regards,
+K
+
+",2,,5,,5,,4,4,6,6,6
+50,657dd710c7afa87088647ea7,Doctorate degree,,Chinese,China,China,China,6,6,6,6,"Yes, I have been using AI tools to assist me to write. I usually write the draft and then using ChatGPT to do some improvement.",4,5,2,5,3,2,5,5,4,5,4,2,4,4,2,3,5,2,5,6,3,6,5,3,4,4,1,4,4,2,"Hi Dr. Taylor Morgan,
+I am working on a group project for the course ""Strategic Marketing Management"". Our project purpose is to develop a marketing strategy for a new eco-friendly product launch. Attached please find the outline we have done for this project. It would be highly appreciated if you could provide any feedback on this project outline or suggest any resources that might help improve this presentation.
+
+
+If you need any additional information, feel free to let me know.
+
+
+Thanks,
+Your student's ZY
+
+",374189.0,2,1-neg,"Hi Alex,
+
+I hope you are doing well. I had been wondering if I could ask for a bit of clarification regarding the concept we discussed in last week's class about the difference between bar charts and line graphs for showing trends. Would it be possible for you to provide a brief explanation or perhaps recommend some additional study materials that could help me better understand this topic? I understand you must be quite busy, but your guidance would be immensely valuable to me. If it’s not too much trouble, any resources or insights you could share. would be greatly appreciated. I apologize for any inconvenience this request may cause and thank you in advance for your time and assistance.
+
+Best regards,
+ZY",4,,5,,4,,5,5,6,5,5,2-pos,"Hi Jamie,
+
+Hope you're doing absolutely fantastic! Just wanted to check in and see how things are going with your part of the project. You've been doing such an incredible job so far, and I truly appreciate all the effort you've put in. We're getting close to our deadline, and I was wondering if you think you might be able to wrap up your section by the end of the week? It would be a tremendous help to keep everything on track.
+
+I know you've got a lot on your plate, but your work is always so top-notch and reliable. If there's anything I can do to assist or make things a bit easier for you, just let me know, alright? We're in this together, and I'm more than happy to lend a hand where needed to ensure we meet our goals.
+
+Looking forward to hearing from you soon, Jamie. Let's make this project shine!
+
+Best,
+ZY",3,,4,,2,,5,5,6,6,5
+51,65810c5b903160d74b858800,Doctorate degree,,Chinese,China,USA,China,7,6,6,6,I once used ChatGPT to proofread my response to a reddit post.,3,5,7,2,4,5,3,6,7,2,6,1,1,2,3,1,7,5,3,7,2,7,7,4,1,4,4,1,3,1,"Hello Alex,
+
+
+This is Burger King, one student in your class, Data Visualization Techiniques. I am wondering if you can help me clarify one concept (i.e., gradient descent) or provide some additional study materials to cover it more and deep? Particularly, I am confused about how to compute it under a non-convex contour and how to prove it will converge under the same condition.
+
+
+Best regards,
+Burger",323276.0,2,3-neg,"Dear Professor Morgan,
+
+
+This is Burger King. I am sorry to bother you, but I had been wondering if you might have a moment to review our current project outline. We would greatly appreciate any help from you. Also, if possible, I am grateful if you can provide any suggestions or resources that might help us enhance our presentation. We understand that your time is valuable, and we would be extremely thankful for any guidance you can provide.
+
+
+Best regards,
+Burger",3,,1,,3,,1,1,1,1,1,2-pos,"Dear Jamie,
+
+
+This is Burger King. I am just wondering  how you're getting along with your part of the project. I know you've been working incredibly hard, and your contributions have been absolutely fantastic so far! 
+
+I'm really excited to see what you've come up with. You know, your creativity always brings such a delightful spark to our projects. 😊
+So, please let me know if you need anything from me.
+
+
+Best regards,
+Burger",1,,4,,6,,1,1,1,1,1
+52,659daa1ed4e13d6428103c1f,Bachelor's degree,,hindi,India,USA,Indian,5,5,5,5,no,5,5,4,3,4,3,3,5,3,3,5,3,4,5,5,4,5,4,6,6,5,7,7,7,3,4,3,2,3,3,"Dear Mr. Taylor,
+                          My name is shruti ,you remember when we worked together in different projects.I wasnted to ask your help regarding my current project to develop market strategy for my product launch. and presentation on market segmentation.I will really appreciate your help.
+                                                                                                                                 Thanks.",254713.0,2,2-neg,"Dear Jamie Lee,
+ I hope this email finds you well. I had been wondering if you might provide an update on your progress with the project. We are at a crucial stage, and it would be immensely helpful to know where things stand on your end.
+
+I understand you may have other commitments, but could you possibly let me know if there is any chance of completing your part within this week? It would greatly assist in keeping the project on schedule.
+
+I apologize for any inconvenience. Your cooperation in this matter would be greatly appreciated. If there are any obstacles or if you require any assistance, please do not hesitate to let me know .                                                                                                                   Thanks.",3,,4,,4,,5,5,6,7,7,1-pos,"Dear Alex Morgan, 
+                            I hope you're doing absolutely fantastic! I wanted to thank you again for your insightful guidance during our last office hours. Your explanations are always so clear and incredibly helpful. I was hoping you could clarify a specific concept from our recent class discussion on quantum entanglement. The way you break down complex topics into understandable pieces is just extraordinary, and I think a bit more clarity on this would really help me grasp the material better.
+
+Additionally, if you could recommend some additional study materials or resources related to quantum entanglement, that would be absolutely marvelous. I really want to dive deeper into it.
+
+Thanks a million for all your support, Alex! I truly appreciate it.
+
+Warm regards,
+Jessica You're a gem for always being so approachable and helpful. I know you're probably super busy, but your insights make such a difference in my understanding of the subject.
+
+Looking forward to hearing from you soon!
+
+Best wishes,
+Jessica",3,,3,,3,,5,5,6,7,7
+53,65bd6e6d58e4443614dae27b,Associate's degree,,Tagalog,Philippines,USA,Philippine culture,7,7,6,6,Yes. I have used chatGPT with proof reading responses. I typically use it when I need to reply to emails regarding schedules. I send my response to chatGPT first and ask if I need to add anything to it.,5,4,3,4,4,3,4,5,2,2,5,3,3,4,2,3,6,4,5,7,4,7,7,5,3,4,3,4,4,3,"Hi Jamie, 
+
+
+This email is regarding the current progress of the Market Analysis Report for Q4. I would like to ask where you stand at the moment with compiling and analyzing customer feedback data and if it's possible for it to get done by the end of the work week. I would like ample time to create the presentation slides so that we can submit the report by the deadline. 
+
+
+Thank you and I hope to hear from you soon,
+X.",212145.0,1,3-pos,"Dear Dr. Morgan,
+
+I hope you're day is going well! We've made some solid progress on our project and are quite excited about how it's shaping up. We were wondering if you could provide some feedback on our marketing strategy outline. Your insights have always been incredibly valuable to us, and we believe your feedback could really help us refine our work.
+
+Our outline includes a detailed explanation of a new eco-friendly product we want to launch. We want to ensure that our outline is correct. We would also like to ask for some resources that you can provide us to make our presentation even more compelling. Your recommendations have always been spot-on, and we're confident that any resources you suggest will be incredibly beneficial.
+
+Thank you and I hope to hear from you soon,
+X.",3,I feel like we're a bit closer than normal because it feels like I can rely on the project advisor for advice.,6,,3,,4,4,6,6,5,1-neg,"Dear Mr. Morgan,
+
+
+
+My name is X and I am a student from the Data Visualization Techniques course. I hope this email finds you well. I had been wondering if I could possibly trouble you for some clarification on the concept we discussed during the last class regarding data normalization techniques. I found the discussion quite enlightening, but there are a few aspects that I am still struggling to fully grasp.
+
+Would itbe possible for you to perhaps provide a bit more detail on the differences between min-max normalization and z-score normalization? Also, if it wouldn't be too much to ask for additional study materials or resources on this topic, it would be greatly appreciated. I understand you must be very busy, but any assistance you could offer would be of great help to me.
+
+
+Thank you, 
+X.",5,,5,,4,I think it's part of the TA's job to answer questions from students. ,2,3,3,6,4
+54,N1,Master's degree,,Chinese,China,China,China,5,5,6,7,"chatGPT, Grammarly. I used them to check my grammar errors or typos.",7,6,5,6,4,4,7,5,3,6,6,4,6,2,6,6,5,4,7,7,7,7,7,6,6,4,4,6,4,3,"Subject: [CS449] Request For Project Feedback
+
+Dear Dr. Taylor Morgan,
+
+Hi, my name is Lucy, a student currently taking your CS 449 course. Our team has completed the course project online. Could you please provide us with some feedback on this project outline (attached below)? 
+
+Also, regarding our future final presentation, could you provide us with some suggestions for resources to improve our presentation on market segmentation?
+
+Thank you for your help and time!
+[file.doc]
+
+Best Regards,
+Lucy Wang
+",650251.0,1,1-pos,"Subject: [CS449] Help With Bar Charts And Line Charts Concepts
+
+Hi Alex,
+
+I am Lucy. I hope you're doing well during the weekend!
+
+I wanted to reach out because I found our recent class discussion on bar charts and line charts are confusing. I cannot figure out the differences between these two types of charts for showing trends. Could you provide some clarification on this topic or share some materials?
+
+Thank you for your help!
+
+Best,
+Lucy Wang
+",6,,4,,3,,6,2,7,6,4,2-neg,"Subject: Market Analysis Report for Q4
+
+Hi Jamie, 
+
+How is the progress of your part of the project? We are aiming to finish by the end of this week to stay on schedule. 
+
+Best,
+Lucy
+",5,,3,,4,,6,1,6,5,2
+55,TEST2,No formal education,,1,1,1,1,2,3,3,3,1,3,3,3,6,6,6,1,1,1,3,3,3,2,2,2,2,2,2,4,4,4,5,5,5,1,1,1,7,7,7,This is a test task,,1,3-pos,Hi Taylor Hope you're doing absolutely fantastic! We've made some great progress on our project and are really excited about the direction it's heading. We've put together a preliminary outline,2,1.2,3,2.3,3,3.3,1,2,3,4,5,2-neg,Again,3,1.3,4,2.4,5,3.5,7,6,5,4,3

@@ -45,6 +45,4 @@ def calculate_accepted_suggestions():
             lengths[doc.id][key] = [final_l, total_l]
             percents[doc.id][key] = round(final_l/total_l, 4)
         
-    print(lengths)
-    print(percents)
     return percents, lengths
