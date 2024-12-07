@@ -64,3 +64,41 @@ def calculate_accepted_suggestions():
             percents[doc.id][key] = round(final_l/total_l, 4)
         
     return percents, lengths
+
+def calculate_edits():
+    db = firestore.client()
+    docs = db.collection('user-input').stream()
+    df = {}
+    # loop through each document
+    for doc in docs:
+        # for now; remove it as necessary
+        if doc.id!='55cff4a834e9060012e57407':
+            continue
+        content = doc.to_dict()
+        logs = content['logs']
+        full_text = content['aiWritingText']
+        keys = get_key(content['option'], list(logs.keys()))
+        # each positive and negative log
+        df[doc.id] = {}
+        for key in keys:
+            suggestion_lst = []
+            accept_lst = []
+            # each log event
+            for logEvent in logs[key]:
+                evtName = logEvent['eventName']
+                if evtName=='suggestion-generate' or evtName=='suggestion-regenerate':
+                    suggestion_lst.append(process_text(logEvent['textDelta']))
+                elif evtName=='suggestion-accept':
+                    accept_lst.append(suggestion_lst[-1])
+            
+            edited_cnt, total = 0, len(accept_lst)
+            for accepted in accept_lst:
+                if accepted not in full_text[key]:
+                    edited_cnt+=1
+            edited_percentage = round(edited_cnt/total, 2) 
+        
+            df[doc.id][key+"-edited"] = edited_cnt
+            df[doc.id][key+"-total"] = total
+            df[doc.id][key] = edited_percentage
+        # print(df)
+    return df
