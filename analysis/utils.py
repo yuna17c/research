@@ -1,5 +1,6 @@
 from retrieve import get_key
 from firebase_admin import firestore
+import pandas as pd
 
 def process_text(txt):
     return "".join([c for c in txt if c not in ".,?;:!()"])
@@ -101,4 +102,53 @@ def calculate_edits():
             df[doc.id][key+"-total"] = total
             df[doc.id][key] = edited_percentage
         # print(df)
+    return df
+
+def return_ai_generated_texts():
+    db = firestore.client()
+    docs = db.collection('user-input').stream()
+    df = pd.DataFrame()
+    for doc in docs:
+        # for now; remove it as necessary
+        if doc.id!='55cff4a834e9060012e57407' and doc.id!='55d51a6b8ce09000127d4821':
+            continue
+        content = doc.to_dict()
+        logs = content['logs']
+        full_text = content['aiWritingText']
+        keys = get_key(content['option'], list(logs.keys()))
+        # each positive and negative log
+        full_lst = []
+        for key in keys:
+            suggestion_lst = []
+            accept_lst = []
+            final_lst = [key]
+            # each log event
+            for logEvent in logs[key]:
+                evtName = logEvent['eventName']
+                if evtName=='suggestion-generate' or evtName=='suggestion-regenerate':
+                    suggestion_lst.append(process_text(logEvent['textDelta']))
+                elif evtName=='suggestion-accept':
+                    accept_lst.append(suggestion_lst[-1])
+            # print(accept_lst)
+            for accepted in accept_lst:
+                word_list = accepted.split()
+                found = [False] * len(word_list)
+                first_word = process_text(word_list[0])
+                processed_full = process_text(full_text[key])
+                x=""
+                if first_word in processed_full:
+                    found[0] = True
+                for i in range(len(word_list)):
+                    word = " ".join(word_list[i:min(len(word_list),i+2)])
+                    processed = process_text(word)
+                    if processed in processed_full:
+                        found[i] = True
+                    if found[i] or found[i-1]:
+                        x+=word.split(" ")[0]+" "
+                final_lst.append(x.strip())
+            final_lst.append("----")
+            full_lst.extend(final_lst)
+        data = {doc.id: full_lst}
+        sub_df = pd.DataFrame(data)
+        df = pd.concat([df, sub_df], axis=1)
     return df
